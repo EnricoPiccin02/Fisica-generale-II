@@ -1,0 +1,384 @@
+\documentclass[a4paper]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\selectlanguage{italian}
+\usepackage[table]{xcolor}
+\usepackage{xcolor}
+\usepackage{circuitikz}
+\usepackage{bm}
+\usetikzlibrary{patterns,snakes}
+\usetikzlibrary{decorations.markings,intersections,calc}
+\usepackage{ifthen}
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetikzlibrary{positioning, circuits.logic.US}
+\usetikzlibrary {shapes.gates.logic.US, shapes.gates.logic.IEC, calc}
+\tikzset {branch/.style={fill, shape = circle, minimum size = 3pt, inner sep = 0pt}}
+\usetikzlibrary{matrix,calc}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shapes.geometric}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{tabularx}
+\usepackage{pgf-pie}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color, soul}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{physics}
+%\usepackage{luamplib}
+\usepackage[outline]{contour} % glow around text
+\contourlength{1.0pt}
+\graphicspath{ {./img/} }
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corollario}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+% Specifiche
+\geometry{
+ a4paper,
+ top=20mm,
+ left=30mm,
+ right=30mm,
+ bottom=30mm
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO]{\nouppercase{\leftmark}}
+\fancyfoot[CE, CO]{\thepage}
+\addtolength{\headheight}{1em}
+\addtolength{\footskip}{-0.5em}
+
+\newcommand{\quotes}[1]{``#1''}
+\renewcommand\tabularxcolumn[1]{>{\vspace{\fill}}m{#1}<{\vspace{\fill}}}
+\renewcommand\arraystretch{}
+\newcolumntype{P}{>{\centering\arraybackslash}X}
+\newcommand{\gear}[5]{%
+    \foreach \i in {1,...,#1}
+    {   [rotate=(\i-1)360/#1] (0:#2) arc (0:#4:#2) {[rounded corners=0.5pt] -- (#4+#5:#3)  arc (#4+#5:360/#1-#5:#3)} --  (360/#1:#2)
+    }
+}
+
+\title{\textbf{Università di Trieste\\ \vspace{1em}
+Laurea in ingegneria elettronica e informatica}}
+\author{Enrico Piccin - Corso di Fisica generale II - Prof. Pierluigi Monaco e Prof. Gabriele Cescutti}
+\date{Anno Accademico 2022/2023 - 3 Ottobre 2022}
+
+\begin{document}
+
+\vspace{-10mm}
+\noindent
+\maketitle
+
+\tableofcontents
+\newpage
+
+\noindent
+\begin{center}
+  3 Ottobre 2022
+\end{center}
+
+\section{Introduzione all'elettrostatica}
+Quando consideriamo una barretta di vetro appesa ad un filo che viene strofinata su un pezzo di lana e la si avvicina ad un'altra barretta, in posizione fissa, la prima si allontana.\\
+Se al posto di barrette di vetro si considerano barrette di plastica, si osserva il medesimo fenomeno di allontanamento.\\
+Se, però, si considera una barretta di vetro e una di plastica, allora si ottiene un fenomeno opposto: le bacchette si avvicinano.\\
+Ciò che, infatti, risulta fondamentale da capire in elettrostatica, è che la forza elettrostatica è sia \textbf{attrattiva} che \textbf{repulsiva}, a seconda della tipologia di cariche elettroniche che interagiscono.\\
+Da notare, inoltre, che quando si parla di bacchette di carica positiva o negativa, si sta parlando di bacchette alle quali si sottraggono \textbf{cariche negative} oppure se ne aggiungono, in quanto gli elettroni sono le uniche particelle che si muovono.
+La carica dell'elettrone è la seguente
+\[\boxed{e = 1.602176634 \times 10^{-19} \text{ C}}\]
+Si sta parlando, comunque, di cariche che orbitano attorno al nucleo (il quale presenta un diametro di $5.0 \times 10^{-15} \text{ m}$), mentre il diametro dell'atomo è di circa $2.0 \times 10^{-10} \text{ m}$.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Il fatto che gli elettroni non cadano dentro il nucleo, che presenta particelle positive come i protoni, è dettato dal principio di indeterminazione di Heisenberg, il quale afferma che, dal punto di vista quantistico, è impossibile conoscere simultaneamente con precisione sia il momento sia la posizione di una particella.
+
+\vspace{1em}
+\subsection{Conduttore}
+Si consideri una sfera conduttrice in cui vi sono elettroni che tendono a distribuirsi su un lato della superficie della sfera, lasciando dall'altro lato una carica positiva.
+Se a tale sfera viene collegato un cavo conduttore, gli elettroni tenderanno a percorrere tale cavo, diminuendo, di fatto, la quantità di carica negativa presente nella sfera conduttrice.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Come si è detto, la carica è quantizzata, e la \textbf{carica base} di un elettrone è
+\[\boxed{e = 1.6 \times 10^{-19} \text{ C}}\]
+che, ovviamente, presenta un segno negativo. Quando un oggetto è carico, significa che vi è uno squilibrio tra il numero degli elettroni e il numero di protoni.
+Si potrebbe scrivere che la quantità di carica è data da
+\[q= \left(N_p - N_e\right) \cdot e\]
+dove $N_e$, $N_p$ rappresentano il numero di elettroni e di protoni.\\
+Non solo, ma dato un oggetto, è possibile definire
+\begin{itemize}
+  \item \textbf{densità lineare di carica}, definita come $\lambda = \frac{q}{L}$;
+  \item \textbf{densità superficiale di carica}, definita come $\sigma = \frac{q}{S}$;
+  \item \textbf{densità volumetrica di carica}, definita come $\rho = \frac{q}{V}$.
+\end{itemize}
+In generale, poi, la quantità di carica totale, in elettrostatica, si \textbf{conserva}.
+
+\vspace{1em}
+\noindent
+\subsection{Legge di Coulomb}
+Per misurare la forza di gravità è stata impiegata la \textit{bilancia di torsione}, impiegando la forza elastica per misurare un'ulteriore forza.
+Analogamente, ponendo due cariche opposte vicine le une alle altre, si misura l'angolo che viene descritto dalle due cariche nello spazio angolare: in base a tale dato, unito al fatto che è nota la forza di torsione in funzione dell'angolo stesso, si riesce a determinare la \textbf{forza di Coulomb}.
+Di qui si ha che
+\[\boxed{\vec{F}_{\text{a,b}} = K \cdot \frac{q_\text{A} \cdot q_\text{B}}{r_{\text{a, b}}^2} \cdot \hat{v}_{\text{a,b}}}\]
+Naturalmente la forza ha una sua direzione e un suo verso, oltre che modulo, descritto dal versore.
+Per la $3^{\circ}$ legge di Newton, si ha naturalmente che
+\[\vec{F}_{\text{a,b}} = \vec{F}_{\text{b,a}}\]
+ovvero le forze sono opposte a seconda del versore impiegato. Si ha che la costante $\epsilon_0$ è la costante dielettrica del vuoto, definita come
+\[\epsilon_0 = 8.854 \times 10^{-12} \text{ } \frac{\text{C}^2}{\text{N} \cdot \text{m}^2}\]
+Mentre la costante $K$ di Coulomb è 
+\[\boxed{K = \frac{1}{4 \pi \epsilon_0} = 9 \times 10^{9} \text{ } \frac{\text{N} \cdot \text{m}^2}{\text{C}^2}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: La carica di $1$ C è molto elevata, in quanto se si pongono due cariche da $1$ C a distanza di $1$ m si ottiene una forza di Coulomb pari a $F_{\text{a, b}} = 9 \times 10^9$ N, che è elevatissima.\\
+Non solo, si osservi che le forze attrattive agenti su un corpo si sommano, al fine di ottenere la forza risultante.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio 1}: Per capire se, date due cariche, risulta più significativa la forza di gravità o la forza di Coulomb, è sufficiente considerare due protoni entrambi di carica elementare $e$, posti a distanza $x$.
+In particolare is ha che
+\begin{itemize}
+  \item La forza di Coulomb è data $F_{\text{C}, \text{a, b}} = K \cdot \frac{e^2}{x^2}$
+  \item La forza di gravità è data da $F_{\text{G}, \text{a, b}} = G \cdot \frac{m_\text{p}^2}{x^2}$
+\end{itemize}
+Da cui si evince che il loro rapporto è dato da
+\[\frac{F_{\text{C}, \text{a, b}}}{F_{\text{G}, \text{a, b}}} = \frac{e^2}{m_\text{p}^2} \cdot \frac{\text{K}}{\text{G}} = \frac{1.6 \times 10^{-38}}{1.67 \times 10^{-54}} \cdot \frac{9 \times 10^9}{6.67 \times 10^{-11}} = \frac{9}{7} \times 10^{36}\]
+il che significa che la forza di Coulomb è circa $10^{36}$ volte quella di gravità.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio 2}: Due sfere identiche di polistirolo sono appese tramite un filo lungo $l = 30 \times 10^{-2}$ m. Le cariche delle due sfere sono incognite, ma le lor masse, invece, sono $m_1 = m_2 = 0,030 $ kg.
+L'angolo descritto dal filo rispetto alla verticale è $\theta = 7^{\circ}$, è facile capire come la distanza delle due cariche sia $30 \times 10^{-2} \text{ m} \cdot \sin(7) \cdot 2 = 39 \times 10^{-2} \text{ m}$.
+Non solo, ma è anche noto come
+\[m g = T \cos(\theta) \hspace{1em} \text{ e } \hspace{1em} F_\text{C} = T \sin(\theta)\]
+per cui si ha che
+\[F_\text{C} = mg \tan(\theta)\]
+Da ciò si evince come le due cariche siano
+\[q_1 = q_2 = \sqrt{\frac{mg \tan(\theta) \cdot (2 l \sin(\theta))^2}{\text{K}}} = 1.46 \times 10^{-7} \text{ C}\]
+che si può anche scrivere come $146$ nC.
+
+\newpage
+\noindent
+\begin{center}
+  4 Ottobre 2022
+\end{center}
+La forza di Coulomb è alla base della forza elettrostatica. Non solo, ma è fondamentale capire che, in elettrostatica, le forze possono essere sia attrattive che repulsive.\\
+La carica è quantizzata e le forze elettrostatiche che agiscono su una particella possono essere sommate (secondo le regole del parallelogramma) al fine di determinarne la risultante.
+
+\vspace{1em}
+\noindent
+\subsection{Campo elettrico}
+Esattamente come nel caso del campo gravitazionale, anche il campo elettrico è un campo vettoriale che presenta implicite delle proprietà che attribuisce alle entità che vi interagiscono.\\
+Di seguito si espone la definizione di \textbf{campo elettrico}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{CAMPO ELETTRICO}}\\
+    \parbox{\linewidth}{Il campo elettrico, dal punto di vista vettoriale, viene definito come
+    \[\vec{E} = \frac{\vec{F}}{q_0}\]
+    in cui $q_0$ deve essere piccolo, ed è una carica di prova necessaria per misurare il campo elettrico, in quanto è noto che le cariche fra di loro interagiscono e si influenzano reciprocamente.\\
+    Il campo elettrico è additivo, per cui al fine di conoscere il vettore campo elettrico risultante, è sufficiente sommare i vettori campo elettrico secondo la regola del parallelogramma.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\textbf{Esempio}: Si consideri una carica elettrica piccola $q_0=81 \text{ nC}$ e una forza che agisce su tale carica $\vec{F}$ ..., allora ... continua ...
+
+\vspace{1em}
+\noindent
+\subsubsection{Campo elettrico generato da una carica puntiforme}
+È noto che la forza di Coulomb è data dalla seguente equazione
+\[\boxed{\vec F = \frac{1}{4 \pi \epsilon_0} \cdot \frac{q \cdot q_0}{r^2} \cdot \hat{v}}\]
+Per cui il campo elettrico generato da una carica puntiforme è dato da
+\[\boxed{\vec E = \frac{1}{4 \pi \epsilon_0} \cdot \frac{q}{r^2} \cdot \hat{v}}\]
+
+\vspace{1em}
+\noindent
+Se ora si dovesse considerare il campo elettrico generato da un insieme di cariche è dato da:
+\[\boxed{\vec E = \frac{1}{4 \pi \epsilon_0} \cdot \sum_{i=1}^n \frac{q_i}{r_i^2} \cdot \hat{v_i}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Data una carica $q=81 \times 10^{-9}$ C ed essendo nota la carica di un elettrone $e = 1.6 \times 10^{-19}$ C, è facile capire che il numero di elettroni persi è dato da:
+\[\frac{81 \times 10^{-9}\text{ C}}{1.6 \times 10^{-19}\text{ C}} = 50.6 \times 10^{9}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: In un classico esperimento R.A. Millikan (1868-1953) misure la carica dell'elettrone. L'apparecchiatura the use rappresentata schematicamente nella Figura 1.13. Un nebulizzatore produceva goccioline alcune delle quali cadevano attraverso un foro in una regione in cui era presente un campo elettrico uniform generato da due piatti paralleli carichi. Millikan era in grado di osservare una particolare gocciolina con it microscopio e di determinarne la massa misurandone la velocità limite. Egli caricava poi la gocciolina, irraggiandola con raggi X e regolava it campo elettrico in modo che la goccia rimanesse in equilibria statico sotto 1' azione delle uguali e opposte forze gravitazionale ed elettrica.
+
+\vspace{1em}
+\noindent
+\subsection{Dipolo elettrico}
+Avvicinando un bastoncino carico ad uno non carico, si osserva un avvicinamento dei due oggetti. Il dipolo ha un direzione ben chiara:
+
+
+% \begin{figure}[H]
+%   % DIPOLE - axis beneath
+%   \begin{tikzpicture}
+%     \def\R{0.48}
+%     \def\a{2.0}
+%     \def\h{0.7}
+%     \coordinate (Q-) at (-\a,\h);
+%     \coordinate (Q+) at (+\a,\h);
+%     \coordinate (P)  at (+2.5\a,\h);
+    
+%     \draw[->,thick] (-1.5\a,0) -- (+3.0\a,0);
+%     \draw[thick] ( 0,0.15) --++ (0,-0.3) node[below] {0};
+%     \draw[thick] (-\a,0.1) --++ (0,-0.2) node[below] {$-a$};
+%     \draw[thick] (+\a,0.1) --++ (0,-0.2) node[below] {$+a$};
+%     \draw[thick] (2.5\a,0.1) --++ (0,-0.2) node[below] {$x$};
+    
+%     \draw[vector,line width=2]  (Q-) ++ (\R,0) --++ ({2(\a-\R)},0) node[midway,above] {$\vb{L}$};
+%     \draw[charge-] (Q-) circle (\R) node[scale=1.0] {$-q$};
+%     \draw[charge+] (Q+) circle (\R) node[scale=1.0] {$+q$};
+%     \draw[vector,line width=2,Ecol] (P) --++ (0.9\a,0) node[above=2,above left=0] {$\vb{E}$};
+%     \fill (P) circle (0.1) node[above=2] {P}; % node[below=2] {$x$};
+%   \end{tikzpicture}
+% \end{figure}
+
+\vspace{1em}
+\noindent
+Allora il momento di dipolo di un dipolo elettrico si calcola come:
+\[\vec p = (2aq) \cdot \hat{j}\]
+mentre il campo di dipolo si determina come
+\[\vec{E}(\vec{r}) = \frac{1}{4 \pi \epsilon_0} \cdot \frac{p}{r^3} \cdot \left[3 \cdot (\hat{r} \cdot \hat{p}) \hat{r} - \hat{p}\right]\]
+
+\vspace{1em}
+\noindent
+\subsection{Campo elettrico sull'asse di un dipolo}
+Un dipolo elettrico è composto da due carica $+q$ e $-q$ separate da una distanza $2a$. Se le due cariche sono posizionate rispettivamente in $(0,0,a)$ e $(0,0,-a)$ sull'asse $z$ (ossia l'asse del dipolo).\\
+
+\vspace{1em}
+\noindent
+\subsection{Campo elettrico nel piano equatoriale di un dipolo}
+Si consideri il campo elettrico in un punto $P$ posto sull'asse $y$. I due contributi di campo sono $\vec{E}_+$, dovuto alla carica positiva, ed $\vec{E}_-$, dovuto alla carica negativa:
+\[\vec{E}_+ = \frac{1}{4 \pi \epsilon_0} \cdot \frac{q}{r_+^2} \hat{r}_+ \hspace{1em} \text{ e } \hspace{1em} \vec{E}_- = \frac{1}{4 \pi \epsilon_0} \cdot \frac{-q}{r_-^2} \hat{r}_-\]
+La distanza $r_+$ tra $+q$ e $P$ è uguale alla distanza $r_-$ tra $-q$ e $P$ ed è $r_+ = r_- = r = \sqrt{y^2+a^2}$. Com'è evidente, il vettore $\vec{r}_+ = y \hat{j} - a \hat{k}$, per cui il versore $\hat{r}_+$ è la normalizzazione del vettore $\vec{r}_+$ è
+\[\hat{r}_+=\frac{y \hat{j} - a \hat{k}}{r}\]
+per cui si ottiene
+\[\vec{E}_+=\frac{1}{4 \pi \epsilon_0} \frac{q}{r^2} = \frac{y \hat{j} - a \hat{k}}{r} = \frac{1}{4 \pi \epsilon_0 r^3} \cdot (y \hat{j} - a \hat{k})\]
+... continua ...
+\[\vec E = \vec{E}_+ + \vec{E}_- = \frac{1}{4 \pi \epsilon_0} \cdot \left(\frac{q}{(z-a)^2} - \frac{q}{(z+a)^2}\right)\]
+
+\vspace{1em}
+\noindent
+\subsection{Campo elettrico generato da distribuzioni continue di carica}
+Il campo elettrico infinitesimo $d \vec{E}$ generato da $dq$ è 
+\[d \vec{E} = \frac{1}{4 \pi \epsilon_0} \frac{dq}{r^2} \hat{r}\]
+per cui
+\[\vec E = \frac{1}{4 \pi \epsilon_0} \int \frac{dq}{r^2} \hat{r}\]
+Per cui se si considera un oggetto con distribuzione volumetrica di carica costante, si ottiene:
+\[\vec E = \frac{1}{4 \pi \epsilon_0} \int \int \int \frac{\rho}{r^2} \hat{r} dv\]
+mentre per un oggetto con distribuzione superficiale di carica costante, si ottiene:
+\[\vec E = \frac{1}{4 \pi \epsilon_0} \int \int \frac{\sigma}{r^2} \hat{r} da\]
+e infine, per un oggetto con distribuzione lineare di carica costante, si ottiene:
+\[\vec E = \frac{1}{4 \pi \epsilon_0} \int \frac{\lambda}{r^2} \hat{r} dl\]
+
+\vspace{1em}
+\noindent
+\subsection{Linee di forza del campo elettrico}
+Le linee di forza d campo elettrico aiutano a farsi un'idea intuitiva del campo: sostanzialmente sono una mappa del campo. Benché le linee di forza vengano tracciate su un foglio di carta o su una lavagna (che sono bidimensionali), esse vanno immaginate nello spazio tridimensionale e sono estremamente utili, dal punto di vista grafico, anche per descrivere i campi magnetici.\\
+Il concetto di linea di forza fu introdotto dal grande fisico sperimentale inglese Michael Faraday (1791-1867): ciascuna linea viene tracciata in modo che in ogni suo punto, il vettore campo elettrico $\vec E$ sia tangente alla linea stessa, cosicché le linee di forza indicano la direzione, mentre le frecce indicano il verso del campo.\\
+Per esempio, in prossimità di una carica puntiforme, le linee di forza sono radiali e hanno \textbf{verso uscente da una carica positiva} ed \textbf{entrante in una carica negativa}.\\
+In una data rappresentazione, la densità di linee di forza per unità di superficie dipende dal modulo del campo. Nelle regioni in cui le linee sono vicine, o fitte,$E$ è grande, mentre dove sono rade $E$ è piccolo. La densità delle linee di forza è proporzionale a $E$ e ciò può essere dimostrato tramite la legge di Gauss.\\
+Dal momento che la densità delle linee per unità di superficie è proporzionale a $E$, il numero delle linee uscenti da una carica positiva o entranti in una carica negativa e proporzionale a $\vert q \vert$.\\
+Un campo uniforme e rappresentato da linee di forza equidistanti, rettilinee e parallele. Nel paragrafo precedence abbiamo stabilito che i1 campo in prossirnita •di un disco carico modo uniforme, ma lontano dal suo bordo, epressoche uniforme. Le linee di forza del campo di un disco carica uniformemente sono rappresentate nella Fi-gura 1.21f, e si pub verificare che vicino al disco e lontano dal suo bordo le linee sono tracciate in modo da apparire approssimativamente equidistanti, rettilinee e parallele,
+
+\newpage
+\noindent
+\begin{center}
+  5 Ottobre 2022
+\end{center}
+Dopo aver introdotto la definizione di campo elettrico, sono state esposte le formule di calcolo del campo elettrico a seconda della natura dell'entità che si sta studiando, come un dipolo o una carica puntiforme.
+
+\vspace{1em}
+\noindent
+\subsection{Campo elettrico di una distribuzione lineare di carica}
+Quando una distribuzione di carica è lunga e sottile, come accade con una carica localizzata su un filo, si parla di \textbf{distribuzione lineare di carica}.\\
+La densità lineare di carica $\lambda$ è calcolata come
+\[\lambda = \frac{Q}{2 l}\]
+In particolare, si ha che il campo elettrico infinitesimo, in modulo vale
+\[d E = \frac{1}{4 \pi \epsilon_0} \cdot \frac{dq}{y^2 + z^2}\]
+Dovendo descrivere il campo elettrico come vettore, si ha
+\[d \vec{E} = dE_y \hat{j} + d E_z \hat{k} = (d E \cos(\theta)) \hat{j} - (d E \sin(\theta)) \hat{k}\]
+Appare evidente, dal punto di vista trigonometrico, come
+\[\sin(\theta) = \frac{z}{\sqrt{y^2 + z^2}} \hspace{1em} \text{e} \hspace{1em} \cos(\theta) = \frac{y}{\sqrt{y^2 + z^2}}\]
+Integrando rispetto alla componente $y$ del campo, si ottiene
+\[E_y = \int d E_y = \frac{\lambda y}{4 \pi \epsilon_0} \cdot \int_{-l}^{+l} \frac{dz}{(y^2 + z^2)^{\frac{3}{2}}}\]
+per cui si ottiene che
+\[E_y = \frac{1}{2 \pi \epsilon_0} \cdot \frac{\lambda}{y} \cdot \frac{l}{\sqrt{l^2 + y^2}}\]
+Ovviamente $E_z = 0$, in quanto per simmetria vi sono componenti del campo elettrico uguali e opposte lungo l'asse $z$.\\ 
+Pertanto, generalizzando, considerando un qualunque punto del piano $xy$, osservando che $E$ deve essere simmetria azimutale rispetto all'asse $z$, analogamente a quanto si è visto per il dipolo, si otterrebbe
+\[\boxed{E_R = \frac{1}{2 \pi \epsilon_0} \frac{\lambda}{R} \cdot \frac{l}{\sqrt{l^2+R^2}}}\]
+dove $R=\sqrt{x^2+y^2}$.
+Supponendo che $l >> R$, è chiaro che
+\[\boxed{E_R = \frac{\lambda}{2 \pi \epsilon_0 R}}\]
+
+\vspace{1em}
+\subsection{Campo elettrico sull'asse di un anello carico}
+Dovendo determinare $\vec E$ nei punti posti lungo l'asse di un anello circolare carico di raggio $a$ e carica $Q$. La distribuzione di carica sull'anello è uniforme e sufficientemente sottile per poter essere considerata lineare, analogamente alla distribuzione di massa di un anello.\\
+Considerando un anello su un piano $yz$, il campo elettrico infinitesimo $d \vec E$ generato dalla carica $dq$ può essere decomposto nelle sue componenti $dE_x$, parallela all'asse $x$ e $dE_\perp$, perpendicolare all'asse $x$. La simmetria della distribuzione di carica richiede che $\int dE_\perp = 0$, perché elementi di carica da parti opposte dell'anello producono componenti infinitesime del campo elettrico $d E_\perp$ che si elidono reciprocamente.\\
+Pertanto si ha che
+\[E_x = \int d E_x = \int dE \cos(\theta) = \frac{1}{4 \pi \epsilon} \int \frac{dq}{r^2} \cos(\theta)\]
+Ovviamente $\theta$ e $r^2$ rimangono costanti per ciascun elemento di carica $dq$, da cui
+\[E_x = \frac{\cos(\theta)}{4 \pi \epsilon_0 r^2} \int dq = \frac{Q \cos(\theta)}{4 \pi \epsilon_0 r^2}\]
+Considerando $P$ sull'asse dell'anello a distanza $x$ dal centro dell'anello stesso, si ha che
+\[\cos(\theta) = \frac{x}{\sqrt{x^2 + a^2}}\]
+per cui si ha
+\[\boxed{E_x=\frac{Qx}{4 \pi \epsilon_0 \cdot \left(x^2+a^2\right)^{\frac{3}{2}}}}\]
+ 
+\vspace{1em}
+\noindent
+\subsection{Campo elettrico di una distribuzione superficiale di carica}
+Dal momento che la distribuzione di carica è uniforme e ha la forma di un disco sottile, si può trattare come una distribuzione superficiale con $\sigma = \frac{Q}{\pi R_0^2}$, dove $\pi R_0^2$ è l'area del disco.\\
+È noto che $dE_x$ sull'asse di un anello di raggio $a$ e carica $dq = \sigma 2 \pi a da$ è
+\[dE_x = \frac{\left(\sigma 2 \pi a da\right) x}{4 \pi \epsilon_0 \cdot \left(x^2 + a^2\right)^{\frac{3}{2}}}\]
+Integrare tale espressione tra $a=0$ e $a=R_0$ equivale a sommare tutti i contributi a $E_x$ dovuti ai singoli anelli di raggio $a$ compreso tra $a=0$ e $a=R_0$:
+\[E_x = \frac{2 \pi \sigma x}{4 \pi \epsilon_0} \cdot \int_0^{R_0} \frac{a da}{\left(x^2 + a^2\right)^{\frac{3}{2}}}\]
+Il calcolo dell'integrale produce:
+\[\boxed{E_x = \frac{\sigma x}{2 \epsilon_0} \cdot \left(\frac{1}{\sqrt{x^2}} - \frac{1}{\sqrt{x^2 + R_0^2}}\right)}\]
+Dal momento che la quantità tra parentesi è sempre positiva, il segno algebrico di $E_x$ è lo stesso di $x$. Nell'ipotesi in cui $x << R_0$, si ha che
+\[\boxed{E_x = \frac{\sigma}{2 \epsilon_0} \cdot \frac{x}{\vert x \vert}}\]
+in cui risulta fondamentale il segno di $x$ per definire il segno del campo.
+
+\vspace{1em}
+\subsection{Particelle cariche in un campo elettrico uniforme}
+Un tubo a raggi catodici è uno strumento in cui gli elettroni vengono prima accelerati e poi deflessi. In particolare, gli elettroni vengono emessi da un filamento reso incandescente e accelerati da un campo elettrico orizzontale generato da delle placche cariche nel cosiddetto \quotes{cannone elettronico}.\\
+Se la forza elettrica è l'unica forza significativa che agisce sulla particelle $q \cdot \vec E$ è la forza risultante e la seconda legge di Newton fornisce
+\[q \cdot \vec E = m \cdot \vec a \hspace{1em} \text{ ossia } \hspace{1em} \vec a = \frac{q \cdot \vec E}{m}\]
+Decomponendo il vettore accelerazione nelle sue due componenti $x$ e $y$, è possibile ottenere
+\[a_y = \frac{q E}{m} \hspace{1em} \text{ e } \hspace{1em} a_x=0 \hspace{1em} \text{ e } \hspace{1em} a_z=0\]
+\[v_y = \left(\frac{qE}{m}\right) \cdot t \hspace{1em} \text{ e } \hspace{1em} v_x=v_0 \hspace{1em} \text{ e } \hspace{1em} v_z=0\]
+\[y=\frac{1}{2} \left(\frac{q E}{m}\right) \cdot t^2 \hspace{1em} \text{ e } \hspace{1em} x=v_0 \cdot t \hspace{1em} \text{ e } \hspace{1em} z=0\]
+È possibile ottenere anche la formula per la traiettoria parabolica della particella, ricavando $t$ come $t=\frac{x}{v_0}$, per cui
+\[\boxed{y=\frac{1}{2} \frac{q E}{m v_0^2} \cdot x^2}\]
+
+\vspace{1em}
+\noindent
+\subsubsection{Dipolo elettrico in campo elettrico uniforme}
+Un dipolo elettrico, considerato come un sistema rigido, posto in un campo elettrico uniforme tende a ruotare in modo che il momento di dipolo risulti allineato (parallelo e concorde) al campo, soggetto alle forze esterne
+\[\vec{F}_+ = q \cdot \vec E \hspace{1em} \text{ e } \hspace{1em} \vec{F}_- = -q \cdot \vec E\]
+Non solo le forze interne sono nulle, ma anche le forze esterne lo sono, in quanto uguali ed opposte, mentre il momento risultante, indicato con $r_-$ il vettore posizione della carica negativa e con $r_+$ quello della carica positiva, è pari a
+\[\vec \tau = \vec{r}_+ \times \vec{F}_+ + \vec{r}_- \times \vec{F}_- = \vec{r}_+ \times (+q) \cdot \vec {E} + \vec{r}_- \times (-q) \cdot \vec E = q \cdot (\vec{r}_+ - \vec{r}_-)\]
+Osservando che $\vec{r}_+-\vec{r}_-$ è proprio il vettore che va dalla carica negativa a quella positiva, è possibile scrivere
+\[\boxed{\vec \tau = \vec{p} \times \vec{E}}\]
+Dal momento che ruotare di un angolo $d \theta$ un dipolo in un campo elettrico è necessario compiere un lavoro $dL = \tau \cdot d \theta$, è possibile associare ad ogni posizione del dipolo una certa energia potenziale, in modo tale che il lavoro compiuto all'esterno per ruotare il dipolo sia pari alla variazione di energia potenziale, da cui
+\[L = \int_{\theta_1}^{\theta_2} \tau \cdot d\theta = \int_{\theta_1}^{\theta_2} pE \cdot \sin(\theta) \cdot d\theta = - p E \cos(\theta_2) - (- p E \cos(\theta_1)) = \Delta U\]
+Pertanto, l'energia potenziale del dipolo in un campo elettrico può essere scritta, quindi, come
+\[\boxed{U = - \vec{p} \cdot \vec{E}}\]
+
+\end{document}
