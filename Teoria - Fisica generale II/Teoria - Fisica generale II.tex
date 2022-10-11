@@ -33,6 +33,7 @@
 \usepackage{subfig}
 \usepackage{physics}
 %\usepackage{luamplib}
+\usepackage{mathdesign}
 \usepackage[outline]{contour} % glow around text
 \contourlength{1.0pt}
 \graphicspath{ {./img/} }
@@ -65,6 +66,7 @@
     {   [rotate=(\i-1)360/#1] (0:#2) arc (0:#4:#2) {[rounded corners=0.5pt] -- (#4+#5:#3)  arc (#4+#5:360/#1-#5:#3)} --  (360/#1:#2)
     }
 }
+\newcommand*\dif{\mathop{}\!\mathrm{d}}
 
 \title{\textbf{Università di Trieste\\ \vspace{1em}
 Laurea in ingegneria elettronica e informatica}}
@@ -296,7 +298,8 @@ Il concetto di linea di forza fu introdotto dal grande fisico sperimentale ingle
 Per esempio, in prossimità di una carica puntiforme, le linee di forza sono radiali e hanno \textbf{verso uscente da una carica positiva} ed \textbf{entrante in una carica negativa}.\\
 In una data rappresentazione, la densità di linee di forza per unità di superficie dipende dal modulo del campo. Nelle regioni in cui le linee sono vicine, o fitte,$E$ è grande, mentre dove sono rade $E$ è piccolo. La densità delle linee di forza è proporzionale a $E$ e ciò può essere dimostrato tramite la legge di Gauss.\\
 Dal momento che la densità delle linee per unità di superficie è proporzionale a $E$, il numero delle linee uscenti da una carica positiva o entranti in una carica negativa e proporzionale a $\vert q \vert$.\\
-Un campo uniforme e rappresentato da linee di forza equidistanti, rettilinee e parallele. Nel paragrafo precedence abbiamo stabilito che i1 campo in prossirnita •di un disco carico modo uniforme, ma lontano dal suo bordo, epressoche uniforme. Le linee di forza del campo di un disco carica uniformemente sono rappresentate nella Fi-gura 1.21f, e si pub verificare che vicino al disco e lontano dal suo bordo le linee sono tracciate in modo da apparire approssimativamente equidistanti, rettilinee e parallele,
+Un campo uniforme è rappresentato da linee di forza equidistanti, rettilinee e parallele. Il campo in prossimità di un disco in carico modo uniforme, ma lontano dal suo bordo, è pressoché uniforme.\\
+Per quanto riguarda le linee di forza del campo di un disco caricato uniformemente, si evince vicino al disco e lontano dal suo bordo le linee sono tracciate in modo da apparire approssimativamente equidistanti, rettilinee e parallele.
 
 \newpage
 \noindent
@@ -380,5 +383,95 @@ Dal momento che ruotare di un angolo $d \theta$ un dipolo in un campo elettrico 
 \[L = \int_{\theta_1}^{\theta_2} \tau \cdot d\theta = \int_{\theta_1}^{\theta_2} pE \cdot \sin(\theta) \cdot d\theta = - p E \cos(\theta_2) - (- p E \cos(\theta_1)) = \Delta U\]
 Pertanto, l'energia potenziale del dipolo in un campo elettrico può essere scritta, quindi, come
 \[\boxed{U = - \vec{p} \cdot \vec{E}}\]
+
+\noindent
+\begin{center}
+  10 Ottobre 2022
+\end{center}
+È noto che il campo elettrico è un \textbf{campo vettoriale}, definito come il rapporto tra la forza di Coulomb e una carica di prova, che deve essere piccola, ovvero
+\[\vec E = \frac{\vec F}{q_0}\]
+in cui la forza coulombiana si calcola come
+\[\vec F = \frac{1}{4 \pi \epsilon_0} \frac{q_0 \cdot q_1}{r^2} \hat{r}\]
+ove $\hat{r}$ è il versore che va da $q_0$ a $q_1$.\\
+Ciò non toglie che il campo elettrico è pur sempre un vettore.
+
+\vspace{1em}
+\section{Legge di Gauss}
+
+
+\vspace{1em}
+\subsection{Flusso}
+Alla base di \textbf{legge di Gauss} si pone la definizione di \textbf{flusso}, da considerarsi come la quantità di carica che si trova su una superficie.\\
+Naturalmente, per essere molto più pratici, è possibile introdurre il concetto partendo dal campo gravitazionale, invece del campo elettrico. È intuitivo pensare che il flusso di campo gravitazionale che attraversa una superficie è dato dal \textbf{prodotto scalare} tra il valore del campo e la superficie attraversata, da cui
+\[\boxed{\Phi_g = \vec g \cdot \Delta \vec S}\]
+in cui $\Delta \vec S$ prende il nome di \textbf{vettore superficie}; tale vettore è così definito
+\begin{itemize}
+  \item il suo modulo è dato dall'area della superficie stessa;
+  \item il suo orientamento è dato dall'\textbf{angolo normale} $\hat{n}$ \textbf{alla superficie stessa}, diretto verso l'alto. Tuttavia, ciò non vieta di poter definire tale angolo dalla parte opposta, ma pur sempre in \textbf{direzione esterna rispetto al volume definito dalla superficie chiusa} (infatti, una superficie chiusa è una superficie che descrive sempre un volume).
+\end{itemize}
+Pertanto, nel caso di un foglio rettangolare di area $A = ab$ orientato parallelamente al piano $yz$, si ha che il flusso è
+\[\Phi_g = \vec g \cdot \Delta \vec S = (-g \bf{\hat j}) \cdot (+ab \bf{\hat j}) = -g \cdot ab\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio 1}: Si consideri un cubo di spigolo $l$ e si calcoli il flusso di campo elettrico che attraversa ciascuna faccia, sapendo che il campo elettrico va da sinistra verso destra.\\
+Ovviamente il flusso totale sarà dato dalla sommatoria del flusso che attraversa tutte e sei le facce del cubo, per cui
+\[\Phi_E = \sum_{i=1}^6 \vec E \cdot \Delta \vec S\]
+Tuttavia, le uniche facce che produrranno un flusso non nullo saranno quelle con vettore superficie posto parallelamente al vettore campo elettrico. Per cui
+\[\Phi_E = \sum_{i=1}^6 \vec E \cdot \Delta \vec S = \vec E \cdot l^2 \cos \left(0\right) + \vec E \cdot l^2 \cos \left(\pi\right) = E \cdot l^2 - E \cdot l^2 = 0\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio 2}: Si consideri un cuneo immersa in un campo uniforme $\vec E = (600 \text{N} / \text{C}) \bf{\hat i}$ e si calcoli il flusso che attraversa ciascuna delle $5$ facce e, successivamente, il flusso totale.\\
+In particolare si ha che
+\begin{enumerate}
+  \item $\Phi_1 = E \cdot \Delta S \cdot \cos(\pi) = -600 \cdot 9 = -5400 \dfrac{\text{N} \cdot \text{m}^2}{\text{C}}$
+  \item $\Phi_2 = E \cdot \Delta S \cdot \frac{3}{5} = 600 \cdot 15 \cdot \frac{3}{5} = 5400 \dfrac{\text{N} \cdot \text{m}^2}{\text{C}}$
+  \item $\Phi_3,\Phi_4,\Phi_5=0\dfrac{\text{N} \cdot \text{m}^2}{\text{C}}$
+\end{enumerate}
+Ciò porta a concludere che il flusso totale sia nullo.
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Gli esempi di flusso fin qui analizzati riguardano campi uniformi e superfici piane. Quando la superficie è curva, o quando il campo elettrico varia da punto a punto su di essa, il flusso si calcola dividendo quest'ultima in piccoli elementi di superficie, ciascuno abbastanza piccolo da poter essere considerato piano e tale che su di esso la variazione del campo elettrico sia trascurabile. Il flusso attraverso l'intera superficie è allora la somma dei singoli contributi dovuti a ciascuno dei piccoli elementi di superficie. Facendo tendere a zero le dimensioni di ciascun elemento e a infinito il loro numero, la somma diventa un integrale:
+\[\boxed{\Phi_E = \lim_{\Delta S_i \to 0} \sum_i \vec{E}_i \cdot \Delta \vec{S}_i = \int \int_S \vec{E} \cdot \dif \vec{S}}\]
+oppure, in modo analogo,
+\[\Phi_E = \int \int_S  E \cos(\theta) \dif \vec{S}\]
+Nel caso di una superficie chiusa, come nella maggior parte degli esempi che si tratteranno
+%\[\Phi_E = \oiint \vec{E} \dif \vec{S}\]
+in cui la notazione sul doppio integrale sta a significare che si tratta di uan superficie chiusa, ossia una superficie che definisce un volume.
+
+\vspace{1em}
+\subsection{Legge di Gauss}
+Di seguito si espone la definizione di \textbf{legge di Gauss}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{LEGGE DI GAUSS}}\\
+    \parbox{\linewidth}{Il flusso del campo elettrico attraverso una superficie chiusa arbitraria è pari alla somma algebrica delle cariche contenute all'interno del volume delimitato dalla superficie divisa per la costante dielettrica del vuoto.\\
+    Sotto forma di equazione è
+    \[\boxed{\Phi_E = \dfrac{Q_{\text{int}}}{\epsilon_0} \hspace{1em} \text{ovvero} \hspace{1em} \oiint_{S_\text{chiusa} \vec{E} \cdot \dif \vec{S} = \frac{1}{\epsilon_0} \underbrace{\int \int \int}_{V_\text{int}} \rho \dif v}\]
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\textbf{Esempio}: Si consideri una sfera al cui centro si trova una carica $q$. Allora, applicando la legge di Gauss, si ottiene che
+\[\Phi_E = \underbrace{\oiint}_{\text{Sfera}} \vec{E} \cdot \dif \vec{S} = \underbrace{\oiint}_{\text{Sfera}} E_r \cdot \dif S = E_r \cdot \underbrace{\oiint}_{\text{Sfera}} \dif S = E_r \cdot (4 \pi r^2)\]
+Dato che la carica totale presente nella sfera gaussiana è $Q_{\text{int}} = q$, la legge di Gauss porta a
+\[E_r \cdot \left(4 \pi r^2\right) = \frac{q}{\epsilon_0} \hspace{1em} \text{ossia} \hspace{1em} E_r = \frac{q}{4 \pi \epsilon_0 r^2}\]
+e tenendo conto della direzione del campo si ottiene la formula del campo elettrico già desunta tramite la Legge di Coulomb:
+\[E_r = \frac{q}{4 \pi \epsilon_0 r^2} \cdot \bf{\hat{r}}\]
+
+\vspace{1em}
+\subsection{Deduzione della legge di Gauss dalla legge di Coulomb}
+Si considerino due sfere gaussiane di raggi differenti e aventi centro comune, in corrispondenza di una stessa particella carica. Per il teorema di Gauss, i flussi attraverso le due superfici sono uguali. Dal punto di vista grafico, si può dire che il flusso è proporzionale al numero delle linee che le attraversano. Se il flusso è lo stesso, mentre la superficie è differente, ciò che varia è la densità superficiale di carica, la quale sarà maggiore per la sfera interna, di raggio inferiore, rispetto alla sfera esterna.
 
 \end{document}
