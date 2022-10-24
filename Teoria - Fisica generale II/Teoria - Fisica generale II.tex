@@ -33,7 +33,7 @@
 \usepackage{subfig}
 \usepackage{physics}
 %\usepackage{luamplib}
-\usepackage{mathdesign}
+%\usepackage{mathdesign}
 \usepackage[outline]{contour} % glow around text
 \contourlength{1.0pt}
 \graphicspath{ {./img/} }
@@ -66,7 +66,7 @@
     {   [rotate=(\i-1)360/#1] (0:#2) arc (0:#4:#2) {[rounded corners=0.5pt] -- (#4+#5:#3)  arc (#4+#5:360/#1-#5:#3)} --  (360/#1:#2)
     }
 }
-\newcommand*\dif{\mathop{}\!\mathrm{d}}
+\newcommand\dif{\mathop{}\!\mathrm{d}}
 
 \title{\textbf{Università di Trieste\\ \vspace{1em}
 Laurea in ingegneria elettronica e informatica}}
@@ -284,7 +284,7 @@ Il campo elettrico infinitesimo $d \vec{E}$ generato da $dq$ è
 per cui
 \[\vec E = \frac{1}{4 \pi \epsilon_0} \int \frac{dq}{r^2} \hat{r}\]
 Per cui se si considera un oggetto con distribuzione volumetrica di carica costante, si ottiene:
-\[\vec E = \frac{1}{4 \pi \epsilon_0} \int \int \int \frac{\rho}{r^2} \hat{r} dv\]
+\[\vec E = \frac{1}{4 \pi \epsilon_0} \iiint \frac{\rho}{r^2} \hat{r} dv\]
 mentre per un oggetto con distribuzione superficiale di carica costante, si ottiene:
 \[\vec E = \frac{1}{4 \pi \epsilon_0} \int \int \frac{\sigma}{r^2} \hat{r} da\]
 e infine, per un oggetto con distribuzione lineare di carica costante, si ottiene:
@@ -438,7 +438,7 @@ Ciò porta a concludere che il flusso totale sia nullo.
 oppure, in modo analogo,
 \[\Phi_E = \int \int_S  E \cos(\theta) \dif \vec{S}\]
 Nel caso di una superficie chiusa, come nella maggior parte degli esempi che si tratteranno
-%\[\Phi_E = \oiint \vec{E} \dif \vec{S}\]
+%\[\Phi_E = \oint \oint \vec{E} \dif \vec{S}\]
 in cui la notazione sul doppio integrale sta a significare che si tratta di uan superficie chiusa, ossia una superficie che definisce un volume.
 
 \vspace{1em}
@@ -456,7 +456,7 @@ Di seguito si espone la definizione di \textbf{legge di Gauss}:
     {\textbf{LEGGE DI GAUSS}}\\
     \parbox{\linewidth}{Il flusso del campo elettrico attraverso una superficie chiusa arbitraria è pari alla somma algebrica delle cariche contenute all'interno del volume delimitato dalla superficie divisa per la costante dielettrica del vuoto.\\
     Sotto forma di equazione è
-    \[\boxed{\Phi_E = \dfrac{Q_{\text{int}}}{\epsilon_0} \hspace{1em} \text{ovvero} \hspace{1em} \oiint_{S_\text{chiusa} \vec{E} \cdot \dif \vec{S} = \frac{1}{\epsilon_0} \underbrace{\int \int \int}_{V_\text{int}} \rho \dif v}\]
+    \[\boxed{\Phi_E = \dfrac{Q_{\text{int}}}{\epsilon_0} \hspace{1em} \text{ovvero} \hspace{1em} \underset{S_\text{chiusa}}{\oint \oint} \vec{E} \cdot \dif \vec{S} = \frac{1}{\epsilon_0} \underset{V_\text{int}}{\iiint} \rho \dif v}\]
     \vspace{3mm}}\\
     \hline
 \end{tabularx}
@@ -464,7 +464,7 @@ Di seguito si espone la definizione di \textbf{legge di Gauss}:
 \vspace{2em}
 \noindent
 \textbf{Esempio}: Si consideri una sfera al cui centro si trova una carica $q$. Allora, applicando la legge di Gauss, si ottiene che
-\[\Phi_E = \underbrace{\oiint}_{\text{Sfera}} \vec{E} \cdot \dif \vec{S} = \underbrace{\oiint}_{\text{Sfera}} E_r \cdot \dif S = E_r \cdot \underbrace{\oiint}_{\text{Sfera}} \dif S = E_r \cdot (4 \pi r^2)\]
+\[\Phi_E = \underset{\text{Sfera}}{\oint \oint} \vec{E} \cdot \dif \vec{S} = \underset{\text{Sfera}}{\oint \oint} E_r \cdot \dif S = E_r \cdot \underset{\text{Sfera}}{\oint \oint} \dif S = E_r \cdot (4 \pi r^2)\]
 Dato che la carica totale presente nella sfera gaussiana è $Q_{\text{int}} = q$, la legge di Gauss porta a
 \[E_r \cdot \left(4 \pi r^2\right) = \frac{q}{\epsilon_0} \hspace{1em} \text{ossia} \hspace{1em} E_r = \frac{q}{4 \pi \epsilon_0 r^2}\]
 e tenendo conto della direzione del campo si ottiene la formula del campo elettrico già desunta tramite la Legge di Coulomb:
@@ -474,4 +474,490 @@ e tenendo conto della direzione del campo si ottiene la formula del campo elettr
 \subsection{Deduzione della legge di Gauss dalla legge di Coulomb}
 Si considerino due sfere gaussiane di raggi differenti e aventi centro comune, in corrispondenza di una stessa particella carica. Per il teorema di Gauss, i flussi attraverso le due superfici sono uguali. Dal punto di vista grafico, si può dire che il flusso è proporzionale al numero delle linee che le attraversano. Se il flusso è lo stesso, mentre la superficie è differente, ciò che varia è la densità superficiale di carica, la quale sarà maggiore per la sfera interna, di raggio inferiore, rispetto alla sfera esterna.
 
+\newpage
+\noindent
+\begin{center}
+  11 Ottobre 2022
+\end{center}
+Se il flusso di campo elettrico su una superficie chiusa è nullo, ciò non significa che il campo elettrico su ogni \quotes{faccia} dell'oggetto sia nullo.\\
+Per esempio, considerato un dipolo elettrico, con una superficie posta attorno a $+q$ (denotata con $S_1$) una tra le due cariche (denotata con $S_2$), si ottiene
+\[\Phi_{S_1} = \frac{+q}{\epsilon_0} \hspace{1em} \text{e} \hspace{1em} \Phi_{S_2} = 0\]
+È noto che la Legge di Gauss e la Legge di Coulomb si equivalgono. Tuttavia, la Legge di Gauss è molto più ampia, in quanto non si applica, come per la Legge di Coulomb, solamente a cariche ferme, ma anche a \textbf{cariche in movimento}.
+
+\vspace{1em}
+\subsection{Deduzione della legge di Gauss dalla legge di Coulomb}
+Il flusso di campo elettrico generato da una particella carica attraversi una superficie a forma di blocco arrotondato. La superficie è formata da due calotte sferiche e da quattro facce piane. Il flusso attraverso ciascuna faccia piana è nullo, mentre i flussi attraverso le due calotte sferiche sono uguali e opposti, quindi il flusso relativo all'intera superficie è nullo.\\
+Ovviamente, per quanto riguarda le facce piane, il vettore campo elettrico e il vettore superficie corrispondenti sono ortogonali, per cui il flusso è nullo. Per quanto riguarda le calotte sferiche, denotate con $S_1$ a distanza $r_1$ dalla carica $q$, e con $S_2$ a distanza $r_2$ dalla carica $q$. Per tale ragione, i flussi corrispondenti sono
+\[\Phi_1 = \underbrace{\int \int}_{S_1} \vec E \cdot \dif \vec S = \underbrace{\int \int}_{S_1} - E \cdot \dif S = -\frac{q}{4 \pi \epsilon_0 r_1^2} \underbrace{\int \int}_{S_1} d_S = -\frac{q}{4 \pi \epsilon_0 r_1^2} \Delta S_1\]
+E, analogamente per la seconda calotta, si ottiene
+\[\Phi_2 = \underbrace{\int \int}_{S_2} \vec E \cdot \dif \vec S = \underbrace{\int \int}_{S_2} E \cdot \dif S = \frac{q}{4 \pi \epsilon_0 r_2^2} \underbrace{\int \int}_{S_2} d_S = -\frac{q}{4 \pi \epsilon_0 r_2^2} \Delta S_2\]
+Tuttavia è evidente come
+\[\frac{\Delta S_1}{\Delta S_2} = \frac{r_1^2}{r_2^2} \hspace{1em} \rightarrow \hspace{1em} \Delta S_2 = \Delta S_1 \cdot \frac{r_2^2}{r_1^2}\]
+Ciò, quindi, consente di riscrivere $\Phi_2$ come
+\[\Phi_2 = \frac{q}{4 \pi \epsilon_0 r_2^2} \cdot \Delta S_2 = \frac{q}{4 \pi \epsilon_0 r_2^2} \cdot \Delta S_1 \cdot \frac{r_2^2}{r_1^2} = \frac{q}{4 \pi \epsilon_0 r_1^2} \Delta S_1 = -\Phi_1\]
+Ecco, quindi, che il flusso totale è
+\[\Phi = \Phi_1 + \Phi_2 = \Phi_1 + (- \Phi_1) = 0\]
+In questo modo si è dimostrato che il flusso complessivo attraverso una superficie arbitraria con carica puntiforme all'esterno è nullo. Ciò che risulta fondamentale è che tale risultato non è valido solamente per la particolare superficie prescelta nella dimostrazione, ma per qualsiasi superficie chiusa. Infatti, presa una qualunque superficie, è sempre possibile scomporla in delle calotte sferiche come quella considerata, in modo tale che il flusso di ciascuna sia nulla e, quindi, anche il flusso totale sarà nullo. Ciò permette di concludere che
+\[\boxed{\Phi_E = 0 \hspace{1em} (\text{per una superficie chiusa arbitraria e una carica } q \text{ esterna})}\]
+
+\vspace{1em}
+\noindent
+\subsection{Flusso attraverso una superficie arbitraria con carica puntiforme all'interno}
+Considerando, ora, il flusso dovuto ad una carica puntiforme $q$ posta nel centro di una superficie gaussiana sferica di raggio $r$.\\
+Secondo la definizione
+\[\Phi_E = \oint \oint \vec E \cdot \dif \vec S = \oint \oint \frac{q}{4 \pi \epsilon_0 r^2} \cdot \dif S = \frac{q}{4 \pi \epsilon_0 r^2} \oint \oint \dif S = \frac{1}{4 \pi \epsilon_0 r^2} \cdot 4 \pi r^2 = \frac{q}{\epsilon_0}\]
+in quanto la superficie di una sfera di raggio $r$ è proprio $4 \pi r^2$. Ecco che quindi si è ottenuta la legge di Gauss:
+\[\boxed{\Phi_E = \frac{q}{\epsilon_0} \hspace{1em} (\text{per una superficie chiusa arbitraria e una carica } q \text{ interna})}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Il flusso del campo elettrico prodotto da una carica puntiforme al centro di una superficie gaussiana che è sostanzialmente una sfera, ma con una porzione di calotta staccata e allontanata dal centro. Ovviamente, il flusso di campo elettrico attraverso la calotta $2$ è uguale al flusso mancante per l'assenza della calotta $1$, quindi il flusso relativo all'intera superficie è identico a quello relativo ad una sfera, ossia
+\[\Phi_E = \frac{1}{\epsilon_0}\]
+questo è ovvio in forza del fatto che, come visto nell'esempio precedente, il flusso di campo elettrico che attraversa le due superfici sferiche di una calotta è identico, in modulo, in quanto il rapporto tra le superfici è uguale al rapporto dei quadrati dei rispettivi raggi.
+
+\vspace{1em}
+\noindent
+\subsection{Flusso attraverso una superficie arbitraria con carica puntiformi all'interno e all'esterno}
+Dopo aver considerato il flusso elettrico prodotto da una sola particella carica, si supponga ora che vi sia più di una particella di cui tenere conto.\\
+Data una superficie qualsiasi, in cui vi sono due cariche interne $q_1$ e $q_3$, e una carica esterna $q_2$. È noto che è valido il \textbf{principio di sovrapposizione degli effetti}, per cui
+\[\vec E = \vec{E}_1 + \vec{E}_2 + \vec{E}_3\]
+da cui si evince che
+\[\Phi_E = \underset{S_\text{chiusa}}{\oint \oint} \vec E \cdot \dif \vec S = \underset{S_\text{chiusa}}{\oint \oint} (\vec{E}_1 + \vec{E}_2 + \vec{E}_3) \cdot \dif \vec S = \underset{S_\text{chiusa}}{\oint \oint} \vec{E}_1 \cdot \dif \vec S + \underset{S_\text{chiusa}}{\oint \oint} \vec{E}_2 \cdot \dif \vec S + \underset{S_\text{chiusa}}{\oint \oint} \vec{E}_3 \cdot \dif \vec S = \frac{q_1}{\epsilon_0} + 0 + \frac{q_3}{\epsilon_0}\]
+in quanto le cariche $q_1$ e $q_3$ sono interne, mentre $q_2$ è esterna, per quanto dimostrato nei due casi precedenti.\\
+Ecco che, quindi, si è ottenuta la formulazione generale della Legge di Gauss:
+\[\Phi_E = \frac{Q_\text{int}}{\epsilon_0} \hspace{1em} \text{ovvero} \hspace{1em} \dfrac{\sum_{S_\text{chiusa}} q_i}{\epsilon_0} \hspace{1em} \rightarrow \hspace{1em} \underset{S_\text{chiusa}}{\oint \oint} \vec E \cdot \dif \vec S = \frac{1}{\epsilon_0} \iiint \rho \dif v\]
+
+\vspace{1em}
+\noindent
+\subsection{Legge di Gauss in forma differenziale}
+Di seguito si espone la definizione di \textbf{divergenza di un campo vettoriale}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{DIVERGENZA DI UN CAMPO VETTORIALE}}\\
+    \parbox{\linewidth}{La divergenza di un campo vettoriale viene definita come la somma delle derviate parziali del campo vettoriale stesso rispetto alle $3$ direzioni dello spazio tridimensionale:
+    \[\boxed{\text{div} \vec E = \lim_{v \to 0} \frac{\Delta \Phi}{\Delta v} = \frac{\dif \Phi}{\dif v}}\]
+    \vspace{1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Dato il vettore campo elettrico $\vec E=(E_x,E_y,E_z)$. Si consideri un volumetto cubico di spigoli $\dif x, \dif y$ e $\dif z$. Il flusso attraverso la faccia $ABCD$ è
+\[\dif \Phi_{ABCD} = E_x \dif y \dif z\]
+mentre il flusso attraverso la faccia $A'B'C'D'$ 
+\[\dif \Phi_{A'B'C'D'} = -E'_x \dif y \dif z\]
+Poiché le due facce del cubo sono molto vicine, è possibile scrivere
+\[E'_x=E_x - \frac{\partial E_x}{\partial x} \dif x \hspace{1em} \rightarrow \hspace{1em} E_x-E'_x=\frac{\partial E_x}{\partial x} \dif x\]
+cosicché, essendo $\dif v = \dif x \dif y \dif z$ si ottiene
+\[\dif \Phi_{ABCD} + \dif \Phi_{A'B'C'D'} = \left(E_x-E'_x\right) \dif y \dif z = \frac{\partial E_x}{\partial x} \dif v\]
+Similmente per le altre due coppie di fasce si otterrà
+\[\Phi_{AA'DD'} = -E_y \dif x \dif z \hspace{1em} \text{e} \hspace{1em}\Phi_{CBB'C'} = A_y \dif x \dif z\]
+\[\Phi_{AA'BB'} = -E_z \dif x \dif y \hspace{1em} \text{e} \hspace{1em}\Phi_{DD'C'C} = E_z \dif x \dif y\]
+In conclusione si ottiene che
+\[\dif \Phi = \left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) \dif v\]
+
+\newpage
+\noindent
+\begin{center}
+  12 Ottobre 2022
+\end{center}
+Si è osservato in precedenza che, se il campo elettrico è costante e si mantiene inalterato, e passa attraverso due superfici identiche, il flusso risultante sarà sempre nullo. L'unica possibilità perché esso non si azzeri è che vi sia una differenza tra le due superfici, ovverosia un gradiente.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: La legge di Gauss, scritta in forma differenziale, si può esprimere come
+\[\boxed{\Phi = \underset{\text{Superficie}}{\oint \oint} \vec E \cdot \dif \vec S = \frac{1}{\epsilon_0} \cdot \underset{\text{Volume}}{\iiint} \rho \dif v}\]
+Da ciò deriva anche la definizione di \textbf{divergenza del campo elettrico} $\vec E$ come 
+\[\boxed{\text{div} \vec E = \lim_{v \to 0} \frac{\Delta \Phi}{\Delta v} = \frac{\dif \Phi}{\dif v}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: La derivata parziale di una funzione $f(x,y,z)$ che dipende da $3$ variabili, per esempio, rispetto alla variabile $x$ viene definita come
+\[\frac{\partial f(x_0)}{\partial x} = \lim_{\Delta x \to 0} \frac{f(x_0+\Delta x,y,z) - f(x_0,y_0,z_)}{\Delta x}\]
+
+\vspace{1em}
+\noindent
+Nel caso visto in precedenza, per quanto concerne il calcolo del flusso, si era ottenuto
+\[\dif \Phi_{ABCD} + \dif \Phi_{A'B'C'D'} = \left(E_x-E'_x\right) \dif y \dif z = \frac{\partial E_x}{\partial x} \dif v\]
+Considerando anche le altre componenti, si ottiene che
+\[\dif \Phi = \left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) \dif v\]
+ma siccome, per definizione, si ha che
+\[\text{div } \vec E = \frac{\dif \Phi}{\dif v}\]
+è immediato evincere che
+\[\text{div } \vec E = \left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) = \frac{\rho}{\epsilon_0}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Talvolta, si definisce la divergenza di $\vec E$ come vettore nabla $\nabla$, ossia
+\[\text{div } \vec E = \nabla \cdot \vec E\]
+in cui l'operatore nabla viene definito come
+\[\nabla = \left(\frac{\partial}{\partial x}; \frac{\partial}{\partial y};\frac{\partial}{\partial z}\right)\]
+
+\newpage
+\noindent
+\subsubsection{Campo elettrico in prossimità di una distribuzione lineare di carica molto lunga}
+Si consideri un filo molto lungo e un punto $P$ a distanza $r$ da esso. Il filo elettrico è caricato in modo uniforme, con densità di carica $\lambda$.\\
+Si immagini una superficie gaussiana a forma di cilindro che avvolge il filo elettrico, di raggio $r$. Ovviamente sulle due superfici circolari il flusso di campo elettrico è nullo, in quanto il campo elettrico $\vec E$ è in direzione radiale rispetto al filo, mentre i vettori superfici sono ambedue ortogonali al vettore campo elettrico.\\
+Invece, il flusso sulla superficie cilindrica è dato da
+\[\Phi_E = \underset{S}{\oint \oint} \vec E \cdot \dif \vec S = \underset{S}{\oint \oint} E \cdot \dif S = E \cdot \underset{S}{\oint \oint}  \dif S = E \cdot 2\pi r \cdot h\]
+La carica contenuta nel cilindro è il prodotto della densità lineare di carica $\lambda$ per l'altezza $h$ del cilindro $Q_\text{int} = \lambda h$. Quindi dalla legge di Gauss si evince che
+\[\Phi_E = \frac{Q_\text{int}}{\epsilon_0} \hspace{1em} \rightarrow \hspace{1em} E 2 \pi r = \frac{\lambda h}{\epsilon_0} \hspace{1em} \rightarrow \hspace{1em} E = \frac{\lambda}{2 \pi \epsilon_0 r}\]
+
+\vspace{1em}
+\noindent
+\subsubsection{Campo elettrico in prossimità di una grande lamina piana carica}
+Si consideri la legge di Gauss per la determinazione del campo elettrico $E$ prodotto da una grande lamina piana con densità superficiale di carica $\sigma$ uniforme, in un punto vicino alla sua superficie.\\
+Dal momento che il vettore campo elettrico è diretto perpendicolarmente alla superficie, è possibile prendere in considerazione una superficie cilindrica che attraversa la superficie della lamina. In particolare, quindi, il flusso passante per la superficie del cilindro è nulla, in quanto il vettore superficie e il vettore campo elettrico sono ortogonali. Tuttavia, per quanto riguarda le superfici circolari, il vettore campo elettrico è sempre concorde con il vettore superficie, da cui
+\[\Phi_E = E \cdot \Delta S + E \cdot \Delta S = 2 E \Delta S\]
+La carica contenuta nel cilindro è il prodotto della densità superficiale di carica $\sigma$ per l'area della superficie circolare, ovvero $Q_\text{int} = \sigma \Delta S$. Quindi dalla legge di Gauss si evince che
+\[\Phi_E = \frac{Q_\text{int}}{\epsilon_0} \hspace{1em} \rightarrow \hspace{1em} 2 E \Delta S = \frac{\sigma \Delta S}{\epsilon_0} \hspace{1em} \rightarrow \hspace{1em} E = \frac{\sigma}{2 \epsilon_0}\]
+
+\vspace{1em}
+\noindent
+\subsubsection{Superficie sferica carica}
+Si determini il campo elettrico $\vec E$ in punti sia interni che esterni a una sottile sfera cava uniformemente carica di raggio $r_0$ e carica $Q$. La distribuzione di carica è simile a quella della massa di una pallina da ping-pong.\\
+Si consideri un punto $P_1$ interno alla sfera, di raggio $r_1$; allora, la superficie gaussiana più conveniente da impiegare per il calcolo del campo elettrico è proprio una sfera di raggio $r_1$ e centrata in modo coincidente con la sfera carica; ciò significa che la carica interna alla sfera di raggio $r_1$ è nulla, in quanto la carica è tutta distribuita sulla superficie carica della sfera di raggio $r_0$. Pertanto, è possibile affermare che $\vec E$ è nullo fintantoché $r_1 < r_0$.\\
+Nell'ipotesi in cui $r_1 \geq r_0$, il flusso complessivo sarà
+\[\Phi_E = \frac{Q}{\epsilon_0} \hspace{1em} \text{ e anche } \hspace{1em} \Phi_E = E \cdot S_\text{sfera} = E \cdot 4 \pi r_0^2\]
+Ciò permette di concludere che
+\[E = \frac{Q}{4 \pi \epsilon_0 r_0^2}\]
+che è identico al campo elettrico generato da una carica puntiforme $Q$ posta al centro della pallina.
+
+\vspace{1em}
+\noindent
+\subsubsection{Sfera carica in modo uniforme}
+Si determini il campo elettrico $\vec E$ in punti sia interni che esterni a una sfera cava uniformemente carica di raggio $r_0$ e carica $Q$. La distribuzione di carica è simile a quella della massa di una pallina da biliardo.\\
+Si consideri, dapprincipio, un punto $P_!$ esterno alla sfera, di raggio $r_1 > r_0$, allora il flusso esterno rispetto alla sfera carica sarà
+\[\Phi_{r_1} = E_{r_1} \cdot 4 \pi r_1^2 = \frac{Q}{\epsilon_0} \hspace{1em} \text{da cui} \hspace{1em} E_{r_1} = \frac{Q}{4 \pi \epsilon_0 r_1^2}\]
+Si consideri, invece, un punto $P_2$ interno alla sfera, di raggio $r_2 < r_0$; allora il flusso sulla sfera di raggio $r_2$ è proprio dato da
+\[\Phi_{r_2} = E_{r_2} \cdot 4 \pi r_2^2\]
+Per calcolare, invece, la carica interna alla sfera di raggio $r_2$ si osserva semplicemente che la densità di carica della sfera carica è
+\[\rho = \dfrac{Q}{\dfrac{4}{3} \pi r_0^3}\]
+per cui, per quanto riguarda una sfera di raggio $r_2<r_0$, la carica interna sarà
+\[Q_\text{int} = \rho \cdot \Delta V = \dfrac{Q}{\dfrac{4}{3} \pi r_0^3} \cdot \frac{4}{3} \pi r_2^3 = Q \cdot \frac{r_2^3}{r_0^3}\]
+Per cui il flusso risultante è pari a
+\[\Phi_{r_2} = \frac{Q_\text{int}}{\epsilon_0} = \dfrac{Q \cdot \dfrac{r_2^3}{r_0^3}}{\epsilon_0} = E_{r_2} \cdot 4 \pi r_2^2 \hspace{1em} \rightarrow \hspace{1em} E_{r_2} = \frac{Q \cdot r_2}{4 \pi \epsilon_0 r_0^3}\]
+che è ragionevole, in quanto il campo elettrico cresce linearmente con $r$ nei punti interni alla sfera carica. Se $r_2=r_0$ si ottiene il risultato già noto
+\[E_{r_0}=\frac{Q}{4 \pi \epsilon_0 r_0^2}\]
+
+\vspace{1em}
+\noindent
+\subsection{Proprietà elettrostatiche di un conduttore}
+Si osservi facilmente che se ci fosse un campo elettrico all'interno di un conduttore, le cariche, soggette a tale campo e, quindi, alla forza di Coulomb, inizierebbero a muoversi, creando delle correnti che porterebbero a delle movimentazioni del campo elettrico. Ciò, naturalmente, non può avvenire in condizioni elettrostatiche, secondo l'ipotesi fondamentale seguente:
+\[\boxed{\vec E = 0 \hspace{1em} \text{all'interno di un conduttore in condizioni statiche}}\]
+Ciò significa che se si considera una qualsiasi superficie gaussiana interna al conduttore, il flusso $\Phi_E$ è anch'esso nullo. Ma per la Legge di Gauss, se il flusso è nullo, non vi sono cariche in nessun punto all'interno del conduttore; in altre parole, la densità di carica di volume $\rho$ deve essere nulla: ciò significa che tutte le cariche devono essere localizzate sulla superficie del conduttore.
+
+\vspace{1em}
+\subsubsection{Campo nelle immediate vicinanze di un conduttore}
+Considerando una superficie di un conduttore, su di essa può esseri un campo elettrico, ma esso deve essere diretto necessariamente in modo ortogonale rispetto alla superficie e non tangenzialmente; infatti, se così fosse, i portatori di carica si muoverebbero lungo la superficie e non si rispetterebbero più le condizioni di equilibrio elettrostatico.\\
+Se ora si considerasse un cilindro che attraversa la superficie del conduttore considerata, essendo essa una superficie gaussiana, consente di calcolare il flusso su di essa. Ma per quanto detto, essendo il campo diretto solo ortogonalmente alla superficie ed esterno al conduttore, l'unico flusso calcolabile è
+\[\Phi_{E_\perp} = \frac{\sigma \Delta S}{\epsilon_0} = E_\perp \cdot \Delta S \hspace{1em} \rightarrow \hspace{1em} E_\perp = \frac{\sigma}{\epsilon_0}\]
+
+\newpage
+\noindent
+\begin{center}
+  17 Ottobre 2022
+\end{center}
+\section{Potenziale elettrico}
+Il potenziale elettrico si misura in \textbf{Volt} [\textbf{V}], anche se sarebbe più corretto parlare di \textbf{Volta}, dal nome dello scienziato italiano inventore della lampadina.
+
+\vspace{1em}
+\noindent
+\subsection{Energia potenziale elettrica}
+Il potenziale elettrico è l'energia potenziale elettrica per unità di carica. Gli elementi essenziali per determinare un'espressione di tale grandezza sono
+\begin{itemize}
+  \item il campo generato da una carica puntiforme
+  \item il principio di sovrapposizione
+\end{itemize}
+
+\vspace{1em}
+\noindent
+\subsubsection{Energia potenziale di una particella di prova nel campo di una carica puntiforme}
+Una particella di prova con carica $q_0$ viene spostata lungo un arco di circonferenza con centro in una carica puntiforme $q$ fissa. Allora si ha che
+\[\int_a^b \vec{F} \cdot \dif \vec l = q_0 \cdot \int_a^b \vec E \cdot \dif \vec l = 0\]
+in quanto il vettore $\dif \vec l$ è perpendicolare a $\vec E$ in ogni punti del percorso, per cui il lavoro compiuto dalla forza elettrica è nullo.
+
+\vspace{2em}
+\noindent
+Nel caso di una particella di prova che viene spostata lungo un percorso radiale, il lavoro è massimo, per cui
+\[\int_a^b \vec F \cdot \dif \vec l = q_0 \cdot \int_a^b \left(\frac{q}{4 \pi \epsilon_0 r^2} \bf{\hat r}\right) \cdot \left(\dif r \bf{\hat r}\right) = \frac{qq_0}{4 \pi \epsilon_0} \int_a^b \frac{\dif r}{r^2} = \left[-\frac{qq_0}{4 \pi \epsilon_0} \cdot \frac{1}{r}\right]_a^b\]
+per cui si conclude che il lavoro compiuto per spostare una carica da un punto $a$ a un punto $b$ in direzione radiale al campo generato dalla carica di prova $q_0$ è
+\[\boxed{W=\frac{qq_0}{4 \pi \epsilon_0} \cdot \left(\frac{1}{r_a} - \frac{1}{r_b}\right)}\]
+
+\vspace{2em}
+\noindent
+Se si prende in considerazione una traiettoria di forma arbitraria alla quale è sovrapposta una linea formata da un certo numero di piccoli archi e di piccoli segmenti radiali. Naturalmente, infatti, un percorso arbitrario può essere concepito come successione di un numero infinito di archi e di segmenti radiali infinitesimi.\\
+Il lavoro compiuto lungo ciascun arco è nullo, e quindi il lavoro totale compiuto lungo la traiettoria di forma arbitraria è la somma dei contributi relativi ai vari segmenti radiali, ossia sempre
+\[\boxed{W=\frac{qq_0}{4 \pi \epsilon_0} \cdot \left(\frac{1}{r_a} - \frac{1}{r_b}\right)}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Dal momento che il lavoro compiuto dalla forza di Coulomb è indipendente dalla traiettoria, ma solamente dalla posizione iniziale e finale, si evince che \textbf{la forza fi Coulomb è una forza conservativa}, per cui ad essa è possibile associare un'\textbf{energia potenziale}.\\
+In particolare, è noto che la variazione dell'energia potenziale da $a$ a $b$ è data dall'opposto del lavoro compiuto da $a$ a $b$, ovvero
+\[\boxed{\mathcal{U}_b-\mathcal{U}_a=-\int_a^b \va{F} \cdot \dif \va{l}}\]
+Nel caso di cui sopra, si ottiene che
+\[\mathcal{U}_b-\mathcal{U}_a = \frac{qq_0}{4 \pi \epsilon_0} \cdot \left(\frac{1}{r_b} - \frac{1}{r_a}\right)\]
+Nell'ipotesi in cui ad una distanza molto grande $r_a=\infty$ si abbia $\mathcal{U}_\infty=0$, è possibile generalizzare la formula dell'energia potenziale come
+\[\boxed{\mathcal{U}(r)=-\int_{\infty}^r \va{F} \cdot \dif \va{l}}\]
+
+\vspace{1em}
+\subsubsection{Energia potenziale di una particella di prova nel campo di un numero qualsiasi di cariche puntiformi}
+Si supponga che la particella di prova si trovi nel campo di due cariche puntiformi $q_1$ e $q_2$. Per il principio di sovrapposizione, la forza elettrica $\vec F$ agente sulla particella di prova è
+\[\vec F = q_0 \cdot \vec E = q_0 \cdot \left(\vec{E}_1+\vec{E}_2\right)\]
+Il lavoro compiuto da $\vec F$ quando la particella di prova viene portata da $a$ a $b$ è
+\[\int_a^b \vec F \cdot \dif \vec l = q_0 \cdot \int_a^b (\vec{E}_1+\vec{E}_2) \cdot \dif \vec l = q_0 \cdot \left[\int_a^b \vec{E}_1 \cdot \dif \vec l + \int_a^b \vec{E}_2 \cdot \dif \vec l \right]\]
+Sviluppando si ottiene che
+\[q_0 \cdot \left[\int_{r_a}^{r_b} \left(\frac{q_1}{4 \pi \epsilon_0} \cdot \frac{1}{r_1^2} \hat r \right) \cdot (\dif l \hat r) + \int_{r_a}^{r_b} \left(\frac{q_2}{4 \pi \epsilon_0} \cdot \frac{1}{r_2^2} \hat{r} \right) \cdot \left(\dif l \hat{r} \right) \right] = \frac{q_0q_1}{4 \pi \epsilon_0} \cdot \left[-\frac{1}{r_1}\right]_{r_a}^{r_b} + \frac{q_0q_2}{4 \pi \epsilon_0} \cdot \left[-\frac{1}{r_2}\right]_{r_a}^{r_b}\]
+ottenendo
+\[\frac{q}{4 \pi \epsilon_0} \cdot \left[ q_1 \cdot \left(\frac{1}{r_{1_a}} - \frac{1}{r_{1_b}}\right) + q_2 \cdot \left(\frac{1}{r_{2_a}} - \frac{1}{r_{2_b}}\right)\right]\]
+Pertanto il lavoro può essere suddiviso in due contributi, ciascuno dei quali è indipendente dal cammino percorso da $a$ a $b$. Se si pone $r_a=\infty$, si evince come
+\[\boxed{\mathcal{U}=\frac{q_0}{4 \pi \epsilon_0} \cdot \left(\frac{q_1}{r_1} + \frac{q_2}{r_2}\right)}\]
+in cui è fondamentale osservare come, tramite l'energia potenziale elettrica, sono stati rimossi i vettori ed è possibile operare unicamente tramite gli scalari.
+
+\newpage
+\noindent
+\subsection{Potenziale elettrico}
+Di seguito si espone la definizione di \textbf{potenziale elettrico}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{POTENZIALE ELETTRICO}}\\
+    \parbox{\linewidth}{Si definisce \textbf{potenziale elettrico} $V$ come
+    \[\boxed{V=\frac{\mathcal{U}}{q_0}}\]
+    posto $q_0$ piccolo. L'unità di misura del potenziale elettrico è il \textbf{volt} $[\text{V}]$:
+    \[[\text{V}] = \dfrac{[\text{J}]}{[\text{C}]}\]
+    Si osservi, in particolare, che l'energia potenziale elettrica può anche essere misurata tramite l'\textbf{elettronvolt} $[\text{eV}]$, definito come
+    \[1 \text{ eV} = (1.6 \times 10^{-19} \text{ C}) \cdot (1 \text{ V}) = 1.6 \times 10^{-19} \text{ J}\]
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\textbf{Esercizio}: In un atomo, la distanza tipica tra un elettrone e il nucleo è di circa $1 \times 10^{-10}$ m. Si determini il potenziale prodotto da un nucleo di ossigeno in un punto che si trova alla distanza di $1.0 \times 10^{-10}$ m dal nucleo.\\
+Il potenziale è facilmente calcolabile come
+\[V = \frac{\mathcal{U}}{q} = \frac{1}{4 \pi \epsilon_0} \cdot \frac{q}{r} = 9.0 \times 10^9 \frac{\text{N m}^2}{\text{C}^2} \cdot \frac{8 \cdot 1.6 \times 10^{-19} \text{ C}}{1.0 \times 10^{-10} \text{ m}} = 120 \text{ V}\]
+L'energia potenziale, riferita a $U_{\infty}=0$ di un elettrone in questo punto in eV si calcolerà come
+\[\mathcal{U}_e = (-e) \cdot V = -120 \text{ eV}\]
+che, in Joule, corrisponderà
+\[\mathcal{U}_e = (-e) \cdot V = -1.6 \times 10^{-19} \cdot 120 = -1.9 \times 10^{-17} \text{ J}\]
+
+\vspace{1em}
+\subsection{Potenziale prodotto da distribuzioni continue di cariche}
+Il potenziale prodotto da una distribuzione continua di carica, semplicemente dividendo la distribuzione continua di cariche infinitesime $\dif q$ e, con tale passaggio al limite, la sommatoria diviene un integrale, ossia
+\[V=\frac{1}{4 \pi \epsilon_0} \cdot \lim_{
+\rowcolors{1}{white}{white}
+\setlength{\tabcolsep}{1pt}
+\renewcommand{\arraystretch}{1}
+\begin{array}{l}
+  N \to +\infty\\
+  q_i \to 0  
+\end{array}  
+} \sum_{i=1}^N \frac{q_i}{r_i} = \frac{1}{4 \pi \epsilon_0} \underset{\text{corpo carico}}{\int} \frac{\dif q}{r}\]
+
+\vspace{2em}
+\noindent
+\textbf{Esercizio}: Il potenziale in un punto $P$ posto sul vertice di un quadrato di lato $93 \text{ mm}$, dove $q_1=33$ nC, $q_2=-51$ nC e $q_3=47$ nC. In base alla formula di cui sopra si ha che
+\[V=\frac{1}{4 \pi \epsilon_0} \cdot \left(\frac{q_1}{r_1}+\frac{q_2}{r_2}+\frac{q_3}{r_3}\right) = 9.0 \times 10^9 \frac{\text{N m}^2}{\text{C}^2} \cdot \left(\frac{33 \times 10^{-9} \text{ C}}{93 \times 10^{-3} \text{ m}} - \frac{51 \times 10^{-9} \text{ C}}{\sqrt{2} \cdot 93 \times 10^{-3} \text{ m}} + \frac{47 \times 10^{-9} \text{ C}}{93 \times 10^{-3} \text{ m}}\right)\]
+Il valore che si ottiene eseguendo i calcoli è $V= 4.2 \times 10^3$ V.
+
+\newpage
+\noindent
+\begin{center}
+  18 Ottobre 2022
+\end{center}
+\subsection{Differenza di potenziale}
+Se $\mathcal{U}_b - \mathcal{U}_a$ rappresenta la variazione di energia potenziale elettrica di una particella di prova con carica $q_0$ quando viene spostata dal punto $a$ al punto $b$, la differenza di potenziale tra i punti $a$ e $b$ è definita come
+\[\boxed{\bf{V_b-V_a=\frac{\mathcal{U}_b-\mathcal{U}_a}{q_0}}}\]
+Inoltre, dal momento che la variazione di energia potenziale elettrica di una particella di prova con carica $q_0$ è l'opposto del lavoro compiuto dalla forza elettrica, si ha
+\[\mathcal{U}_b-\mathcal{U}_a=-q_0 \cdot \int_a^b \vec E \cdot \dif \vec l\]
+dividendo per $q_0$ si ottiene la differenza di potenziale in funzione del campo elettrico:
+\[\boxed{\bf{V_b-V_a=-\int_a^b \vec E \cdot \dif \vec l}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si determini la differenza di potenziale $V_b-V_a$ in un campo uniforme orientato nella direzione $+x$. Si procede in questo modo
+\[V_b-V_a=-\int_a^b \vec E \cdot \dif \vec l = -\int_a^b (E {\bf{\hat i}}) \cdot (\dif x {\bf{\hat i}}) = -\int_a^b E \cdot \dif l = -E \cdot (x_b-x_a) = -E \cdot \Delta x\]
+Nell'ipotesi, quindi, che $V_0$ rappresenti il potenziale dei punti del piano $yz$, posto $x=0$ e che $V(x)$ rappresenti il potenziale dei punti del piano parallelo al piano $yz$ con coordinata $x$. Ciò fornisce
+\[\boxed{V(x) = V_0-Ex}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si considerino due placche cariche (anodo-catodo) in cui la differenza di energia potenziale è pari a
+\[\Delta V = V_A-V_C=2500 \text{ V}\]
+Naturalmente, per la conservazione dell'energia si ottiene che
+\[\mathcal{U}_A+\mathcal{K}_A=\mathcal{U}_A+\mathcal{K}_A\]
+Preso un elettrone che parte dal catodo e raggiunge l'anodo, è ovvio che $\mathcal{K}_C=0$, per cui
+\[K_A=U_C-U_A \hspace{1em} \rightarrow \hspace{1em} \frac{1}{2}mv^2 = - q_0 \cdot \Delta V\]
+per cui la velocità cercata è
+\[v = \sqrt{\frac{2 \cdot (-e) \cdot (-\Delta V)}{m}} = \sqrt{\frac{2 \cdot 1.6 \times 10^{-19} \text{ C} \cdot 2500 \text{V}}{9.1 \times 10^{-31} \text{ kg}}} = 3.0 \times 10^7 \frac{\text{m}}{\text{s}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si determini il potenziale nei punti dell'asse di un anello circolare uniformemente carico di raggio $a$ e di carica totale $Q$. L'anello è così sottile da poter essere considerato una distribuzione lineare di carica. Pertanto si ottiene che
+\[V=\frac{1}{4 \pi \epsilon_0} \cdot \int \frac{\dif q}{r}\]
+Per la configurazione del punto considerato, si ha che
+\[r=\sqrt{a^2+x^2}\]
+per cui si evince che
+\[V=\frac{1}{4 \pi \epsilon_0} \cdot \int \frac{\dif q}{\sqrt{x^2+a^2}}\]
+L'integrazione comporta la somma dei contributi di potenziale dovuti a tutti gli elementi di carica $\dif q$ che formano l'anello. Siccome $x$ e $a$ sono costanti rispetto a tale integrazione, si ottiene
+\[V= \frac{1}{4 \pi \epsilon_0} \cdot \frac{Q}{\sqrt{x^2+a^2}}\]
+Tale esempio permette di capire come il potenziale diminuisca con l'aumento della distanza $x$, sia essa positiva o negativa.
+
+\vspace{1em}
+\noindent
+\subsection{Relazione tra campo e potenziale elettrico}
+Il potenziale, con la posizione di riferimento in un punto a grande distanza, può essere ottenuto dall'equazione
+\[V=-\int_a^b\vec E \cdot \dif \vec l\]
+facendo corrispondere il punto $a$ a $r=\infty$, tale per cui $V_a=V_r=\infty$ e il punto $b$ alla posizione $P$ in cui si valuta il potenziale, con $V_b=V$. Ciò fornisce
+\[V=-\int_\infty^P \vec E \cdot \dif \vec l\]
+Si supponga, allora, di impiegare l'equazione di partenza per determinare la differenza di potenziale tra due punti contigui $a=(x,y,z)$ e $b=(x+\Delta x,y,z)$. Dal momento che i due punti hanno le stesse coordinate $y$ e $z$, si integrerà lungo una linea parallela all'asse $x$, per cui $\dif \vec l = \dif x' {\bf{\hat i}}$. Quindi
+\[\vec E \cdot \dif \vec l = (E_x {\bf{\hat i}} + E_y {\bf{\hat j}} + E_z {\bf{\hat k}}) \cdot (\dif x' {\bf{\hat i}}) = E_x \cdot \dif x'\]
+per cui si evince che
+\[V(x+\Delta x,y,z)-V(x,y,z)=-\int_x^{x+\Delta x} E_x \cdot \dif x'\]
+Supponendo che $E_x$ sia pressoché costante tra $x$ e $x+\Delta x$. Ciò significa che $E_x$ viene portato fuori dal segno di integrale, ottenendo
+\[-\int_x^{x+\Delta x} E_x \cdot \dif x' = - E_x \cdot \int_x^{x+\Delta x} \dif x' = -E_x \cdot \Delta x\]
+Ciò permette di concludere che
+\[\lim_{\Delta x \to 0} \left[\frac{V(x+\Delta x,y,z)-V(x,y,z)}{\Delta x}\right]=-E_x\]
+Tale grandezza viene rappresentata con il simbolo
+\[\frac{\partial V}{\partial x}\]
+ed è definita \textbf{derivata parziale di $V$ rispetto a $x$}, per cui, osservando che variazioni infinitesime del potenziale nelle direzioni $y$ e $z$ forniscono risultati analoghi, per cui
+\[E_x=-\frac{\partial V}{\partial x} \hspace{1em} E_y=-\frac{\partial V}{\partial y} \hspace{1em} E_z=-\frac{\partial V}{\partial z}\]
+o, in maniera più sintetica:
+\[\boxed{\vec E = - \left(\frac{\partial V}{\partial x} {\bf{\hat i}} + \frac{\partial V}{\partial y} {\bf{\hat j}} + \frac{\partial V}{\partial z} {\bf{\hat k}}\right)}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Se si conosce un'espressione del potenziale $V$ dovuto ad una distribuzione di carica, si può impiegare l'espressione di cui sopra per determinare $\vec E$. Per esempio, nel caso del potenziale $V$ prodotto da una carica puntiforme, per trovare il campo $\vec E$ generato da una carica puntiforme come segue:
+\[E_r = - \frac{d}{dr} \frac{q}{4 pi \epsilon_0 r} = -\frac{q}{4 \pi \epsilon_0} \cdot \left(-\frac{1}{r^2}\right) = \frac{q}{4 \pi \epsilon_0 r^2}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio 1}: Se, a titolo di esempio, si considera una generica espressione per il potenziale elettrico, come esposto di seguito:
+\[V=ax^2+y+3z\]
+Allora il campo elettrico è
+\[\vec E = - \left(\frac{\partial V}{\partial x} {\bf{\hat i}} + \frac{\partial V}{\partial y} {\bf{\hat j}} + \frac{\partial V}{\partial z} {\bf{\hat k}}\right) = - \left(2ax {\bf{\hat i}} + 1 {\bf{\hat j}} + 3 {\bf{\hat k}}\right)\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio 2}: Se, a titolo di esempio, si considera una generica espressione per il potenziale elettrico, come esposto di seguito:
+\[V=l \cdot \frac{Q}{\sqrt{x^2+a^2}}\]
+Allora il campo elettrico è
+\[\vec E = - \left(\frac{\partial V}{\partial x} {\bf{\hat i}} + \frac{\partial V}{\partial y} {\bf{\hat j}} + \frac{\partial V}{\partial z} {\bf{\hat k}}\right) = - \left(-k\frac{Q}{\sqrt{(x^2+a^2)^3}} x {\bf{\hat i}} + 0 {\bf{\hat j}} + 0 {\bf{\hat k}}\right)\]
+
+\vspace{1em}
+\noindent
+\subsubsection{Campo elettrico come gradiente del potenziale}
+Indicato con nabla $\nabla$ il seguente operatore vettoriale
+\[\nabla = \left(\frac{\partial}{\partial x} {\bf{\hat i}} + \frac{\partial}{\partial y} {\bf{\hat j}} + \frac{\partial}{\partial z} {\bf{\hat k}}\right)\]
+si può scrivere quanto esposto in precedenza come segue
+\[\boxed{\vec E = - \nabla V} \hspace{1em} \text{e} \hspace{1em} \boxed{\vec E = -\text{grad } V}\]
+
+\vspace{1em}
+\noindent
+\subsubsection{Equazioni di Laplace e di Poisson}
+Siccome per la \textbf{legge di Gauss} è vero che
+\[\text{div } \vec E = \left(\frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z}\right) = \frac{\rho}{\epsilon_0}\]
+per quanto osservato in precedenza si ha che
+\[E_x=-\frac{\partial V}{\partial x} \hspace{1em} E_y=-\frac{\partial V}{\partial y} \hspace{1em} E_z=-\frac{\partial V}{\partial z}\]
+per cui
+\[\frac{\partial}{\partial x} \left(-\frac{\partial V}{\partial x}\right) + \frac{\partial}{\partial y} \left(-\frac{\partial V}{\partial y}\right) + \frac{\partial}{\partial z} \left(-\frac{\partial V}{\partial z}\right) = \frac{\rho}{\epsilon_0}\]
+che permette di affermare che la funzione potenziale deve verificare
+\begin{itemize}
+  \item l'\textbf{equazione di Poisson}
+  \[\frac{\partial^2 V}{\partial x^2} + \frac{\partial^2 V}{\partial y^2} + \frac{\partial^2 V}{\partial z^2} = \frac{\rho}{\epsilon_0}\]
+  che può essere riscritto come
+  \[\text{div grad } V = -\frac{\rho}{\epsilon_0} \hspace{1em} \text{oppure} \hspace{1em} \nabla^2 V = -\frac{\rho}{\epsilon_0}\]
+
+  \item e, in particolare, nelle regioni di spazio prive di cariche elettriche, l'\textbf{equazione di Laplace}
+  \[\frac{\partial^2 V}{\partial x^2} + \frac{\partial^2 V}{\partial y^2} + \frac{\partial^2 V}{\partial z^2} = 0\]
+  che può essere riscritto come
+  \[\text{div grad } V = 0 \hspace{1em} \text{oppure} \hspace{1em} \nabla^2 V = 0\]
+\end{itemize}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si determini l'energia potenziale di un dipolo in un campo elettrico uniforme diretto parallelamente all'asse $x$.\\
+Per come è stato rappresentato graficamente il dipolo, è immediato evincere che il posizionamento della carica positiva e negativa sia
+\begin{itemize}
+  \item $x_+ = a + a \cos(\theta)$
+  \item $x_- = a - a \cos(\theta)$
+\end{itemize}
+Pertanto l'energia potenziale di ambedue le cariche si calcolerà come segue
+\begin{itemize}
+  \item $\mathcal{U}_+ = q \cdot V_+ = q \cdot \left(-E \cdot (x_0 + a \cos(\theta)) + V_0\right)$
+  \item $\mathcal{U}_- = -q \cdot V_-  = -q \cdot \left(-E \cdot (x_0 - a \cos(\theta)) + V_0\right)$
+\end{itemize}
+Pertanto l'energia potenziale complessiva $\mathcal{U}$ del dipolo è
+\[\mathcal{U}=\mathcal{U}_++\mathcal{U}_-=q \cdot V_+ = x_+ = q \cdot \left(-E \cdot (x_0 + a \cos(\theta)) + V_0\right)-q \cdot \left(-E \cdot (x_0 - a \cos(\theta)) + V_0\right)\]
+ottenendo
+\[\mathcal{U}=\mathcal{U}_++\mathcal{U}_-=-2aqE\cos(\theta)=-pE\cos(\theta)\]
+che permette di concludere che
+\[\boxed{\mathcal{U} = - \va{p} \cdot \va{E}}\]
+
+\newpage
+\begin{center}
+  19 Ottobre 2022
+\end{center}
+È noto che il campo elettrico è l'opposto del gradiente del potenziale, ovverosia
+\[\vec E = - \nabla V = - \left(\frac{\partial V}{\partial x} + \frac{\partial V}{\partial y} + \frac{\partial V}{\partial z}\right)\]
+
+\vspace{2em}
+\noindent
+\textbf{Esercizio 1}: Si consideri il caso di due cilindri concentrici di raggio $R_1 \leq R_2$, il primo con distribuzione superficiale di carica $\sigma_1$, mentre il secondo con distribuzione superficiale di carica $\sigma_2$.\\
+Il flusso di campo elettrico all'interno del cilindro più interno (\textbf{che è vuoto}), con $0 < r < R_1$ è $\Phi_1 = 0$, in quanto non c'è carica all'interno del cilindro stesso.\\
+Considerando, ora, come superficie gaussiana il cilindro di raggio $R_1 \leq r < R_2$, è immediato evincere che la quantità di carica considerata è $Q_1=\sigma_1 \cdot 2 \pi r \cdot h$. Il flusso associato alla superficie gaussiana considerata è
+\[\Phi_2=2\pi h r \cdot E(r) \hspace{1em} \rightarrow \hspace{1em} \vec E(r) = \frac{\Phi_2}{2 \pi h r} = \frac{\sigma_1 \cdot R_1}{\epsilon_0} \cdot \frac{1}{r} {\bf{\hat r}}\]
+Per $r \geq R_2$ si ottiene che
+\[E(r) \cdot 2 \pi r h = \frac{Q_1+Q_2}{\epsilon_0} = \frac{2\pi h}{\epsilon_0} \cdot \left(\sigma_1 \cdot R_1 + \sigma_2 \cdot R_2\right)\]
+che può essere semplificato come
+\[E(r) = \frac{2 \pi h \cdot (\sigma_1 R_1 + \sigma_2 R_2)}{\epsilon_0 2 \pi h r} \hspace{1em} \rightarrow \hspace{1em} \vec E(r) = \frac{\sigma_1 R_1 + \sigma_2 R_2}{\epsilon_0} \cdot \frac{1}{r} {\bf{\hat r}}\]
+In questo modo è possibile ottenere il campo elettrico complessivo, grazie al principio di sovrapposizione.\\
+Se ora si volesse calcolare il potenziale elettrico, per $r \geq R_2$, si dovrebbe calcolare il seguente integrale
+\[V(r) = -\int_{0}^{R_2} \frac{\sigma_1 R_1 + \sigma_2 R_2}{\epsilon_0} \cdot \frac{1}{r} \dif r = - \frac{\sigma_1 R_1 + \sigma_2 R_2}{\epsilon_0} \cdot \int_{0}^{R_2} \frac{1}{r} \dif r = - \frac{\sigma_1 R_1 + \sigma_2 R_2}{\epsilon_0} \cdot \left[\log(r)\right]_{R_2}^{r}\]
+ottenendo come risultato
+\[V(r) = - \frac{\sigma_1 R_1 + \sigma_2 R_2}{\epsilon_0} \cdot \log \left(\frac{r}{R_2}\right)\]
+che è coerente con quanto osservato per il campo elettrico: il potenziale è sempre negativo in quanto il campo elettrico è decrescente.\\
+Per quanto riguarda la regione da $R_1 < r < R_2$ si ottiene che
+\[V(R_2) - V(R_1) = -\int_{R_1}^{R_2} \frac{\sigma_1 \cdot R_1}{\epsilon_0} \cdot \frac{1}{r} \dif r = - \frac{\sigma_1 \cdot R_1}{\epsilon_0} \cdot \left[\log(r)\right] = - \frac{\sigma_1 R_1}{\epsilon_0} \cdot \log \left(\frac{R_2}{R_1}\right)\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Avendo implicitamente sottinteso che $V(R_2)=0$, gli estremi di integrazione devono essere corretti rispetto a quelli impiegati. In quanto ciò che varia è la funzione di campo elettrico, per cui si ha 
+\[V(r) = -\int_{r}^{R_2} \frac{\sigma_1 \cdot R_1}{\epsilon_0} \cdot \frac{1}{r} \dif r = -\frac{\sigma_1 \cdot R_1}{\epsilon_0} \cdot \log \left(\frac{r}{R_2}\right)\]
+in cui è $R_1 < r < R_2$, per cui il potenziale è positivo e crescente.
+
+\vspace{1em}
+\noindent
+Considerando, ora, il caso in cui $r \leq R_1$, si calcoli il potenziale seguente
+\[V(r) = -\int_{R_2}^r 0 \cdot \dif r = c\]
+Tale calcolo, in questo caso, visto che il campo elettrico per $r \to +\infty$ non diverge, essendo nullo, quindi può essere anche scritto come
+\[- \left[V(R_1)-V(R_2)\right]\]
+ma avendo assunto che $V(R_2)=0$, si ottiene esclusivamente $V(r)=-V(R_1)$ che corrisponde esattamente all'opposto della funzione potenziale 
+\[V(r)-\frac{\sigma_1 \cdot R_1}{\epsilon_0} \cdot \log \left(\frac{r}{R_2}\right)\]
+calcolata in $R_1$, ottenendo
+\[V(r)=-V(R_1)=\frac{\sigma_1 \cdot R_1}{\epsilon_0} \cdot \log \left(\frac{R_1}{R_2}\right)\]
+
+\vspace{2em}
+\noindent
+\textbf{Esercizio 2}: Si consideri una sfera solida con densità di carica di volume $\rho$ e di raggio $R_1$, con centro in $O_1$. A destra di $O_1$, in corrispondenza di $O_2$, vi è un ulteriore cavità sferica di raggio $R_2<R_1$. Si determini il campo elettrico all'interno dell foro.\\
+Il campo elettrico generato dalla sfera di raggio $R_1$, al di fuori della sfera è
+\[\vec E(r) = \frac{Q}{4 \pi \epsilon_0 r^2} {\bf{\hat r}}\]
+Il campo elettrico della sfera più grande, trascurando il campo elettrico relativo alla cavità sferica, per $r<R_1$ è dato da
+\[\frac{\Phi_\text{sfera}}{S_\text{sfera}} = \frac{Q_{\text{int}}}{\epsilon_0 \cdot S_\text{sfera}} = \frac{4}{3} \pi r^3 \cdot \rho \cdot \frac{1}{\epsilon_0 \cdot 4 \pi r^2} = \frac{\rho \cdot r}{3 \cdot \epsilon_0} {\bf{\hat r}}\]
+Per conoscere il campo elettrico della cavità sferica, si può considerare come se vi fosse un campo elettrico negativo, dovuto ad una densità di carica di volume $-\rho$, per cui si ha
+\[\vec{E}_+(r) = \frac{\rho \cdot r}{3 \cdot \epsilon_0} {\bf{\hat r}} \hspace{1em} \text{con } r < R_1 \hspace{3em}  \text{e} \hspace{3em} \vec{E}_- = -\frac{\rho \cdot r}{3 \cdot \epsilon_0} {\bf{\hat r}} \hspace{1em} \text{con } r < R_2\]
 \end{document}
