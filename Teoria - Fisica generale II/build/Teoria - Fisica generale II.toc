@@ -40,3 +40,13 @@
 \contentsline {subsection}{\numberline {3.5}Relazione tra campo e potenziale elettrico}{23}{}%
 \contentsline {subsubsection}{\numberline {3.5.1}Campo elettrico come gradiente del potenziale}{24}{}%
 \contentsline {subsubsection}{\numberline {3.5.2}Equazioni di Laplace e di Poisson}{24}{}%
+\contentsline {subsection}{\numberline {3.6}Rotore del campo elettrico}{28}{}%
+\contentsline {subsection}{\numberline {3.7}Superfici equipotenziali}{29}{}%
+\contentsline {subsection}{\numberline {3.8}Proprietà elettrostatiche di un conduttore}{29}{}%
+\contentsline {section}{\numberline {4}Conduttori, capacità e dielettrici}{31}{}%
+\contentsline {subsubsection}{\numberline {4.0.1}Capacità di un cavo coassiale}{32}{}%
+\contentsline {subsection}{\numberline {4.1}Condensatori in serie e in parallelo}{32}{}%
+\contentsline {subsubsection}{\numberline {4.1.1}Condensatori in serie}{32}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}Condensatori in parallelo}{33}{}%
+\contentsline {subsection}{\numberline {4.2}Proprietà elettrostatiche dei dielettrici}{35}{}%
+\contentsline {subsection}{\numberline {4.3}Descrizione molecolare dei dielettrici}{35}{}%

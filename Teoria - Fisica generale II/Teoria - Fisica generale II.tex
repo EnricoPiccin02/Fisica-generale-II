@@ -960,4 +960,298 @@ Il campo elettrico della sfera più grande, trascurando il campo elettrico relat
 \[\frac{\Phi_\text{sfera}}{S_\text{sfera}} = \frac{Q_{\text{int}}}{\epsilon_0 \cdot S_\text{sfera}} = \frac{4}{3} \pi r^3 \cdot \rho \cdot \frac{1}{\epsilon_0 \cdot 4 \pi r^2} = \frac{\rho \cdot r}{3 \cdot \epsilon_0} {\bf{\hat r}}\]
 Per conoscere il campo elettrico della cavità sferica, si può considerare come se vi fosse un campo elettrico negativo, dovuto ad una densità di carica di volume $-\rho$, per cui si ha
 \[\vec{E}_+(r) = \frac{\rho \cdot r}{3 \cdot \epsilon_0} {\bf{\hat r}} \hspace{1em} \text{con } r < R_1 \hspace{3em}  \text{e} \hspace{3em} \vec{E}_- = -\frac{\rho \cdot r}{3 \cdot \epsilon_0} {\bf{\hat r}} \hspace{1em} \text{con } r < R_2\]
+
+\newpage
+\noindent
+\begin{center}
+  24 Ottobre 2022
+\end{center}
+Per quanto già esposto in precedenza, la funzione potenziale deve verificare
+\begin{itemize}
+  \item l'\textbf{equazione di Poisson}
+  \[\frac{\partial^2 V}{\partial x^2} + \frac{\partial^2 V}{\partial y^2} + \frac{\partial^2 V}{\partial z^2} = \frac{\rho}{\epsilon_0}\]
+  che può essere riscritto come
+  \[\text{div grad } V = -\frac{\rho}{\epsilon_0} \hspace{1em} \text{oppure} \hspace{1em} \nabla^2 V = -\frac{\rho}{\epsilon_0}\]
+
+  \item e, in particolare, nelle regioni di spazio prive di cariche elettriche, l'\textbf{equazione di Laplace}
+  \[\frac{\partial^2 V}{\partial x^2} + \frac{\partial^2 V}{\partial y^2} + \frac{\partial^2 V}{\partial z^2} = 0\]
+  che può essere riscritto come
+  \[\text{div grad } V = 0 \hspace{1em} \text{oppure} \hspace{1em} \nabla^2 V = 0\]
+\end{itemize}
+
+\vspace{1em}
+\subsection{Rotore del campo elettrico}
+Dal momento che il campo elettrico è conservativo, è ovvio che il lavoro compiuto su un percorso chiuso è nullo (si dice che \textbf{la circuitazione è sempre nulla}), ovvero
+\[\boxed{\underset{\text{curva chiusa } \gamma}{\oint} \va{E} \cdot \va{l} = 0}\]
+Esprimendo tale relazione in forma locale, si prenda in considerazione un rettangolo di lati $dx$ e $dy$ paralleli ai rispettivi assi, costruito intorno al punto $P$, si termina il rapporto
+\[\boxed{(\text{rot } \va{E})_z = \lim_{\dif S \to 0} \dfrac{\displaystyle{\underset{\text{rettangolo } dx dy}{\oint} \va{E} \cdot \va{l}}}{dS}}\]
+che è la componente $z$ di un vettore detto \textbf{rotore} del campo vettoriale $\va{E}$ calcolato nel punto $P$.\\
+Esplicitando il calcolo si ha ovviamente che
+\begin{itemize}
+  \item $\displaystyle{\int_A^B \vec E \cdot \dif \vec l = -\int_A^B (E {\bf{i}}) \cdot (\dif x {\bf{i}}) = -(E {\bf{i}}) \cdot \Delta x}$
+  \item $\displaystyle{\int_B^C \vec E \cdot \dif \vec l = \int_B^C (E {\bf{j}}) \cdot (\dif y {\bf{j}}) = (E {\bf{j}}) \cdot \Delta y}$
+  \item $\displaystyle{\int_C^D \vec E \cdot \dif \vec l = \int_C^D (E {\bf{i}}) \cdot (\dif x {\bf{i}}) = -(E {\bf{i}}) \cdot \Delta x}$
+  \item $\displaystyle{\int_D^A \vec E \cdot \dif \vec l = -\int_D^A (E {\bf{j}}) \cdot (\dif y {\bf{j}}) = -(E {\bf{j}}) \cdot \Delta y}$
+\end{itemize}
+In questo modo si ottiene che, in generale che
+\[\oint \vec E \cdot \dif \vec l = 0\]
+Nel caso del campo elettrostatico, quindi, l'integrale che compare nella definizione di cui sopra è certamente nullo (sempre per il fatto che il campo elettrostatico è conservativo).\\
+Un altro metodo per esprimere il rotore è
+\[(\text{rot } \vec E)_z = \nabla \times \vec E = \frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y}\]
+Per la memorizzazione di tale formula, è possibile costruire la seguente matrice
+\[\left[
+  \rowcolors{1}{white}{white}
+  \begin{array}{ccc}
+  i & j & k\\
+  \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z}\\
+  E_x & E_y & E_z
+\end{array}\right] \hspace{1em} \rightarrow \hspace{1em} \nabla \times \vec E = \left(\frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z},\frac{\partial E_z}{\partial x} - \frac{\partial E_x}{\partial z},\frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} \right)\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Il risultato di cui sopra poteva anche essere ottenuto differentemente. In particolare è noto che
+\[\vec E = - \nabla V\]
+per cui si ha che
+\[\frac{\partial E_z}{\partial y} = -\frac{\partial}{\partial y} \cdot \left(\frac{\partial V}{\partial z}\right) = - \frac{\partial^2 V}{\partial y \cdot \partial z}\]
+ma essendo $\partial y$ e $\partial z$ interscambiabili al denominatore, si ottiene che
+\[\frac{\partial E_z}{\partial y} = - \frac{\partial^2 V}{\partial y \cdot \partial z} = -\frac{\partial}{\partial z} \cdot \left(\frac{\partial V}{\partial y}\right) = \frac{\partial E_y}{\partial z}\]
+
+\vspace{1em}
+\subsection{Superfici equipotenziali}
+Una superficie equipotenziale è una superficie sulla quale il potenziale è costante. Le forze elettriche non compiono lavoro quando una particella carica si sposta su una superficie potenziale. Come accade per le linee di forza del campo elettrico, anche le superfici equi-potenziali sono utili per farsi un'idea intuitiva dell'andamento spaziale del potenziale.\\
+Nel caso di superfici equipotenziali di una sfera uniformemente carica, è noto che
+\[V=\frac{Q}{4 \pi \epsilon_0 r}\]
+È facile capire da tale equazione che $V$ è costante se $r$ è costante. Dal momento the una superficie con $r$ costante è una superficie sferica, le superfici equipotenziali sono sferiche, e poiché $r$ è misurata dal centro della sfera carica, le superfici equipotenziali sono concentriche con la sfera.\\
+È noto, inoltre, che le superfici equipotenziali in un campo uniforme sono piani paralleli perpendicolari a $E$. Nel caso di un condensatore piano, con le superfici equipotenziali e le linee di forza tra le armature, è facile evincere che esse saranno perpendicolari alle superfici equipotenziali a carica nei punti di intersezione. Ciò deve verificarsi in tutti i casi perché, se E ha una componente tangente a una superficie, la forza elettrica compie lavoro quando una particella carica si muove sulla superficie: ne deriva che $\vec E$ non può avere una componente tangente a una superficie equipotenziale.
+
+\vspace{1em}
+\noindent
+\subsection{Proprietà elettrostatiche di un conduttore}
+Si è già visto che il campo elettrico all'interno di un conduttore è nullo. Essendo il campo elettrico il gradiente del potenziale, se il primo è nullo significa che il secondo è costante.\\
+Sapendo che la carica di un conduttore sta sulla superficie, si può analizzare la variazione di potenziale per una sfera carica di raggio $r_0$ all'aumentare della distanza dal centro della stessa. Naturalmente, fintantoché che $0<r<r_0$ il potenziale è quello della superficie:
+\[V=\frac{Q}{4 \pi \epsilon_0 r_0}\]
+Allontanandosi dal centro, con $r>r_0$, si ha che il potenziale segue la legge seguente
+\[V=\frac{Q}{4 \pi \epsilon_0 r}\]
+decrescendo all'aumentare di $r$.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Se si considera una cavità interna ad un conduttore carico sulla sua superficie, non può presentare una carica sulla superficie interna, in quanto questo significherebbe ci potrebbero essere dei movimenti di carica all'interno del conduttore; in altre parole, esisterebbero dei punti interni al conduttore con potenziali differenti, ma è noto che il potenziale interno ad un conduttore è costante, essendo il campo elettrico nullo.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Dato un generatore di Van de Graaff, i valori assunti dalla carica $Q_{\max}$ e dal potenziale $V_{\max}$ della calotta sono determinati dalla rigidità dell'aria circostante, con rigidità $E_{\max} = 3 \times 10^6 \dfrac{\text{V}}{\text{m}}$.\\
+Essendo la calotta sferica, di raggio $r_0$, il campo elettrico è
+\[E=\frac{\vert Q \vert}{4 \pi \epsilon_0 r_0^2} = \frac{\vert V \vert}{r_0}\] Semplicemente, da ciò, si evince quali sono $Q_{\max}$ e $V_{\max}$ secondo le formule seguenti:
+\[Q_{\max} = E_{\max} \cdot 4 \pi \epsilon_0 r_0^2 \hspace{1em} \text{e} \hspace{1em} V_{\max} = E_{\max} \cdot r_0\]
+
+\newpage
+\section{Conduttori, capacità e dielettrici}
+La capacità, in generale, viene definita come segue
+\[C=\frac{Q}{V}\]
+e, nel caso di una sfera isolata, diviene
+\[V = \frac{Q}{4 \pi \epsilon_0 R} \hspace{1em} \rightarrow \hspace{1em} C = \frac{Q}{V} = 4 \pi \epsilon_0 R\]
+Nel caso di un condensatore, invece, si ottiene
+\[V=\frac{\sigma}{\epsilon_0} \cdot d \frac{Q}{S \cdot \epsilon_0} \hspace{1em} \rightarrow \hspace{1em} C = \frac{S \cdot \epsilon_0}{d}\]
+in cui $S$ è la superficie dell'armatura, mentre $d$ è la distanza tra le armature.\\
+L'unità di misura della capacità è il \textbf{farad} [F], definita come
+\[\text{F} = \frac{[\text{C}]}{[\text{V}]}\]
+Si osservi che la capacità è sempre positiva, per cui per il suo calcolo, per convenzione, si considerano generalmente i valori assoluti.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che l'unità di misura della capacità è il \textbf{farad} [F], non il Faraday, in quanto la costante di Faraday è la quantità totale di carica elettrica di una mole di cariche elementari.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si approssimi la terra come una sfera, di raggio $R_\text{T} = 6370$ km. Approssimando la sfera ad un conduttore, si può calcolare la capacità della terra sferica come
+\[V_\text{T} = \frac{Q_\text{T}}{4 \pi \epsilon_0 R_\text{T}} \hspace{1em} \rightarrow \hspace{1em} C_\text{T} = \frac{Q_\text{T}}{V_\text{T}} = 4 \pi \epsilon_0 \cdot R_\text{T} = 9 \times 10^{-9} \dfrac{\text{F}}{\text{m}} \cdot 6.370 \times 10^6 \text{ m} = 7.09 \times 10^{-4} F = 709 \mu\text{F}\]
+Per calcolare quanta carica fornire affinché il potenziale della sfera cambi di $1.00 \mu$V è sufficiente calcolare
+\[\Delta Q_\text{T} = C_\text{T} \cdot \Delta V_\text{T} = 7.09 \times 10^{-6} \text{ F} \cdot 1.00 \times 10^{-6} \text{ V} = 709 \times 10^{-12} \text{C} = 709 \text{ pC}\]
+
+
+\newpage
+\noindent
+\begin{center}
+  25 Ottobre 2022
+\end{center}
+Date le armature di un condensatore, il modo più immediato per caricarle è quello di collegarvi una batteria che presenta una forza elettromotrice tale da spostare gli elettroni da un'armatura all'altra fino ad una differenza di potenziale pari a $\dfrac{Q}{C}$, con $C$ capacità del condensatore.
+
+\vspace{1em}
+\noindent
+\subsubsection{Capacità di un cavo coassiale}
+Il cavo coassiale è formato da un filo conduttore circondato da un cilindro conduttore coassiale; fra questi è interposto un isolante. Allora, il campo elettrico generato da un filo conduttore è, ovviamente,
+\[E=\frac{\lambda}{2 \pi \epsilon_0 R}\]
+in cui $\lambda$ è la densità lineare di carica del filo è $\lambda=\frac{Q}{L}$, con $L$ lunghezza del filo. Il potenziale, di conseguenza, è
+\[V=-\int_a^b \vec E \cdot \dif \vec l = -\int_{R_a}^{R_b} \frac{Q}{L \cdot 2 \pi \epsilon_0 R} \dif R = -\frac{Q}{L \cdot 2 \pi \epsilon_0} \cdot \int_{R_a}^{R_b} \frac{\dif R}{R} = -\frac{Q}{L \cdot 2 \pi \epsilon_0} \cdot \log \left(\frac{R_b}{R_a}\right)\]
+Volendo, ora, calcolare la capacità del cavo coassiale, si ottiene
+\[C=\left \vert \dfrac{Q}{V} \right \vert = Q \cdot \frac{L \cdot 2 \pi \epsilon_0}{Q \cdot \log \left(\dfrac{R_b}{R_a}\right)} = \dfrac{2\pi \epsilon_0 L}{\log \left(\dfrac{R_b}{R_a}\right)}\]
+
+\vspace{1em}
+\noindent
+\subsection{Condensatori in serie e in parallelo}
+Gli elementi di un circuito possono essere collegati in molti modi diversi. Due disposizioni semplici sono quelle in cui gli elementi sono collegati in serie e in parallelo.
+
+\vspace{1em}
+\noindent
+\subsubsection{Condensatori in serie}
+In generale, dati dei componenti passivi di un circuito, la differenza di potenziale tra gli estremi di un sistema costituito da un numero qualsiasi di dispositivi elettrici collegati in serie è la somma delle differenze di potenziale ai capi dei singoli dispositivi.\\
+Nell'ipotesi in cui tutti i condensatori sono inizialmente scarichi e solo successivamente vengano collegati fra loro e ad una batteria, allora appare evidente che la carica $Q$ totale del sistema sia sempre la stessa, per cui tutti i condensatori hanno la medesima carica $Q_1=Q_2=Q$.\\
+Non solo, ma la capacità equivalente di un sistema di condensatori, in generale, è la capacità di un singolo condensatore che, quando viene usato in luogo del sistema, ha lo stesso effetto esterno. Dati i condensatori in serie, aventi capacità $C_1$ e $C_2$ rispettivamente, il condensatore risultante deve possedere una carica di valore assoluto $Q$ su ciascuna delle armature quando la differenza di potenziale ai suoi capi è $V$, vale a dire che
+\[C_{1,2}=\frac{Q}{V} \hspace{1em} \text{ossia} \hspace{1em} V=\frac{Q}{C_{1,2}}\]
+ma, ovviamente, è anche noto che
+\[V_1=\frac{Q}{C_1} \hspace{1em} \text{e} \hspace{1em} V_2=\frac{Q}{C_2}\]
+e sostituendo tali relazioni nella formula di partenza si evince che
+\[V=\frac{Q}{C_{1,2}}=\frac{Q}{C_{1}}+\frac{Q}{C_{2}}\]
+per cui
+\[\boxed{\frac{1}{C_{1,2}} = \frac{1}{C_1} + \frac{1}{C_2}=\frac{C_1+C_2}{C_1 \cdot C_2}}\]
+In generale, infatti, la capacità equivalente $C_\text{eq}$ di un numero qualsiasi di condensatori collegati in serie è legata alla capacità dei singoli condensatori dalla relazione
+\[\frac{1}{C_\text{eq}}=\sum_i\frac{1}{C_i}\]
+
+\vspace{1em}
+\noindent
+\subsubsection{Condensatori in parallelo}
+In generale, dati dei componenti passivi di un circuito, la differenza di potenziale tra gli estremi di un sistema costituito da un numero qualsiasi di dispositivi elettrici collegati in parallelo è sempre la stessa.\\
+Per produrre lo stesso effetto esterno di due condensatori disposti in parallelo, un singolo condensatore con capacità $C_{1,2}$ deve possedere una carica $Q=Q_1+Q_2$, quando la differenza di potenziale ai suoi capi è $V$. Deve essere, cioè
+\[C_{1,2}=\frac{Q}{V}=\frac{Q_1}{V}+\frac{Q_2}{V}\]
+ma siccome
+\[C_1=\frac{Q_1}{V} \hspace{1em} \text{e} \hspace{1em} C_2=\frac{Q_2}{V}\]
+si ha che
+\[\boxed{C_{1,2}=C_1+C_2}\]
+In generale, infatti, la capacità equivalente $C_\text{eq}$ di un numero qualsiasi di condensatori collegati in parallelo è legata alla capacità dei singoli condensatori dalla relazione
+\[{C_\text{eq}}=\sum_i{C_i}\]
+
+\vspace{1em}
+\noindent
+\textbf{Energia elettrostatica}
+In precedenza, è stato introdotto il concetto di \textbf{energia potenziale di una carica in un campo elettrico}, definita come l'opposto del lavoro necessario per portare una carica di prova in un generico punto dello spazio.\\
+Si è così ottenuta una funzione della posizione che, divisa per il valore della carica di prova, ha permesso di ottenere la funzione potenziale elettrostatico.\\
+Il concetto di \textbf{energia elettrostatica di una distribuzione di cariche}, invece, è legato al lavoro che è necessario fare per \quotes{costruire} (portare le cariche dall'infinito alla posizione loro assegnata) la distribuzione di cariche o, equivalentemente, il lavoro che si ottiene nello \quotes{smontare} (portare le cariche all'infinito) la distribuzione di cariche.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Determinare l'energia elettrostatica di una distribuzione di cariche costituita da tre cariche $q_1$, $q_2$ e $q_3$ poste ai vertici di un triangolo equilatero di lato $d$.\\
+Fissata una carica $q_1$ in un vertice, senza compiere lavoro, si sposta la carica $q_2$ nella sua posizione, compiendo il lavoro
+\[W_2=\left(\frac{1}{4 \pi \epsilon_0} \cdot \frac{q_1}{d}\right) \cdot q_2\]
+e, similmente per la carica $q_3$ si ottiene
+\[W_3=\left(\frac{1}{4 \pi \epsilon_0} \cdot \frac{q_1}{d} + \frac{q_2}{d}\right) \cdot q_3\]
+per cui l'energia elettrostatica totale è $U=W_1+W_2+W_3$, ottenendo
+\[U=\frac{1}{4 \pi \epsilon_0} \cdot \left(\frac{q_1 q_2}{d}+\frac{q_1q_3}{d}+\frac{q_2q_3}{d}\right)\]
+che si generalizza come segue
+\[U=\frac{1}{4 \pi \epsilon_0} \cdot \frac{1}{2} \cdot \sum_{i,j=1,i\neq j}^{n} \frac{q_i \cdot q_j}{r_{i,j}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Nel caso di un condensatore, si ha che la variazione $\dif U$ dell'energia potenziale del sistema di cariche dovute al trasferimento della carica $\dif Q$ da parte di una batteria è
+\[\dif U = V \dif Q\]
+posta $V$ l'energia potenziale per unità di carica. Per determinare l'energia $U$ fornita al condensatore durante la carica da $0$ a $Q$, si ottiene
+\[U = \int_0^Q \dif U = \int_0^Q V \dif Q\]
+Esplicitando $V$ come
+\[V=\frac{Q}{C}\]
+si ottiene facilmente che
+\[U = \int_0^Q \dif U = \int_0^Q V \dif Q = \int_0^Q \frac{Q}{C} \dif Q = \frac{1}{2}\frac{Q^2}{C}\]
+in cui sono valide tutte le formulazioni seguenti
+\[U=\frac{1}{2}\frac{Q^2}{C} \hspace{2em} U = \frac{1}{2}VQ \hspace{2em} U=\frac{1}{2}CV^2\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri il caso di un condensatore piano di cui sono note le proprietà seguenti
+\[C=\epsilon_0 \cdot \frac{A}{d} \hspace{1em} \text{e} \hspace{1em} V = Ed\]
+allora l'energia elettrostatica di un condensatore piano è
+\[U=\frac{1}{2}CV^2=\frac{1}{2} \epsilon_0 E^2 \cdot (Ad)\]
+Ma essendo $Ad$ nient'altro che un volume, è possibile considerare la densità di energia elettrostatica di un campo elettrico
+\[\boxed{u=\frac{1}{2} \epsilon_0 E^2}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Due considerazioni di capacità $C_1=2.3 \hspace{0.5em} \mu$F e $C_2=4.6 \hspace{0.5em} \mu$F sono collegati in serie, in cui la differenza di potenziale tra gli estremi del sistema è $\Delta V = 35$ V.\\
+La capacità equivalente è, quindi
+\[\frac{1}{C_{1,2}} = \frac{1}{C_1} + \frac{1}{C_2} = \frac{C_1 + C_2}{C_1 \cdot C_2} = \frac{(2.3 \hspace{0.5em}\mu\text{F}) + (4.6 \hspace{0.5em}\mu\text{F})}{(2.3 \hspace{0.5em}\mu\text{F}) \cdot (4.6 \hspace{0.5em}\mu\text{F})} = 1.5\hspace{0.5em}\mu\text{F}\]
+È noto che la carica dei singoli condensatori è uguale alla carica del condensatore equivalente, ottenendo
+\[Q=Q_1+Q_2=C \cdot V = (1.5 \hspace{0.5em}\mu\text{F}) \cdot (35 \text{ V}) = 53 \hspace{0.5em}\mu\text{C}\]
+Al fine di calcolare la differenza di potenziale ai capi di ciascun condensatore, si procede come segue
+\[V_1 = \frac{Q_1}{C_1} = \frac{53 \hspace{0.5em}\mu\text{C}}{2.3 \hspace{0.5em}\mu\text{F}} = 23 \text{ V} \hspace{1em} \text{e} \hspace{1em} V_2 = \frac{Q_2}{C_2} = \frac{53 \hspace{0.5em}\mu\text{C}}{4.6 \hspace{0.5em}\mu\text{F}} = 12 V\]
+Che è corretto, in quanto $V_1+V_2=23\text{ V}+12\text{ V}=35\text{ V}$.
+
+\newpage
+\noindent
+\begin{center}
+  26 Ottobre 2022
+\end{center}
+\subsection{Proprietà elettrostatiche dei dielettrici}
+Si considerino due armature parallele di un condensatore piano e carico. Quando tra le armature vi è il vuoto, il voltmetro indica il valore $V_0$. Quando tra le armature del condensatore carico c'è un dielettrico, il voltmetro indica il valore $V$. In ogni caso, per ogni dielettrico $v_0 > V$.\\
+Se tale esperimento viene ripetuto con materiali di diversi tipi, si vede che il rapporto $\dfrac{V_0}{V}$ dipende dal tipo di materiale. Gli isolanti vengono spesso chiamati \textit{dielettrici}, e perciò tale rapporto viene chiamato \textbf{costante dielettrica relativa} $\mathcal{K}$ è
+\[\boxed{\mathcal{K} = \frac{V_0}{V}}\]
+Si considerino, ora, le grandezze $E$, $C$ e $U$ quando un dielettrico viene interposto tra le armature di un condensatore carico (senza una batteria collegata). Denotando con il pedice $0$ le grandezze in corrispondenza del vuoto tra le armature, è immediato evincere che, per il campo elettrico
+\[\mathcal{K}=\frac{V_0}{V}=\frac{E_0 \cdot d}{E \cdot d}=\frac{E_0}{E} \hspace{1em} \rightarrow \hspace{1em} E=\frac{E_0}{\mathcal{K}}\]
+Pertanto, sia il potenziale, che il campo elettrico, decrescono con l'interposizione di un dielettrico fra le armature di un condensatore. Per quanto riguarda la capacità, invece si ha
+\[\mathcal{K}=\frac{V_0}{V}=\frac{Q}{C_0} \cdot \frac{C}{Q} = \frac{C}{C_0} \hspace{1em} \rightarrow \hspace{1em} C={\mathcal{K}}\cdot C_0\]
+
+\vspace{2em}
+\noindent
+\textbf{Esempio}: Si consideri un condensatore piano costruito inserendo a sandwich un foglio di carta di spessore $0.14$ mm tra due fogli di alluminio, poste le dimensioni del foglio pari a $15$ mm per $480$ mm.\\
+La capacità del condensatore è
+\[C = \mathcal{K} \cdot C_0 = \mathcal{K} \cdot \frac{\epsilon_0 \cdot A}{d} = \dfrac{3.6 \cdot \left(8.85 \times 10^{-12} \dfrac{\text{F}}{\text{m}}\right) \cdot \left(1.5 \times 10^{-2} \text{ m}\right) \cdot (0.48 \text{ m})}{1.4 \times 10^{-4} \text{ m}} = 1.6 \text{ nF}\]
+La massima differenza di potenziale che può essere applicata tra le sue armature senza che si verifichi la perforazione. Conoscendo la rigidità dielettrica della carta $E_{\max}$ si evince che
+\[V_{\max} = E_{\max} \cdot d = \left(15 \times 10^{6} \frac{V}{\text{m}}\right) \cdot (1.4 \times  10^{-4} \text{ m}) = 2.1 \text{ kV}\]
+
+\vspace{1em}
+\noindent
+\subsection{Descrizione molecolare dei dielettrici}
+Si supponga che uno strato di dielettrico venga interposto nel campo uniforme $\va{E}_0$ tra le armature di un condensatore piano. Il dielettrico si polarizza perché il campo induce dei dipoli e i dipoli permanenti, se ve ne sono, vengono allineati al campo. A causa di ciò, sulle due fasce di dielettrico adiacenti alle armature, compare una distribuzione superficiale di carica di densità $\sigma_p$ (dove $p$ sta per polarizzazione), e il segno di questa carica indotta su ciascuna faccia del dielettrico è opposto a quella della carica presente sull'armatura adiacente. Per distinguerla, si indicherà la densità di carica delle armature con $\sigma_l$, dove $l$ sta per libera.\\
+Pertanto si ottiene che
+\[\va{E} = \va{E}_0 + \va{E}_p\]
+se si dispone l'asse $x$ nella direzione di $\va{E}$, si ha
+\[E {\bf{\hat i}} = E_0 {\bf{\hat i}} - E_p {\bf{\hat i}} = (E_0-E_p){\bf{\hat i}}\]
+per cui
+\[E=E_0-E_p=\frac{\vert \sigma_l \vert-\vert \sigma_p \vert}{\epsilon_0}\]
+Ma esprimendo le densità in funzione di $\mathcal{K}$, si ha che
+\[E=\frac{E_0}{\mathcal{K}}=\frac{\vert \sigma_l \vert}{\mathcal{K} \cdot \epsilon_0} = \frac{\vert \sigma_l \vert-\vert \sigma_p \vert}{\epsilon_0}\]
+Risolvendo rispetto a $\vert \sigma_p \vert$ si ottiene
+\[\boxed{\vert \sigma_p \vert = \frac{\mathcal{K}-1}{\mathcal{K}} \cdot \vert \sigma_l \vert}\]
+
+\vspace{2em}
+\noindent
+\textbf{Esercizio 1}: Un dielettrico è parzialmente inserito per un tratto $x$ tra le armature (poste a distanza $d$) di un condensatore piano rettangolare di lati $w_1$ e $w_2$.\\
+Si dimostri che la capacità è
+\[C=\frac{\epsilon_0 w_2 \cdot \left[(\mathcal{K}-1)x + w_1\right]}{d}\]
+dove $\mathcal{K}$ è la costante dielettrica relativa del dielettrico. Appare evidente che il modo per determinare la capacità complessiva del condensatore è quello di interpretarlo come due condensatori in parallelo che presentano due dielettrici differenti tra le armature, per cui
+\begin{align*}
+  &C_1=\dfrac{\epsilon_0 \cdot A}{d}=\dfrac{\epsilon_0 \cdot (w_1-x)w_2}{d}\\
+  &C_2=\dfrac{\mathcal{K} \cdot \epsilon_0 \cdot A}{d}=\dfrac{\mathcal{K} \cdot \epsilon_0 \cdot w_2}{d}
+\end{align*}
+ed essendo i condensatori in parallelo, la capacità equivalente è data dalla somma della capacità di ciascun condensatore:
+\[C_\text{eq}=C_1+C_2=\dfrac{\epsilon_0 \cdot (w_1-x)w_2}{d}+\dfrac{\mathcal{K} \cdot \epsilon_0 \cdot w_2}{d}=\frac{\epsilon_0 w_2 \cdot \left[(\mathcal{K}-1)x + w_1\right]}{d}\]
+Nell'ipotesi in cui il condensatore venga caricato e staccato dalla batteria di carica prima dell'inserimento del dielettrico; si ricavi un'espressione della forza elettrica che agisce sullo strato di dielettrico e si determini la direzione di tale forza.\\
+Ovviamente è nota la relazione seguente per la forza elettrostatica
+\[U=\frac{1}{2} \frac{Q^2}{C}=-W\]
+ma sapendo che
+\[W=\int_a^b \hat F \cdot \dif \hat r \hspace{1em} \rightarrow \hspace{1em} dW=Fdr \hspace{1em} \rightarrow \hspace{1em} F=\frac{dW}{dr}\]
+per cui si ottiene che
+\[F=-\frac{d}{dx}\frac{1}{2} \frac{Q^2}{C \cdot x} =-\frac{d}{dx} \frac{Q^2}{2} \cdot \frac{d}{\epsilon_0 \cdot w_2 \cdot \left[w_1+(\mathcal{K}-1)x\right]}=\frac{Q^2}{2} \cdot \frac{(\mathcal{K}-1)\cdot d}{\epsilon_0 \cdot w_2 \cdot \left[w_1+(\mathcal{K}-1)x\right]^2}\]
+
+\vspace{2em}
+\noindent
+\textbf{Esercizio 2}: Si consideri un condensatore in serie con due condensatori in parallelo. Per prima cosa si calcola la capacità equivalente dei due condensatori in parallelo, per cui
+\[C_{2,3}=C_2+C_3=2.9 \hspace{0.5em}\mu\text{F}+1.8 \hspace{0.5em}\mu\text{F} = 4.7 \hspace{0.5em}\mu\text{F}\]
+Da ciò segue che la capacità equivalente finale è data
+\[\frac{1}{C_{1,2,3}}=\frac{1}{C_1}+\frac{1}{C_{2,3}}=\frac{C_1 + C_{2,3}}{C_1 \cdot C_{2,3}} = \dfrac{(4.7+2.4)\hspace{0.5em}\mu\text{F}}{(2.3\hspace{0.5em}\mu\text{F}) \cdot (2.4\hspace{0.5em}\mu\text{F})} = \frac{1}{16\hspace{0.5em}\mu\text{F}}\]
+La differenza di potenziale agli estremi del sistema è $53$ V. Ciò permette di affermare che $V=V_1+V_{2,3}$ e la carica complessiva è $Q=V \cdot C_{1,2,3}$, da cui si evince che
+\begin{align*}
+  &V_1=\frac{Q}{C_1}=\frac{V \cdot C_{1,2,3}}{C_1} = \frac{(53 \text{ V}) \cdot (1.6\hspace{0.5em}\mu\text{F})}{2.4\hspace{0.5em}\mu\text{F}} = 35 \text{ V}\\
+  &V_{2,3}=\frac{Q}{C_{2,3}}=\frac{V \cdot C_{1,2,3}}{C_{2,3}} = \frac{(53 \text{ V}) \cdot (1.6\hspace{0.5em}\mu\text{F})}{4.7\hspace{0.5em}\mu\text{F}} = 18 \text{ V}\\
+\end{align*}
+in cui, essendo i condensatori $2$ e $3$ in parallelo, è ovvio che $V_{2,3}=V_2=V_3$. Per quanto riguarda la carica di ciascun condensatore, è immediato evincere che
+\begin{align*}
+  &Q_1=V_1 \cdot C_1 = (35\text{ V}) \cdot (2.4\hspace{0.5em}\mu\text{F}) = 84\hspace{0.5em}\mu\text{C}\\
+  &Q_2=V_{2,3} \cdot C_2 = (18\text{ V}) \cdot (1.8\hspace{0.5em}\mu\text{F}) =32\hspace{0.5em}\mu\text{C}\\
+  &Q_3=V_{2,3} \cdot C_3 = (18 \text{ V}) \cdot (1.9\hspace{0.5em}\mu\text{F})=52\hspace{0.5em}\mu\text{C}
+\end{align*}
+
+\vspace{2em}
+\noindent
+\textbf{Esercizio 3}: Si calcoli la densità di energia in un punto posto a $0.15$ m dal centro di una distribuzione di carica a simmetria sferica di raggio $55$ mm e carica $18$ nC.\\
+Poiché il punto in questione si trova all'esterno della distribuzione di carica, il campo è uguale a quello generato da una carica puntiforme posta nel centro della distribuzione di carica, da cui
+\[u=\frac{1}{2}\epsilon_0E^2=\frac{1}{2}\epsilon_0\left(\frac{Q}{4 \pi \epsilon_0 r^2}\right)^2 = \frac{(18 \text{ nC}^2)}{32 \pi^2 \cdot \left(8.85 \times 10^{-12} \dfrac{\text{F}}{\text{m}}\right) \cdot (0.15 \text{m})^4} = 230 \hspace{0.5em}\mu\frac{\text{J}}{\text{m}^2}\]
+
 \end{document}
