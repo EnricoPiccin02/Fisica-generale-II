@@ -1254,4 +1254,451 @@ in cui, essendo i condensatori $2$ e $3$ in parallelo, è ovvio che $V_{2,3}=V_2
 Poiché il punto in questione si trova all'esterno della distribuzione di carica, il campo è uguale a quello generato da una carica puntiforme posta nel centro della distribuzione di carica, da cui
 \[u=\frac{1}{2}\epsilon_0E^2=\frac{1}{2}\epsilon_0\left(\frac{Q}{4 \pi \epsilon_0 r^2}\right)^2 = \frac{(18 \text{ nC}^2)}{32 \pi^2 \cdot \left(8.85 \times 10^{-12} \dfrac{\text{F}}{\text{m}}\right) \cdot (0.15 \text{m})^4} = 230 \hspace{0.5em}\mu\frac{\text{J}}{\text{m}^2}\]
 
+\newpage
+\noindent
+\begin{center}
+  7 Novembre 2022
+\end{center}
+\textbf{Riassunto}: Fino a questo momento si è studiata l'elettrostatica, in cui le cariche erano stazionarie.\\
+Alla base dell'elettrostatica si pone la \textbf{forza di Coulomb}, ovvero
+\[\vec{F}_{1,2} = \dfrac{1}{4 \pi \epsilon_0} \cdot \dfrac{q_1 q_2}{r^2} \cdot \hat{r}\]
+in cui il vettore $\vec{r}$ è $\vec{x}_2 - \vec{x}_1$, ossia il vettore in direzione da $x_1$ a $x_2$.\\
+Il campo elettrico di una generica distribuzione di cariche si calcola come
+\[\vec{E}(\vec{p}) = \dfrac{1}{4 \pi \epsilon_0} = \iiint \rho(x) \cdot \dfrac{\vec p - \vec x}{\vert \vec \rho - \vec x \vert^3} \dif^3 x\]
+ciò risulta essere sufficiente per studiare i fenomeni elettrostatici, ma è una formulazione non idonea per lo studio di fenomeni elettrodinamici.\\
+In supporto a tali concetti vi è la legge di Gauss
+\[\Phi_E = \underset{S \text{ chiusa}}{\int \int} \vec E \cdot \dif \vec{S} = \dfrac{1}{\epsilon_0} \cdot \iiint \rho(x) \cdot \dif^3 x = \dfrac{Q_{\text{int}}}{\epsilon_0}\]
+che può essere riscritta in forma differenziale, ottenendo
+\[\text{div } \vec E = \dfrac{\rho}{\epsilon_0}\]
+che risulta essere un primo passo per conoscere i problemi di interesse. Un'altra significativa proprietà da conoscere è la conservatività del campo elettrico. Si ottiene, quindi
+\[\underset{S \text{ chiusa}}{\int} \vec E \cdot \dif \vec l = 0\]
+a cui si associa l'equazione differenziale seguente
+\[\text{rot } \vec E = \vec 0\]
+in questo modo è possibile anche introdurre il concetto di potenziale:
+\[\vec E = -\text{grad} V \hspace{1em} \rightarrow \hspace{1em} V_2 = V_1 - \int_1^2 \vec E \cdot \dif \vec l\]
+Si può quindi, ottenere la cosiddetta \textbf{equazione di Laplace}, descritta come
+\[\nabla^2 V = - \dfrac{\rho}{\epsilon_0}\]
+in cui $\nabla^2 V$ prende il nome di laplaciano di $V$.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si ricordi che
+\[\vec \nabla = \left(\dfrac{\partial}{\partial x}, \dfrac{\partial}{\partial y}, \dfrac{\partial}{\partial z}\right)\]
+per cui si ottiene che
+\begin{align*}
+  & \text{div } \vec E = \vec \nabla \cdot \vec E\\
+  & \text{rot } \vec E = \vec \nabla \times \vec E\\
+\end{align*}
+ma siccome è noto che
+\[\vec \nabla \cdot \vec E = \dfrac{\rho}{\epsilon_0} \hspace{1em} \text{e} \hspace{1em} \vec \nabla \times \vec E = \vec 0\]
+ne segue, quindi, che
+\[\vec E = - \vec \nabla \cdot V \hspace{1em} \text{e} \hspace{1em} \nabla^2 \cdot V = \dfrac{\rho}{\epsilon_0}\]
+
+\newpage
+\noindent
+\section{Corrente e Resistenze}
+Si consideri un filo conduttore collegato ad una sorgente elettrica, come una batteria. Gli elettroni liberi possono muoversi attraversi il reticolo; essi sono i portatori di carica in un metallo.\\
+Si supponga di considerare il filo parallelo all'asse $x$ e che le cariche si muovano lungo il conduttore con velocità costante $\vec{v}_d$ concorde e parallela all'asse $x$ positiva. Sezionando il filo conduttore, si definisce $\dif Q$ il valore assoluto della carica che nel tempo $\dif t$ attraversa la sezione trasversale piana del conduttore indicata con $S$. L'\textbf{intensità di corrente} $I$ del filo è
+\[\boxed{I=\dfrac{\dif Q}{\dif t}} \hspace{1em} \text{ in cui } \hspace{1em} I = \dfrac{[\text{C}]}{[\text{s}]} = \text{A}\]
+in cui A è l'unità di misura della corrente elettrica nel Sistema Internazionale, chiamata ampere. Tale unità di misura è nella norma, a differenza del Coulomb o del Farad che sono molto grandi.\\
+È fondamentale osservare che la corrente è uno scalare e può avere un segno: a tal proposito, è facile capire che contare le cariche in un senso o nell'altro non cambia il segno della corrente; tuttavia, per convenzione, si considera il verso di percorrenza positivo della corrente come quello concorde con l'asse $x$ positivo.\\
+Per calcolare il valore di $\dif Q$, si consideri una porzione del flusso di carica di ampiezza $D \dif t$; la densità dei portatori di carica è
+\[n = \dfrac{\# \text{ portatori di carica}}{V}\]
+per cui appare evidente che
+\[\dif Q = n S v_d \dif t q\]
+da cui appare evidente che
+\[\dfrac{\dif Q}{\dif t} = I = n S v_d q\]
+in cui tanto $v_d$ quanto $q$ possono avere segno. Tuttavia, non ha senso considerare il segno della carica quando non è noto il verso del flusso della corrente.
+
+\vspace{2em}
+\noindent
+\textbf{Esercizio}: Si determini la densità $n$ dei portatori in un filo di rame ammettendo che vi sia un portatore di carica (ossia l'elettrone) per atomo di rame.\\
+La massima intensità di corrente che è consigliabile far circolare in un filo di rame è del tipo preferibilmente usato nei circuiti domestici (raggio = $0.81$ mm, con $S = 2.1 \times 10^{-6}$ m${^2}$) è di $15$ A.\\
+Usando tale valore si deve calcolare la \textbf{velocità di deriva} $v_d$ che ne risulta.
+
+\vspace{1em}
+\noindent
+È noto che la densità molare si calcola come
+\[n = N_A \cdot \dfrac{\rho_m}{M}\]
+in cui $N_A$ è il numero di Avogadro, $\rho_m$ è la densità di massa del rame $\left( = 8.95 \times 10^3 \dfrac{\text{kg}}{\text{m}^3}\right)$ e $M$ è il peso molecolare del rame $\left(= 63.5 \dfrac{\text{g}}{\text{mol}}\right)$. Allora è facile capire che
+\[n = \dfrac{\left(6.022 \times 10^{23} \text{ mol}^{-1}\right) \cdot \left(8.95 \times 10^6 \dfrac{\text{g}}{\text{m}^3} \right)}{63.6 \dfrac{\text{g}}{\text{mol}}} = 8.48 \times 10^{28} \dfrac{\text{portatori}}{\text{m}^3}\]
+Risolvendo l'equazione rispetto a $v_d$ e ponendo $\vert q \vert = e$, e si ha
+\[v_d = \dfrac{I}{n \cdot S \cdot e} = \dfrac{15 \text{ A}}{\left(8.48 \times 10^{28} \dfrac{\text{portatori}}{\text{m}^3}\right) \cdot \left(2.1 \times 10^{-6} \text{ m}^2\right) \cdot \left(1.6 \times 10^{-19} \text{ C}\right)} = 5.3 \times 10^{-4} \dfrac{\text{m}}{\text{s}} \cong 2 \dfrac{\text{m}}{\text{h}} \]
+che è estremamente lenta.
+
+\vspace{1em}
+\noindent
+\subsection{Densità di corrente elettrica}
+La corrente, per come è stata definita, è uno scalare che presenta un segno dettato da una convenzione. Per descrivere il flusso della carica in singoli punti interni a un conduttore, si usa il concetto di \textbf{densità di corrente} $\va{j}$, la quale è una grandezza vettoriale; se la densità di corrente è uniforme, il modulo $j$ della densità di corrente è il rapporto tra l'intensità di corrente $I$ e l'area $S$ della sezione del filo:
+\[\boxed{j = \dfrac{I}{S}}\]
+Sostituendo all'interno di tale equazione l'espressione precedentemente ottenuta $I=n S v_d q$, si ottiene
+\[j = \dfrac{I}{S} = n q v_d\]
+per cui è immediato esprimere tale risultato come equazione vettoriale, in funzione della velocità di deriva $\vec{v}_d$, ossia
+\[\va{v}_d = n q \va{v}_d\]
+per cui è possibile esprimere $I=j \cdot S = \vert \vec j \vert \cdot \vert \vec S \vert$, in cui $j$ è un vettore, ma anche ad $S$ è possibile associare un vettore superficie. Il prodotto dei moduli di cui sopra, però, può essere scritto anche come un prodotto scalare in cui i due vettori fattori sono necessariamente parallele e concordi. Pertanto, l'intensità di corrente non è altro che il valore del flusso della corrente attraverso la superficie $S$. In altre parole si ottiene che
+\[\boxed{I=\iint \vec j \cdot \dif \vec S}\]
+per cui l'intensità di corrente $I$ è il flusso della densità di corrente $j$ attraverso la superficie $S$.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Il risultato di cui sopra è immediato se si considera come sezione un taglio trasversale e ortogonale al cavo. Tuttavia ciò sarebbe stato vero anche se avessimo ottenuto una qualsiasi superficie risultante dal sezionamento del cavo in altro modo.
+
+\vspace{1em}
+\noindent
+\subsection{Equazione di continuità e conservazione della carica elettrica}
+Si consideri una generica superficie chiusa e carica di forma non regolare. Si supponga la carica interna variabile nel tempo $Q_\text{int}(t)$. Posto il vettore superficie $\dif \vec S$ e il vettore densità di carica $\vec j$, è noto che
+\[\dfrac{\dif Q}{\dif t} = I = \underset{S \text{ chiusa}}{\iint} \vec j \cdot \dif \vec S\]
+ossia l'espressione della corrente sotto-forma di flusso. Ma se tale corrente fluisce dalla superficie all'esterno, la carica interna alla superficie deve diminuire, ossia
+\[\dfrac{\dif Q_\text{int}}{\dif t} = - \dfrac{\dif Q}{\dif t}\]
+che scritta in forma integrale diviene
+\[\dfrac{\dif }{\dif t} \underset{\text{Volume}}{\iiint} \rho \cdot \dif V = - \underset{S \text{ chiusa}}{\iint} \vec j \cdot \dif \vec S\]
+
+\newpage
+\noindent
+\begin{center}
+  7 Novembre 2022
+\end{center}
+\textbf{Riassunto}: Per quanto osservato in precedenza, è nota l'equazione seguente
+\[\vec{j} = nq \vec{v}_d\]
+e da essa è stata ricavata l'equazione
+\[I = \iint \vec j \cdot \dif \vec S\]
+in cui non è necessario che l'integrale venga eseguito rispetto ad una superficie chiusa. Tuttavia, è sempre possibile integrare rispetto alla superficie chiusa, ottenendo
+\[\Phi_j = \underset{S \text{ chiusa}}{\iint} \vec j \cdot \dif \vec S\]
+che rappresenta la corrente totale uscente. È possibile quindi scrivere
+\[\Phi_j = \dfrac{\dif Q}{\dif t}\]
+La legge di conservazione della carica elettrica garantisce che se una carica $\dif Q$ è uscita attraverso la superficie $S$ allora la carica contenuta all'interno della superficie deve essere diminuita della medesima quantità $\dif Q = -\dif Q_{\text{int}}$. Si ottiene quindi l'equazione di continuità
+\[\Phi_j = - \dfrac{\dif Q_{\text{int}}}{\dif t} \hspace{1em} \text{ovvero} \hspace{1em} \underset{S \text{ chiusa}}{\iint} \vec j \cdot \dif \vec S = - \dfrac{\dif}{\dif t} \underset{V_\text{int}}{\iint} \vec \rho \dif v\]
+
+\vspace{1em}
+\noindent
+\subsection{Equazione di continuità in forma differenziale}
+Come è stata espressa la legge di Gauss in forma differenziale o locale, è possibile esprimere l'equazione di continuità in forma differenziale.\\
+Si può, pertanto, considerare l'integrale seguente 
+\[\dfrac{-\dfrac{\dif}{\dif t} \underset{V_\text{int}}{\iint} \vec \rho \dif v}{V}\]
+e in questo caso considerare
+\[\lim_{dv \to 0} \dfrac{-\dfrac{\dif}{\dif t} \underset{V_\text{int}}{\iint} \vec \rho \dif v}{V} = - \dfrac{\dif \rho}{\dif t}\]
+Pertanto si ottiene che
+\[\boxed{\text{div } \vec j = - \dfrac{\dif \rho}{\dif t}}\]
+per cui segno $-$ deriva dal fatto che una corrente negativa entrante porta ad una diminuzione di carica (o, equivalentemente, una corrente positiva uscente porta ad una diminuzione di cariche).
+
+\vspace{1em}
+\subsection{Resistenza e legge di Ohm}
+Se agli estremi di un tratto di conduttore come un filo metallico viene applicata una differenza di potenziale $V$, nel conduttore si produrrà una corrente di intensità $I$. L'entità della differenza di potenziale necessaria per produrre una data intensità di corrente dipende da una proprietà del particolare tratto del conduttore, proprietà che viene chiamata \textbf{resistenza}. La resistenza $R$ è definita da
+\[\boxed{R = \frac{V}{I}}\]
+Il nome resistenza è appropriato; questa grandezza, infatti, misura la \quotes{resistenza} apposta da un dato conduttore al flusso della carica. Dal momento che
+\[R = \frac{V}{I} \hspace{1em} \text{ossia} \hspace{1em} I = \dfrac{V}{R}\]
+una maggiore resistenza di un tratto di conduttore significa che una data differenza di potenziale produce una corrente meno intensa.\\
+Tale equazione è chiamata \textbf{legge di Ohm} e l'unità di misura della resistenza nel SI è l'ohm $\Omega$, ossia
+\[\Omega = \dfrac{[\text{V}]}{[\text{A}]}\]
+I materiali che soddisfano la legge di Ohm prendono il nome di \textbf{materiali ohmici}, gli altri, invece, sono \textbf{materiali non ohmici}. Tale legge non risulta essere fondamentale sulla natura, come, per esempio, la legge di Coulomb o la legge di Gauss. I dispositivi che presentano una resistenza, tale da limitare il passaggio di corrente, si chiamano resistori.
+
+\vspace{1em}
+\subsubsection{Resistività}
+La resistenza di un conduttore dipende dalle sue dimensioni, dalla sua forma e dal materiale di cui è fatto. Si consideri un tratto di conduttore di lunghezza $l$ e sezione uniforme di area $S$. Se ai capi di tale tratto di conduttore viene applicata una differenziale di potenziale $V$, in esso fluisce una corrente di intensità $I$, e la sua resistenza $R$ è
+\[R=\dfrac{V}{I}\]
+Se il conduttore, invece, fosse lungo il doppio di quello di partenza, allora la corrente di passaggio viene dimezzata, per cui la resistenza risulta raddoppiata, per cui $R \propto l$.\\
+Viceversa, se la sezione presenta un'area doppia rispetto a quello di partenza, la corrente di passaggio raddoppia e la resistenza si dimezza, quindi $R \propto \dfrac{1}{S}$.\\
+Oltre che alle dimensioni, la resistenza di un conduttore dipende dal materiale di cui esso è costituito. La dipendenza dalla resistenza del materiale è rappresentata da un fattore di proporzionalità chiamato \textbf{resistività}. Quindi la resistenza di conduttore di lunghezza $l$, sezione di area $S$ e resistività $\rho$, ovvero
+\[\boxed{R = \rho \cdot \dfrac{l}{S}}\]
+
+\vspace{1em}
+\subsubsection{Dipendenza dalla temperatura della resistività dei metalli}
+La resistività di molti metalli puri varia pressoché linearmente con la temperatura in un ampio intervallo di temperature. Dal momento che solitamente la curvatura del grafico di $\rho$ in funzione di $T$ non è molto pronunciata per i metalli, si può scrivere
+\[\rho \approx \rho_0 \cdot \left[1 + \alpha \cdot (T-T_0)\right]\]
+dove $\rho$ è la resistività alla temperatura $T$, $\rho_0$ è la resistività alla temperatura di riferimento $T_0$, mentre $\alpha$ prende il nome di \textbf{coefficiente di temperatura della resistività}.
+
+\vspace{1em}
+\subsubsection{Legge di Ohm in termini $\vec j$ e $\vec E$}
+Se un campo elettrico $\vec E$ viene applicato a un materiale conduttore, nel materiale si produce una corrente di densità $\vec j$. La densità di corrente in un punto del materiale dipende dal campo elettrico in quel punto. Tale dipendenza è espressa in termini di una proprietà del materiale chiamata \textbf{conducibilità} $\sigma$:
+\[\boxed{\vec j = \sigma \cdot \vec E}\]
+Un materiale che ha una conducibilità maggiore di un altro presenterà una densità di corrente maggiore a parità di campo elettrico applicato.\\
+Dalla legge di Ohm è noto che $V=I \cdot R$, ma è noto che $V=El$ così come $I=jS$, per cui
+\[V = I R \hspace{1em} \rightarrow \hspace{1em} El = jS R\]
+risolvendo rispetto a $j$ si ottiene che
+\[j = \dfrac{E l}{S R} = \dfrac{l}{SR} E\]
+poiché $j = \sigma E$ è immediato evincere che la conducibilità $\sigma$ è
+\[\sigma = \dfrac{l}{S R}\]
+ovvero rappresenta il reciproco della resistività $\rho$, ossia
+\[\boxed{\sigma=\dfrac{1}{\rho}}\]
+per cui la relazione tra il campo elettrico $\vec E$ e la densità di corrente $\vec j$ può essere descritta anche in termini della resistività $\rho$:
+\[\boxed{\vec E = \rho \vec j}\]
+
+\vspace{1em}
+\noindent
+\subsection{Modello di Drude per i metalli}
+È noto che un campo elettrico in un conduttore genera una corrente costante, ossia una forza costante: ciò significa che si ha un moto uniformemente accelerato all'interno del conduttore, cosa che non può avvenire a causa della resistenza del conduttore stesso.\\
+Dalle equazioni
+\[\vec j = n q \vec{v}_d \hspace{1em} \text{e} \hspace{1em} \vec j = \sigma \vec E\]
+si concludiamo che ed E sono proporzionali. Vale a dire che l'applicazione di un camP° fam r ni uovuerecai portatori con una velocity media costante Ma se la forza fornita dal cameo   forza agente su un portatore dovrebbe essere costante l'acceler ' 'one e non la velocity. Cie) significa che, quando un portatore si muove all' interno del metallo, devono Pr re e send altre forze. Inoltre, dal momento che la velocity media e costante, la risultante ditune le forze applicate a un portatore deve essere in media nulls. La situazio.ne. analoga a quella di una biglia che rotola lungo un piano inclinato dis-seminato pioli (Figura 5.10). Quando all'inizio viene lasciata andare, la biglia accelera lungo la discesa a causa della componente della forza gravitazionale parallels al piano in-clinato, componente che non e equilibrata. Quando comincia a urtare i pioli, constatiamo che it suo moto, se si fa la media su molti urti, 6 caratterizzato da una velocity media costante diretta lungo la discesa. Se si fa la media su molti urti, la forza esercitata sulla biglia dai pioli risulta uguale e opposta alla componente della forza gravitazionale parallela al piano inclinato. 11 modello di Drude stabilisce un'analogia tra un elettrone libero e la biglia, tra gli ioni del reticolo e i pioli, mentre it campo applicato 6 l'analogo della com-ponente del campo gravitazionale parallela al piano inclinato. Drude ipotizzo che gli elettroni liberi nei metalli fossero gli elettroni di valenza, che sono debolmente legati agli atomi quando questi sono isolati (cio6 non fanno parte di un reticolo). Quando gli atomi invece sono affiancati in un solido, questi elettroni sono liberi di muoversi attraverso it materiale. Quindi la density di portatori n 6 it prodotto di un numero intero piccolo per la density di atomi nel materiale. II valore medio (NI) della velocity degli elettroni liberi 6 la velocity di deriva dei portatori ir+d: (-14) = vd. Poiche g cc Vd, it valore medio della velocity 6 nullo quando non c'e alcun campo applicato. Cioe, se r = 0, (vi) = (vi,) = (va = 0. comportamento degli elettroni liberi a analogo a quello delle molecole di un gas in quanto, in entrambi i casi, le velocity hanno direzioni distribuite casualmente. La forza esercitata su un elettrone dal campo applicato t e = Siccome questa 6 Tunica forza che si esercita su un elettrone libero tra un urto e seconda legge di Newton, IF = fornisce l'accelerazione tra due urti consecutivi: a = —eE/m. Se si dispone l'asse x nella direzione di E, la componente x della velocity di un elettrone libero dopo un urto in funzione del tempo è
+
+\[v_x = v_{x,0} + a_x t = v_{x,0} - \left(\dfrac{eE}{m}\right) \cdot t\]
+dove $v_{x,0}$ è la componente $x$ della velocità dell'elettrone immediatamente dopo l'urto. In media si ha che
+\[\left< v_x \right> = \left< v_{x,0} \right> - \left(\dfrac{eE}{m}\right) \cdot \tau\]
+dove $\tau$ caratterizza l'intervallo di tempo tra gli urti. Questo intervallo di tempo viene spesso chiamato \textbf{tempo libero medio} o \textbf{tempo di rilassamento}.\\
+Tuttavia, il contributo al moto degli elettroni liberi dovuto al campo applicato è trascurabile a livello microscopico. Pertanto è lecito supporre che la velocità di un elettrone immediatamente dopo ogni urto sia diretta casualmente rispetto a $\vec E$, ossia $\left<v_{x,0}\right> = 0$.\\
+Quindi
+\[\left<v_x\right> = - \dfrac{eE}{m} \cdot \tau\]
+La velocità di deriva è $\vec{v}_d = \left<\vec v \right> = \left<v_x\right> \hat{i}$, cosicché
+\[\vec{v}_d = - \dfrac{eE}{m} \cdot \tau \hat{i}\]
+ma siccome è noto che $\vec j = n q \vec{v}_d$, si ottiene
+\[\vec j = n \cdot (-e) \cdot \left(- \dfrac{eE}{m} \cdot \tau \hat{i}\right) = \dfrac{ne^2}{m} \cdot \tau E \hat{i} = \dfrac{ne^2 \tau}{m} \cdot \vec{E}\]
+confrontando tale relazione con l'equazione $\hat{j} = \sigma \vec E$, si ha che
+\[\sigma = \dfrac{n e^2 \tau}{m} \hspace{1em} \text{per cui} \hspace{1em} \rho=\dfrac{1}{\sigma} = \dfrac{m}{n e^2 \tau}\]
+Tuttavia, la presenza di $\tau$, ossia il tempo medio di spostamento di un elettrone tra due atomi, è problematica, in quanto dipende da $\left<v\right>$ e quindi indirettamente da $\vec E$.\\
+Si può quindi introdurre il cosiddetto \textbf{cammino libero medio} $\lambda = \left<v\right> \tau$, per cui
+\[\sigma = \dfrac{n e^2 \lambda}{m \cdot \left<v\right>} \hspace{1em} \text{per cui} \hspace{1em} \rho=\dfrac{1}{\sigma} = \dfrac{m \cdot \left<v\right>}{n e^2 \lambda}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: In elettrostatica è noto che il campo elettrico è nullo all'interno del conduttore, per cui le cariche devono disporsi sulla superficie del conduttore stesso. Il campo elettrico sarà ortogonale alla superficie con intensità $\dfrac{\sigma}{\epsilon_0}$\\
+Se, invece, le cariche sono in movimento, ossia in elettrodinamica, all'interno del conduttore si crea una corrente che segue la legge di ohm nel caso in cui il conduttore sia ohmico, che è ciò che si assume nell'ambito delle casistiche prese in esame.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Il tempo di rilassamento del rame a $20$ ${^\circ}$C è ricavabile dall'equazione seguente
+\[\tau = \dfrac{m}{ne^2 \rho}\]
+
+\newpage
+\noindent
+\begin{center}
+  9 Novembre 2022
+\end{center}
+\subsection{Resistenze in serie e in parallelo}
+Sia dato il circuito seguente:
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$V$] (0,2) % Batteria
+      to[short] (0,3)
+      to[short] (2,3)
+      to[R=$R_1$] (2,1) % Resistore 1
+      to[R=$R_2$] (2,-0.5) % Resistore 2
+      to[short] (2,-1)
+      to[short] (0,-1)
+      to[short] (0,2);
+    \end{circuitikz}
+    \caption{Resistenze in serie}
+  \end{center}
+\end{figure}
+
+\vspace{1em}
+\noindent
+È noto dalla Legge di Ohm che
+\[R=\dfrac{V}{I} \hspace{1em} \text{ovvero} \hspace{1em} I=\dfrac{V}{R} \hspace{1em} \text{ovvero} \hspace{1em} V=RI\]
+essendo la corrente costante per i tutti i componenti del circuito, la tensione sui singoli componenti è data da $V_i = R_i \cdot I$, con $R_i$ la resistenza del singolo resistore.\\
+Ovviamente la resistenza del connettore di rame risulta essere trascurabile rispetto ai resistori del circuito stesso $R_1$ e $R_2$. Pertanto si individuano le equazioni seguenti
+\[
+  \left\{
+  \rowcolors{1}{white}{white}
+  \begin{array}{l}
+    V_1+V_2=V\\
+    I_1=I_2=I
+  \end{array}
+  \right.
+  \hspace{1em} \rightarrow \hspace{1em}
+  \left\{
+    \rowcolors{1}{white}{white}
+    \begin{array}{l}
+      R_1 I_1 + R_2 I_2=V\\
+      I_1=I_2=I
+    \end{array}
+    \right.
+    \hspace{1em} \rightarrow \hspace{1em}
+    V = (R_1+R_2) \cdot I
+\]
+Da ciò si evince che la resistenza equivalente alle due resistenze in serie è data da
+\[R_\text{eq} = \dfrac{V}{I} = R_1 + R_2\]
+
+\vspace{2em}
+\noindent
+Si consideri il circuito seguente
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$V$] (0,2) % Batteria
+      to[short] (2,2)
+      to[R=$R_1$] (2,0) % Resistenza 1
+      to[short] (0,0);
+      \draw (2,2)
+      to[short] (4,2)
+      to[R=$R_2$] (4,0) % Resistenza 2
+      to[short] (2,0);
+    \end{circuitikz}
+    \caption{Resistenze in parallelo}
+  \end{center}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Preso un nodo qualsiasi del circuito, per la conservazione della carica si ha che
+\[0 = \dfrac{\dif Q_\text{int}}{\dif t} = - \underset{S \text{ chiusa}}{\iint} \vec j \cdot \dif \vec S\]
+per cui essendo la carica interna nulla essa è anche costante, per cui
+\[\dfrac{\dif Q_\text{int}}{\dif t} = 0\]
+risolvendo l'integrale si ottiene che
+\[- \underset{S \text{ chiusa}}{\iint} \vec j \cdot \dif \vec S = -I+I_1+I_2\]
+per cui la corrente entrante in un nodo deve ripartirsi negli altri rami in modo tale che la corrente totale uscente sia uguale a quella entrante (tale proprietà prende il nome di \textbf{legge dei nodi}).\\
+In caso di resistenze in parallelo, si ottengono le equazioni seguenti:
+
+\[
+  \left\{
+  \rowcolors{1}{white}{white}
+  \begin{array}{l}
+    V_1=V_2=V\\
+    I_1+I_2=I
+  \end{array}
+  \right.
+  \hspace{1em} \rightarrow \hspace{1em}
+  \left\{
+    \rowcolors{1}{white}{white}
+    \begin{array}{l}
+      \dfrac{V}{R_1}+\dfrac{V}{R_2}=I\\
+      I_1=I_2=I
+    \end{array}
+    \right.
+    \hspace{1em} \rightarrow \hspace{1em}
+    I = \dfrac{V}{R_1+R_2}
+\]
+Da ciò si evince che la resistenza equivalente alle due resistenze in parallelo è data da
+\[\dfrac{1}{R_\text{eq}} = \dfrac{1}{R_1}+\dfrac{1}{R_2} = \dfrac{R_1+R_2}{R_1 \cdot R_2} \hspace{1em} \text{ovvero} \hspace{1em} R_\text{eq} = \dfrac{R_1 \cdot R_2}{R_1 + R_2}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione 1}: Per quanto appena osservato, pertanto, si ottiene che
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{white}{white}
+\noindent
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \hline
+    Resistenze in serie & Resistenze in parallelo\\
+    \hline
+    $\displaystyle{R_\text{eq} = \sum_i R_i}$ & $\displaystyle{\dfrac{1}{R_\text{eq}} = \sum_i \dfrac{1}{R_i}}$\\
+    \hline
+\end{tabular}
+\end{table}
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione 2}: Nel caso di circuiti con resistenze in serie, la presenza di un resistore molto grande e un resistore con una resistenza pressoché nulla, è chiaro che prevale la resistenza maggiore: è come se al resistore con resistenza piccola si sostituisse un filo di connettore.\\
+Viceversa, nel caso di circuiti con resistenze in parallelo, la presenza di un resistore molto grande e un resistore con una resistenza pressoché nulla, è chiaro che prevale la resistenza minore: è come se alla resistenza più grande si sostituisse una resistenza infinita.\\
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione 3}: L'equazione di continuità già introdotta si può scrivere nel modo seguente
+\[\dfrac{\partial \rho}{\partial t} = - \vec \nabla \cdot \vec j\]
+Nel caso dell'elettrostatica, per quanto già noto, si ha che $\vec j = 0$.\\
+Nel caso dell'elettrodinamica con \textbf{corrente stazionaria}, la densità di corrente è sempre la stessa, ossia è costante, per cui
+\[\dfrac{\partial \vec j}{\partial t} = 0\]
+Nel caso di un circuito stazionario, non si può accumulare carica, altrimenti il circuito non può funzionare in modo indefinito. Pertanto si deve sempre chiedere, in generale, in un circuito con resistenze e condensatori, che
+\[\dfrac{\partial \rho}{\partial t} = 0\]
+ovvero la densità di carica deve essere costante. Nel caso in cui si hanno solo resistenze, senza condensatori, si ha anche che $\rho=0$. In particolare si ha che
+\[\dfrac{\partial \rho}{\partial t} = 0 \hspace{1em} \rightarrow \hspace{1em} -\vec \nabla \cdot \vec j = 0\]
+ossia la divergenza della densità di corrente è nulla. Nel caso della divergenza del campo elettrico, era noto che
+\[\vec \nabla \cdot \vec E\]
+per cui se si chiede che $\vec \nabla \cdot \vec E=0$ si ha un campo elettrico che esiste in uno spazio in assenza totale di cariche, come nel caso di un dipolo elettrico.\\
+L'interpretazione geometrica della legge di Gauss prevede di considerare il flusso come il numero netto di linee di campo che attraversano la superficie, ossia la differenza tra linee uscenti e linee entranti. La divergenza del campo elettrico sarà sempre nulla fintantoché non ci sono cariche che stazionano sulla superficie considerata.\\
+Similmente per la corrente: se non si ha accumulo di carica, ossia $\dfrac{\partial \rho}{\partial t} = 0$, la divergenza della densità di corrente è nulla.
+
+
+\vspace{1em}
+\subsection{Amperometri e voltmetri}
+Per misurare corrente e tensione all'interno di un circuito, bisogna impiegare degli strumenti tali da non influenzare con la loro resistenza interna la misurazione che si sta eseguendo.\\
+Nel caso dell'amperometro, in grado di misurare la corrente che attraversa un circuito, deve essere messo in serie al componente di cui è di interesse misurare la corrente, al fine di non influenzare la misurazione deve presentare una resistenza interna pressoché nulla. Per fare ciò, bisogna porre in parallelo un \textbf{galvanometro} (che ha una sua resistenza interna) con una resistenza $R_p$ definita \textbf{shunt} (o \textbf{deviatore}): per ottenere ciò che si vuole bisogna quantificare la resistenza di shunt in modo tale da misurare la corrente prevista per l'amperometro.\\
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Se, per esempio, si vuole misurare una corrente massima $I_\text{max} = 100$ mA, in cui la resistenza interna del galvanometro è $R_d=23 \text{ } \Omega$ e la sua corrente di fondo scala è $I_\text{FS} = 63 \text{} \mu$A.\\
+Ovviamente la resistenza equivalente al parallelo sarà data da
+\[R_\text{eq} = \dfrac{R_d \cdot R_p}{R_d + R_p}\]
+Ovviamente si ha che la tensione ai capi della resistenza di shunt e del galvanometro è la medesima. Pertanto si ha che
+\[I_{\max} \cdot R_\text{eq} = I_\text{FS} \cdot R_d = I_p \cdot R_p\]
+e, in particolare
+\[I_{\max} \cdot R_\text{eq} = I_\text{FS} \cdot R_d\]
+per cui si ha che
+\[I_{\max} \cdot \dfrac{R_d \cdot R_p}{R_d + R_p} = I_\text{FS} \cdot R_d \hspace{1em} \rightarrow \hspace{1em} R_p = \dfrac{R_d \cdot I_\text{FS}}{I_{\max} - I_\text{FS}}\]
+
+\newpage
+\noindent
+\begin{center}
+  14 Novembre 2022
+\end{center}
+\section{Circuiti in corrente continua}
+I circuiti che verranno analizzati in un primo momento prevedono di considerare \textbf{correnti stazionarie}, da cui
+\[\dfrac{\partial \vec I}{\partial t} = 0\]
+anche se successivamente tale condizione verrà violata.
+
+\vspace{1em}
+\noindent
+\subsection{Forza elettromotrice e resistenza interna di una batteria}
+La batteria che si sta considerando per lo studio dei circuiti è da interpretarsi come una sorta di \quotes{scatola nera} che permette di produrre una differenza di potenziale ai suoi capi tramite processi chimici interni sui cui non si andrà ad indagare. Si distinguono due categorie di batterie
+\begin{itemize}
+  \item le \textbf{pile}, che non sono ricaricabili;
+  \item gli \textbf{accumulatori}, i quali sono ricaricabili.
+\end{itemize}
+Per studiare la forza elettromotrice di una batteria, si dovranno impiegare un voltmetro e un amperometro. Si consideri, allora, il circuito seguente
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$\xi$] (0,2) % Batteria
+      to[short] (2,2)
+      to[R=$r$] (2,0)   % Resistenza
+      to[short] (0,0);
+    \end{circuitikz}
+    \caption{Resistenze in parallelo}
+  \end{center}
+\end{figure}
+
+\vspace{1em}
+\noindent
+e si supponga di porre in parallelo alla batteria un voltmetro e in serie un amperometro. Ciò che si osserva è che
+\[V=\xi-Ir\]
+ovverosia la tensione misurata è data dalla differenza tra la forza elettromotrice della batteria stessa e la caduta di tensione sul \textbf{reostato} (la cui resistenza si denota con $r$, in quanto essa non è costante).\\
+Pertanto una batteria reale è da interpretarsi come la serie di una batteria ideale con una resistenza interna $r$. Considerando l'andamento nel corso del circuito della tensione, si ha un picco di tensione iniziale dovuto alle forze elettrochimiche interne alla batteria stessa; dopodiché la tensione si mantiene costante fino al raggiungimento della resistenza interna $r$, per cui si ha una caduta di potenziale $Ir$, poi tensione costante fino al raggiungimento della resistenza $R$, in cui si ha una caduta di potenziale $IR$.\\
+Ciò che risulta \quotes{anomalo} in tale funzionamento, in cui ci si aspetterebbe solamente di vedere cadute di tensione, è il picco iniziale di tensione garantito dalla batteria, la quale garantisce di ripristinare la tensione dissipata dai resistori presenti nel circuito.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Per ricaricare una batteria, bisogna imporre ai suoi capi una differenza di potenziale $V=V_+-V_->\xi$. In questo modo, si avrà una caduta di tensione $\xi$ incontrando la batteria che si sta caricando ed un'ulteriore caduta di tensione che si ha in corrispondenza della resistenza interna $r$.\\
+La modellizzazione del caricamento e dello scaricamento della batteria si esegue attraverso la regolazione della resistenza $r$: quando si scarica la batteria, $r$ aumenta, mentre quando la batteria si carica $r$ diminuisce. 
+
+\vspace{1em}
+\noindent
+\subsection{Energia elettrica e potenza}
+Una carica che attraversa una differenza di potenziale guadagna energia elettrostatica. Infatti, l'energia $U_A=Q \cdot V_A$ alla tensione $V_A$ è maggiore dell'energia $V_B=Q \cdot V_B$, in quanto $V_A > V_B$, quindi la carica ha guadagnato energia. Si può, quindi scrivere
+\[\Delta U = V_B \cdot \Delta Q - V_A \cdot \Delta Q = - V \cdot \Delta Q\]
+nell'ipotesi in cui $V_B=0$.\\
+Per il modello di Drude si è visto che un elettrone presenta un moto termico un miliardo di volte maggiore di quello di deriva. L'energia che la carica accumula attraversando una differenza di potenziale viene totalmente dissipata in energia termica all'interno del reticolo del conduttore.\\
+La potenza dissipata è
+\[\boxed{P=- \dfrac{\Delta U}{\Delta t} = V \cdot \dfrac{\Delta Q}{\Delta t} = VI}\]
+che prende il nome di \textbf{legge di Joule}; il segno meno è giustificato dal fatto che $\Delta U<0$, in quanto, per quello che si è visto, l'energia della carica diminuisce passando da un potenziale maggiore ad uno minore.\\
+Il riscaldamento del corpo resistore al passaggio della corrente prende il nome di \textbf{effetto Joule}; nel caso di un resistore, per cui vale la legge di Ohm, tale effetto può essere espresso come
+\[\boxed{P=VI=I^2R=\dfrac{V^2}{R}}\]
+ossia l'energia dissipata va con il quadrato della corrente $I$.
+
+\vspace{1em}
+\subsubsection{Bilancio energetico per una batteria}
+Nel caso di una batteria che si sta scaricando, per quanto già osservato, si ha che
+\[V=\xi - I r\]
+da cui si evince che la potenza dissipata è
+\[P=VI=(\xi - I r) \cdot I = \xi I - I^2 R\]
+che è abbastanza intuibile: la potenza dissipata complessivamente è data dalla differenza della potenza dissipata dai portatori di carica e di quella, invece, dissipata internamente alla batteria stessa.
+
+\newpage
+\noindent
+\begin{center}
+  15 Novembre 2022
+\end{center}
+\subsection{Leggi di Kirchhoff}
+
+
+
 \end{document}
