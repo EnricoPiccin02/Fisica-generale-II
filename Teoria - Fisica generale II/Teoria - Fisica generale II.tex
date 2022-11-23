@@ -1698,6 +1698,480 @@ che è abbastanza intuibile: la potenza dissipata complessivamente è data dalla
   15 Novembre 2022
 \end{center}
 \subsection{Leggi di Kirchhoff}
+È noto che un circuito è una serie di elementi che sono variamente connessi tramite dei connettori e vanno a formare delle maglie delimitate dai nodi; gli elementi che vengono connessi sono le batterie, le resistenze, i condensatori, gli interruttori e i connettori, i quali hanno resistenza nulla e su ognuno di essi vi è sempre il medesimo potenziale
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{schema-circuito.png}
+  \caption{Schema di un circuito}
+  \label{fig:schema_circuito}
+\end{figure}
+
+\vspace{1em}
+\noindent
+È immediato evincere che un \textbf{nodo} è un punto nel quale convergono almeno tre conduttori. La parte di circuito tra due nodi consecutivi è detto \textbf{ramo}. Una \textbf{maglia}, invece, è un percorso chiuso che parte da un nodo e giunge al medesimo nodo dopo aver attraversato vari elementi circuitali senza percorrere due volte lo stesso ramo.\\
+In un circuito, in genere, è possibile individuare numerose maglie differenti tra loro, ma è opportuno considerare le maglie (dette \textbf{indipendenti}) scelte in modo da includere in ciascuna almeno un ramo che non sia incluso nelle altre.\\
+Il circuito di Figura \ref{fig:schema_circuito} presenta $4$ nodi in totali (anche se i nodi indipendenti sono uno in meno rispetto ai nodi totali e questo vale sempre) e $3$ maglie indipendenti.
+
+\vspace{1em}
+\subsubsection{Legge delle maglie}
+La legge delle maglie (II legge di Kirchhoff) stabilisce che la somma delle differenze di potenziale  che si incontrano compiendo un giro completo lungo una qualsiasi maglia di un circuito è nulla. Dal momento che il potenziale è connesso in modo diretto con l'energia potenziale dei portatori di carica, la legge delle maglie è una formulazione della conservazione dell'energia. È quindi possibile scrivere la legge delle maglie nella forma
+\[\boxed{\sum_{i=1}^n V_i=0}\]
+Ovviamente il potenziale aumenta percorrendo alcuni elementi del circuito (come una batteria da $V_-$ a $V_+$) e diminuisce percorrendone altri (come le resistenze nel senso della corrente, o attraversando una batteria da $V_+$ a $V_-$), ma la somma delle differenze di potenziale lungo un giro completo è nulla. Pertanto si ha che
+\begin{itemize}
+  \item per le batterie
+  \begin{itemize}
+    \item se vengono attraversate da $V_-$ a $V_+$ si ha un aumento di tensione;
+    \item se vengono attraversate da $V_+$ a $V_-$ si ha una caduta di tensione;
+  \end{itemize}
+  \item per i resistori
+  \begin{itemize}
+    \item se vengono attraversati nel verso della corrente, si ha una caduta di tensione;
+    \item se vengono attraversati nel verso opposto alla corrente, si ha un aumento di tensione;
+  \end{itemize}
+\end{itemize}
+Nell'analizzare il circuito, conviene innanzitutto stabilire arbitrariamente un verso di percorrenza delle maglie e poi assegnare le correnti nei rami con i loro versi, anche in modo arbitrario. Per convenzione, $I$ è positiva quando il senso della corrente corrisponde alla direzione di moto dei portatori di carica positiva. La soluzione numerica del circuito fornirà i segni delle correnti di ramo.
+
+\vspace{2em}
+\noindent
+\textbf{Esempio}: Si consideri il circuito seguente
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$\xi$] (0,2) % Batteria
+      to[short] (0,3)
+      to[R=$r$] (0,3) % Resistore 1
+
+      to[R=$R_2$] (2,-0.5) % Resistore 2
+      to[short] (2,-1)
+      to[short] (0,-1)
+      to[short] (0,2);
+    \end{circuitikz}
+    \caption{Resistenze in serie}
+  \end{center}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Ovviamente in questo caso si ha una sola maglia che si percorre in senso orario. Per la II legge di Kirchhoff si ha che
+\[(V_b-V_a)+(V_c-V_b)+(V_d-V_c)+(V_a-V_d)=0\]
+ma naturalmente si ha che
+\[\xi - Ir + 0 - I R + 0 = 0\]
+per cui si ottengono i due risultati noti $\xi = I \cdot (R+r)$ e quindi $I = \dfrac{\xi}{R+r}$.\\
+Se ora si percorre la maglia in senso contrario, si scrive sempre $-Ir$ e $-IR$, ma siccome la batteria si percorre da $V_+$ a $V_-$ si ottiene $-\xi$. Pertanto l'equazione che si ottiene è
+\[-\xi - Ir + 0 - I R + 0 = 0\]
+per cui si ottengono i due risultati noti $-\xi = I \cdot (R+r)$ e quindi $I = -\dfrac{\xi}{R+r}$, ossia la corrente ottenuta è negativa: ciò significa che la corrente scorre nel verso opposto a quello di percorrenza della maglia.
+
+\vspace{1em}
+\subsubsection{Legge dei nodi}
+Nell'analisi dei circuiti che contengono due o più maglie, insieme alla legge delle maglie si utilizza la legge dei nodi. La legge dei nodi (I legge di Kirchhoff) afferma che \textbf{la somma delle intensità di correnti entranti in un nodo è uguale alla somma delle intensità delle correnti uscenti dal medesimo nodo}.\\
+Se, infatti, si approssima un nodo come una superficie gaussiana cilindrica, è noto che non si ha accumulo di carica in nessun punto dei fili di collegamento, la legge dei nodi è semplicemente un enunciato della conservazione della carica. Si può scrivere la legge dei nodi nella forma
+\[\sum \vert i_\text{entranti} \vert = \sum \vert i_\text{uscenti} \vert\]
+È importante osservare che date $n$ equazioni riferite a $n$ nodi, solamente $n-1$ sono le equazioni indipendenti che forniscono informazioni significative.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si consideri il circuito a due maglie seguente:
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$\xi_1$] (0,2) % Batteria
+      to[short] (0,3)
+      to[R=$R_1$] (2,3) % Resistore 1
+      %to[short] (4,3)
+      to[R=$R_3$] (5,3) % Resistore 1
+      to[short] (5,2)
+      to[V,v=$\xi_3$] (5,0)
+      to[short] (5,-2)
+      to[short] (2.25,-2); % Batteria
+      \draw(2.25,3)
+      to[short] (2.25,2.5)
+      to[V,v=$\xi_2$] (2.25,1) % Batteria
+      %to[short] (2.25,0)
+      to[R=$R_2$] (2.25,-1) % Resistore 1
+      to[short] (2.25,-2)
+      to[short] (0,-2)
+      to[short] (0,0);
+    \end{circuitikz}
+    \caption{Circuito con $2$ maglie}
+  \end{center}
+\end{figure}
+
+\newpage
+\noindent
+\begin{center}
+  16 Novembre 2022
+\end{center}
+Com'è noto, la legge di Ohm vale solamente per materiali ohmici; allo steso modo, le leggi di Kirchhoff non sono universali. Per comodità si ripropongono nel seguito:
+\begin{itemize}
+  \item la legge delle maglie afferma che
+  \[\sum V = 0\]
+  ossia la somma delle differenze di potenziali in una maglia è sempre nulla;
+
+  \item la legge dei nodi afferma che
+  \[\sum i_\text{entranti} = \sum i_\text{uscenti}\]
+  ossia la somma algebrica delle correnti entranti in un nodo è uguale a quella delle corrente uscenti.
+\end{itemize}
+Nel caso di corrente alternata, le leggi di Kirchhoff continueranno a valere, ma con delle variazioni: la tensione e la corrente, per esempio, non saranno costanti. È noto che una corrente costante produce un campo magnetico ma non produce effetti magnetici, ossia non si accoppia con il campo elettrico producendo effetti per il circuito.
+
+\vspace{1em}
+\noindent
+\subsection{Circuiti RC}
+
+\vspace{1em}
+\noindent
+\subsubsection{Carica di un condensatore}
+Si consideri il circuito seguente
+
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$\xi$] (0,2) % Batteria
+      to[short] (0,3)
+      to[R=$R$] (2,3) % Resistore 
+      to[C=$C$] (2,-0.5) % Condensatore
+      to[short] (2,-1)
+      to[short] (0,-1)
+      to[short] (0,0);
+    \end{circuitikz}
+    \caption{Circuito RC}
+  \end{center}
+\end{figure}
+
+\vspace{1em}
+\noindent
+In tale circuito è presente un condensatore con capacità $C$ collegato ins serie ad una resistenza di valore $R$ e una batteria di f.e.m. $\xi$. È nota la relazione seguente
+\[i=\dfrac{\dif q}{\dif t}\]
+Studiando l'evoluzione temporale di tale circuito si osserva che a $t=0$ si ha $q(t=0) = 0$, così come per $t \to +\infty$ si ottiene $q(t \to +\infty) = \xi \cdot C$.\\
+Applicando la legge delle maglie di Kirchhoff e considerando l'unica maglia dello stesso con senso di percorrenza orario, si ha che
+\[\sum V = 0 \hspace{1em} \text{ovvero} \hspace{1em} (V_b-V_a)+(V_c-V_d)+(V_d-V_c)+(V_a-V_d) = \xi - i \cdot R - \dfrac{q}{C} + 0=0\]
+in cui è presente il segno meno in $- \dfrac{q}{C}$ dal momento che l'armatura positiva incontra prima la corrente rispetto all'armatura negativa secondo il verso di percorrenza scelto, per vui $V_c > V_d$. Ovviamente, poi, al variare di $t$ varia anche la carica $q(t)$: per quanto osservato a $t=0$ si ha $q(t=0) = 0$, così come per $t \to +\infty$ si ottiene $q(t \to +\infty) = \xi \cdot C$.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Per studiare l'accumulazione di carica su ciascuna piastra del condensatore si consideri una superficie gaussiana che contiene solamente la piastra positiva. Per la legge di conservazione della carica si ha che
+\[\boxed{i=\dfrac{\dif q}{\dif t}}\]
+che non risulta essere la definizione dell'intensità di corrente: infatti, tale equazione esprime il fatto che l'intensità di corrente che circola nel circuito è pari alla rapidità con cui la carica viene trasferita da un'armatura all'altra, ovvero alla rapidità con cui il condensatore viene caricato.
+
+\vspace{1em}
+\noindent
+Pertanto si ottiene il sistema seguente
+
+\[\left\{
+  \rowcolors{1}{white}{white}
+  \begin{array}{l}
+    \xi - i \cdot R - \dfrac{q}{C}=0\\
+    i=\dfrac{\dif q}{\dif t}\\
+\end{array}\right.\]
+Si ottiene, quindi, l'equazione differenziale seguente
+\[\xi - \dfrac{\dif q}{\dif t} R - \dfrac{q}{C} = 0 \hspace{1em} \rightarrow \hspace{1em} \dfrac{\dif q}{\xi C - q} = \dfrac{1}{RC} \dif t\]
+in cui $\xi$, $C$ e $R$ sono costanti, mentre $q$ dipende da $t$. Per risolvere tale equazione differenziale è conveniente porre $u=\xi C - q$, il che comporta $\dif u = - \dif q$. L'equazione diviene allora
+\[\dfrac{\dif u}{u} = - \dfrac{1}{RC} \dif t \hspace{1em} \rightarrow \hspace{1em} \log(u) = - \dfrac{t}{RC} + \text{costante}\]
+ovviamente è possibile anche scrivere
+\[u = \text{costante} \cdot e^{-\frac{t}{RC}}\]
+e ricordando la definizione di $u$ come $u=\xi C - q$, è facile ottenere
+\[\xi C - q = \text{costante} \cdot e^{-\frac{t}{RC}}\]
+per determinare il valore della costante, sarà sufficiente porre $t=0$, per cui $q(t=0)=0$, ottenendo che costante$=\xi C$; ecco che quindi si è ottenuta la relazione seguente
+\[\xi C - q = \xi C \cdot e^{-\frac{t}{RC}} \hspace{1em} \text{ovvero} \hspace{1em} \boxed{q(t) = \xi C \cdot \left(1-e^{-\frac{t}{RC}}\right)}\]
+in cui $\xi C = Q$, ossia la carica finale a $t\to+\infty$. Si ottiene, quindi
+\begin{itemize}
+  \item quando $t=0$, si ha che $q(t=0)=0$;
+  \item quando $t=RC$, si ha che $q(t=RC)=\xi C \cdot \left(1-\dfrac{1}{e}\right)$;
+  \item quando $t\to+\infty$, si ha che $q(t\to+\infty)=\xi C$, ossia la carica finale.
+\end{itemize}
+Ma ovviamente non è possibile attendere un tempo infinito prima di vedere il condensatore carico; questo perché non si ha la necessità di caricare totalmente il condensatore, ma ad una percentuale di $C$ pari, per esempio, al $98\%$. Il tempo di attesa si misura con unità di misura $RC=\tau$, chiamato \textbf{tempo scala}: se $\tau$ è grande, il condensatore si carica lentamente, mentre se $\tau$ è piccolo, il condensatore si carica rapidamente; ovviamente, il tempo necessario perché il condensatore raggiunga una data frazione della sua carica finale è determinato esclusivamente da $\tau$.\\
+L'intensità di corrente $i$ si trova derivando rispetto al tempo l'equazione precedentemente ottenuta
+\[i=\dfrac{\dif q}{\dif t} = \dfrac{\dif }{\dif t} \left[\xi C (1-e^{-\frac{t}{RC}})\right] = \xi C \cdot \left(-\dfrac{1}{RC}\right) \cdot (-e^{-\frac{t}{RC}})\]
+ossia
+\[\boxed{i=i(t) = \frac{\xi}{R} e^{-\frac{t}{\tau}} = i_0 \cdot e^{-\frac{t}{\tau}}}\]
+dove $i_0=\dfrac{\xi}{R}$ è l'intensità di corrente iniziale.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si consideri, ora, il bilancio energetico del circuito, ossia gli scambi di energia che hanno luogo durante la carica del condensatore.\\
+\begin{itemize}
+  \item Per quanto riguarda la batteria, è nota la relazione $P=Vi$, per cui
+  \[U = \int_0^\infty \xi i \dif t = \int_0^\infty \xi \cdot \left(\dfrac{\xi}{r} \cdot e^{-\frac{t}{\tau}} \right) \dif t = \dfrac{\xi^2}{R} \int_0^\infty e^{-\frac{t}{\tau}} \dif t\]
+  è facile caire che
+  \[\int_0^\infty e^{-\frac{t}{\tau}} \dif t = \left[- \tau \cdot e^{-\frac{t}{\tau}}\right]_0^{\infty} = \tau\]
+  pertanto si ha che
+  \[U=\frac{\xi^2}{R} \cdot \tau = \frac{\xi^2}{R} \cdot RC = \xi^2 C\]
+
+  \item Per quanto riguarda il condensatore, si ottiene
+  \[U = \int_0^\infty i^2 R \dif t = \int_0^\infty \frac{\xi^2}{R^2} \cdot R \cdot e^{-\frac{2t}{\tau}} \dif t = \frac{1}{2} \frac{\xi^2}{R^2} R \cdot RC \cdot \int_0^\infty e^{-x} \dif x = \frac{1}{2} \xi^2 C\]
+\end{itemize}
+
+\vspace{1em}
+\noindent
+\subsubsection{Scarica di un condensatore}
+Si consideri il circuito seguente
+
+Si ottiene il sistema seguente
+\[\left\{
+  \rowcolors{1}{white}{white}
+  \begin{array}{l}
+    i \cdot R = - \dfrac{q}{C}\\
+    i=\dfrac{\dif q}{\dif t}\\
+\end{array}\right.\]
+pertanto si ottiene
+\[i R = - \frac{q}{C} \hspace{1em} \text{ovvero} \hspace{1em} \frac{\dif q}{\dif t} R = - \frac{q}{C} \hspace{1em} \text{ovvero} \hspace{1em} \dfrac{\dif q}{\dif t} = - \frac{q}{RC}\]
+riscrivendo la stessa ordinando i termini si ottiene
+\[\frac{\dif q}{q} = - \frac{t}{\tau}\]
+per cui
+\[q(t) = \text{costante} \cdot e^{-\frac{t}{\tau}}\]
+in cui, ovviamente per $t=0$ si ottiene che costante$=q(t=0)=Q$, per cui si ottiene
+\[q(t) = Q e^{-\frac{t}{\tau}} \hspace{1em} \text{e} \hspace{1em} i(t) = \frac{Q}{\tau} e^{-\frac{t}{\tau}}\]
+
+\vspace{1em}
+\noindent
+Per quanto riguarda l'energia assorbita dalla resistenza si ottiene
+\[U = \int_0^\infty i^2 R \dif t = \frac{Q^2}{R^2C^2} R \frac{\tau}{2} \int_0^\infty \frac{2}{\tau} e^{-\frac{2t}{\tau}} \dif t = \frac{1}{2} \frac{Q^2}{R^2 C^2} R R C = \frac{1}{2} \frac{Q^2}{C}\]
+
+\newpage
+\noindent
+\begin{center}
+  21 Novembre 2022
+\end{center}
+\section{Campo magnetico}
+L'elettricità è stata introdotta parlando del fenomeno della carica elettrostatica, manifestabile strofinando delle bacchette di materiale conduttore e vedendo che esse attiravano dei pezzetti di carta.\\
+Similmente per il magnetismo si potrebbe considerare in modo molto classico la calamita naturale, la quale, tuttavia, è difficile da studiare e descrivere rispetto al campo magnetico generato da una corrente che passa attraverso un filo. Oersted si accorse verso la fine dell'$800$ che una corrente passante attraverso un filo fa muovere l'ago della bussola; cioè, in altre parole, un campo magnetico esercita una forza sulle cariche in movimento.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Preso un tubo catodico su cui si hanno degli elettroni in movimento da sinistra verso destra, la cui traiettoria viene messa in evidenza da uno schermo fluorescente, allora il campo magnetico di una calamita fa deflettere fli elettroni in moto nel tubo.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: La forza $\vec F$ che il campo magnetico esercita su una carica è sempre perpendicolare alla velocità $\vec v$ e dipende dal vettore campo magnetico $\vec B$; si ottiene, quindi, la \textbf{forza di Lorentz}
+\[\boxed{\va{F} = q \va{v} \times \va{B}}\]
+ciò significa che $\vec F$ è sempre ortogonale tanto alla velocità quanto al campo magnetico. Non solo, ma la direzione di tale forza dipende dalla carica: se $q$ è positiva, la forza è nella direzione $\va{v} \times \va{B}$, se $q$ è negativa viceversa. In ogni caso l'intensità della forza è data da
+\[F = \vert q v B \sin(\theta)\vert\]
+dove $\theta$ è l'angolo compreso tra $\vec{v}$ e $\vec{B}$.\\
+Mentre per il campo elettrico è stata impiegata la forza di Coulomb per la sua definizione, per il campo magnetico $\vec B$ ciò non è più possibile, in quanto una stessa forza e velocità possono produrre il medesimo campo magnetico.\\
+In generale, il campo magnetico è un campo vettoriale che esercita sulla carica in movimento una forza che è pari alla forza di Lorentz.\\
+Per misurare, quindi, il campo magnetico, si procede tramite tubo catodico facendo deflettere gli elettroni con una calamita orientata differentemente. L'unità di misura del sistema internazionale SI dell'induzione magnetica è
+\[\dfrac{[\text{N}] \cdot [\text{s}]}{[\text{C}] \cdot [\text{m}]} = \dfrac{[\text{N}]}{[\text{A}] \cdot [\text{m}]} = [\text{T}]\]
+dove [T] sta per \textbf{tesla}. Un'altra unità di misura di uso comune è il \textbf{gauss} [G], in cui
+\[1 \text{ G} = 10^{-4} \text{ T}\] 
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione 1}: Si noti che il campo magnetico terrestre, in punti prossimi alla sua superficie, pur variando da punto a punto, ha valori di circa $3 \times 10^{-5}$ T, ossia di $0.3$ G.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione 2}: Si osservi, inoltre, che la forza di Lorentz non compie mai lavoro sulle cariche in movimento, in quanto sempre ortogonale alla velocità e quindi allo spostamento. Da notare, però, che la forza esercitata sulle cariche all'interno di un conduttore permette di estrarre energia dalle cariche stesse.\\
+Ovviamente, quindi, la forza di Lorentz non è conservativa, ma non è una forza dissipativa come la forza di attrito, in quanto non compie mai lavoro sulle cariche.\\
+Si osservi che la velocità e il campo magnetico presenti nella formula della forza di Lorentz sono definiti rispetto ad uno specifico sistema di riferimento e variano al variare del sistema di riferimento considerato. Nell'espressione di una forza fondamentale, infatti, non dovrebbe figurare la velocità, o meglio, potrebbe essere presente se essa fosse costante indipendentemente dal sistema di riferimento considerato, ossia la velocità della luce.
+
+\vspace{1em}
+\subsection{Forza agente su un conduttore percorso da corrente}
+È noto che la densità di corrente era definita come
+\[\vec j = q n \vec{v}_d\]
+dove $n$ è il numero di portatori di carica per unità di volume. L'intensità di corrente, inoltre, era definita a partire da $\vec j$ come
+\[I = j S = nSq v_d\]
+Dato, quindi, un conduttore di forma cilindrica, è noto che il suo volume si calcola come
+\[V = S \cdot l\]
+in cui $S$ è la sezione, mentre $l$ è la lunghezza del filo conduttore considerato. Il numero di portatori di carica, allora, è pari a
+\[N=n l S\]
+dove $n$ è il numero di portatori di carica per unità di volume. Allora per calcolare al risultante della forza agente su un conduttore percorso da corrente si ha
+\[\vec F = \sum_i \vec{F}_i = N \vec{F}_q = N q \vec{v}_d \times \vec B = nl S q \vec{v}_d \times \vec B\]
+in cui si può osservare come
+\[nl Sq \vec{v}_d = \vec l \cdot I\]
+per come è stata espressa la corrente $I$ all'inizio. Il vettore $\vec l$ sarà tangente al filo e con medesima direzione del vettore velocità di deriva $\vec{v}_d$.\\
+In questo modo si ottiene che la forza risultante è data da
+\[\boxed{\vec F = I \vec l \times \vec B}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Ovviamente, tale descrizione funziona solamente se il filo è dritto e rettilineo. Se esso curva non è più possibile associarvi una direzione tramite un solo vettore $\vec l$. La soluzione è quella di scomporre il filo curvilineo in piccole sezioni a cui associare un vettore direzione infinitesimo $\dif \vec l$, per cui si ottiene la \textbf{II legge elementare di Laplace}:
+\[\boxed{\dif \vec F = I \dif \vec l \times \vec B}\]
+La forza magnetica agente su un segmento di lunghezza finita di un conduttore percorso da corrente si ottiene sommando le fore agenti su ciascun elemento del conduttore, cioè integrando sulla lunghezza della conduttore
+\[\vec F = \int_0^L I \dif \vec l \times \vec B\]
+in cui $\vec B$ è approssimabile ad una costante nel tratto di conduttore infinitesimo preso in considerazione.
+
+\vspace{2em}
+\noindent
+\textbf{Esercizio}: Una sfera metallica di raggio $R_1=9.7$ cm è circondata da uno strato metallico sferico e concentrico, di raggio interno $R_2=22.1$ cm.\\
+Entrambi i conduttori sono caricati rispettivamente a $+Q$ e $-Q$, con $Q=1.24 \hspace{1em} \mu$C. Su di esse poggiano (allineate lungo una retta radiale) due sferette isolanti, di massa $m=1$ g e raggio trascurabile, caricate rispettivamente a $-q$ e $+q$, con $q=7.42$ nC.
+
+\begin{itemize}
+  \item Trascurando le sferette, calcolare il campo elettrico in ogni punto tra le due armature, specificando il suo valore numerico a $R_1$.
+  
+  \vspace{2em}
+  \noindent
+  Per la legge di Gauss si ha che
+  \[E(r) \cdot 4 \pi r^2 = \dfrac{Q}{\epsilon_0} \hspace{1em} \rightarrow \hspace{1em} \vec{E}(r) = \dfrac{Q}{4 \pi \epsilon_0} \hat r \hspace{1em} R_1<r<R_2\]
+
+  \item Le sferette vengono avvicinate fino a distanza $d=4$ mm seguendo un cammino radiale di uguale lunghezza per entrambe, quindi collegate tra loro con un bastoncino rigido e isolante fino a formare un dipolo, e ruotate in modo che il bastoncino stia sulla superficie equipotenziale. Quanta energia serve per raggiungere questa configurazione? (Si chiama $r_+$ ed $r_-$ le posizioni delle due cariche come in figura, $r_m$ la posizione del centro di massa.)
+
+  \vspace{2em}
+  \noindent
+  Calcolando la differenza di potenziale della carica $+q$ tra $R_1$ e $r_-$ si ha
+  \[\Delta V = V_- - V_1 = -\int_{R_1}^{r_-} \vec E \cdot \dif \vec l\]
+  Dopodiché se ne calcola l'energia associata, da qui
+  \[\Delta U = \dfrac{\Delta V}{q}\]
+\end{itemize}
+
+\newpage
+\noindent
+\begin{center}
+  22 Novembre 2022
+\end{center}
+In precedenza è stato introdotta la forza di Lorentz, calcolata come segue
+\[\vec F = q \vec v \times \vec B\]
+che può essere impiegata anche come definizione di campo magnetico. Per la II legge elementare di Laplace, si ha che la forza di Lorentz agente su un conduttore percorso da corrente è
+\[\dif \vec F = I \dif \vec l \times \vec B\]
+in cui si considera $\vec l$ come un vettore che descrive la direzione di un conduttore. 
+
+\vspace{1em}
+\subsection{Momento agente su una spira percorsa da corrente}
+Dato che un campo di induzione magnetica esercita una forza su un filo percorso da corrente, esso può produrre anche un momento. Di particolare interesse è il momento esercitato su una spira di filo metallico imperniata su un asse e percorsa da una corrente. Il moto rotatorio prodotto da tale momento è alla base del motore elettrico.\\
+Per rappresentare i vettori entranti e uscenti dal foglio, si usa la convenzione seguente
+\begin{itemize}
+  \item $\odot   \text{ vettore uscente}$
+  \item $\otimes \text{ vettore entrante}$
+\end{itemize}
+Si consideri, allora, una spira rettangolare percorsa da corrente, immersa in un campo magnetico uniforme entrante nel foglio. Il vettore superficie $\vec S$ è perpendicolare al piano della spira e ha verso definito dalla regola della mano destra rispetto al senso di circolazione della corrente nella spira, che è orario per ipotesi.\\
+Si sceglie un asse nel piano della spira e perpendicolare al campo elettrico $\vec B$, indicato con $OO'$. È chiaro che, se la spira è imperniata su tale asse, il momento tende a far sì che la spira ruoti intorno all'asse.\\
+Per determinare l'entità delle forze agenti sulla spira di forma rettangolare dovute al passaggio della corrente $I$ e al campo elettrico $\vec B$ si impiega la II legge elementare di Laplace
+\[\dif \vec F = I \dif \vec L \times \vec B\]
+Si vede facilmente che le forze saranno dirette tutte ortogonalmente alla spira con verso uscente dalla stessa; ovviamente, le forze dirette parallelamente all'asse di rotazione non producono alcun momento rispetto a tale asse, mentre quelle dirette ortogonalmente alla stessa produrranno un momento di forza 
+\[\vec \tau = \vec r \times \vec F\]
+ma siccome il braccio $r$ è pari alla metà della larghezza $w$ della spira, si ha che
+\[\tau = \dfrac{w}{2} I l B \sin(\theta)\]
+in cui $\theta$, in generale, è l'angolo compreso tra il braccio e la forza stessa. Ovviamente, il momento di forza prodotto dalla seconda forza non parallela all'asse di rotazione è uguale al primo, per cui il momento totale è
+\[\tau = \tau_1+\tau_2= w \cdot I l B \sin(\theta) = I S B \sin(\theta)\]
+dove si è tenuto conto, ovviamente, che l'area della spira rettangolare è $S=wl$. Quindi il vettore momento agente sulla spira per effetto di un campo magnetico uniforme è
+\[\boxed{\vec \tau = I \vec S \times \vec B}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che nella configurazione precedentemente considerata, la risultante delle forze agenti è nulla, per cui non si hanno deformazioni della spira di nessuna sorta.
+
+\vspace{1em}
+\noindent
+L'effetto del momento meccanico è quello di allineare $\vec S$ con il campo magnetico $\vec B$. Ovviamente, la direzione di $\vec \tau$ dipende dal senso di percorrenza della corrente, per cui bisogna usare la regola della mano destra: se la corrente scorre in senso orario, il verso del vettore superficie $\vec S$ è entrante; se la corrente scorre in senso antiorario, il verso del vettore superficie $\vec S$ è uscente.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Se al posto di considerare una sola spira, si può prendere in considerazione una bobina con $N$ spire. Se la bobina è avvolta in modo che le spire siano ditta, ciascuna di esse giace sostanzialmente in un piano e tali piani sono paralleli, di modo che i vettori superficie per le varie spire siano tutti uguali a $\vec S$. Se il momento agente su ciascuna spira è $\vec \tau = I \vec S \times \vec V$, allora il momento della forza magentica agente sulla bobina in un campo magnetico uniforme è
+\[\vec \tau = N I \vec S \times \vec B\]
+per la similitudine di tale fenomeno con il dipolo elettrico, si definisce il \textbf{momento di dipolo magnetico di una bobina percorsa da corrente} è
+\[\vec m = NI \vec S\]
+Generalizzando l'equazione del momento della forza magnetica agente su una bobina si ottiene che 
+\[\vec \tau = \vec m \times \vec B\]
+Come nel caso del dipolo elettrico, c'è una energia potenziale associata a un dipolo magnetico immerso in un campo magnetico. Tale energia potenziale è
+\[U = - \vec m \cdot \vec B\]
+che è, esattamente come per il dipolo, una energia potenziale associata alla rotazione dello stesso dipolo rispetto al campo considerato (elettrico nel primo, magnetico nel secondo).
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: In un condensatore piano, carico con $\Delta V=400$ V e isolato, con armature di area $A=200$ cm$^2$ e distanti $d=0.80$ cm, viene inserita una lastra di rame di spessore $b=0.20$ cm e di area identica a quella delle armature, in modo da stare a metà tra le stesse.
+
+\begin{itemize}
+  \item Calcolare la capacità del condensatore dopo aver introdotto la lastra.
+
+  \vspace{1em}
+  \noindent
+  Tale configurazione è approssimabile ad avere due condensatori in serie, ciascuna con capacità
+  \[C_{1,2} = \epsilon_0 \cdot \dfrac{A}{\dfrac{d-b}{2}}\]
+  la capacità equivalente sarà
+  \[C_\text{eq} = \epsilon_0 \cdot \dfrac{A}{d-b}\]
+
+  \item Calcolare il lavoro necessario per introdurre la lastra, con il suo segno.
+  
+  \vspace{1em}
+  \noindent
+  Il lavoro necessario è dato da
+  \[\Delta W = - \Delta U = -\dfrac{1}{2} \dfrac{\Delta Q^2}{C}\]
+  Supponendo che il condensatore sia staccato, allora $\Delta Q$ sarà costante, per cui
+  \[\Delta U = \dfrac{1}{2} Q^2 (C_\text{eq} - C_\text{ini})^{-1}\]
+
+  \item Si dica come cambia la capacità se la lastra non è esattamente al centro delle due armature. Nella risposta, tenete conto del rischio di rottura del dielettrico.
+
+  \vspace{1em}
+  \noindent
+  La capacità equivalente non varierà se la lastra non è esattamente a metà tra le due armature.\\
+  Il campo elettrico è tanto più grande quanto più si avvicinano le lastre e se esso diviene maggiore del campo elettrico limite
+  \[E_{\max} \cong 3 \times 10^6 \dfrac{\text{V}}{\text{m}}\]
+  il dielettrico si rompe.
+\end{itemize}
+
+\newpage
+\noindent
+\begin{center}
+  23 Novembre 2022
+\end{center}
+È stata introdotta, in precedenza, la forza di Lorentz come
+\[\vec F = q \vec v \times \vec B\]
+che è stata assunta come definizione di campo magnetico. Applicando tale legge alla forza agente su un conduttore attraversato da corrente si ottiene la II legge elementare di Laplace
+\[\dif \vec F = I \dif \vec l \times \vec B\]
+Tale formula, applicata ad una bobina attraversata da corrente, produce un momento torcente
+\[\vec \tau = NI \vec S \times \vec B\]
+Non solo, ma è possibile associare a tale spira anche un momento di di dipolo magnetico
+\[\vec m = N I \vec S\]
+per cui è possibile determinare la torsione come
+\[\vec \tau = \vec m \times \vec B\]
+
+\vspace{1em}
+\noindent
+\subsubsection{Momento magnetico e meccanico di una spira di forma arbitraria}
+Si supponga, ora, di considerare una spira non più rettangolare, ma di una forma generica. Ci si chiede, ora, se la legge per il momento di forza $\tau$ continui a valere anche per una spira generica. Si procede, allora, a racchiudere la superficie data in un plurirettangolo, ossia in un insieme di rettangoli di piccole dimensioni ciascuna contenente una sezione della spira. Si sono ottenute, così facendo, tante piccole spire rettangolari in cui la corrente scorre nello stesso verso imposto dalla superficie irregolare: ovviamente, lungo i lati comuni a due spire (ossia i lati \quotes{interni}) si sovrappongono correnti di verso opposto, cosicché l'intensità di corrente in essi è nulla; per la II legge elementare di Laplace, quindi, le forze che agiscono sui lati interni compaiono in due spire e sempre con verso opposto: anche il momento meccanico totale che agisce sulla spira può essere calcolato come somma (vettoriale) dei momenti meccanici che agiscono su ciascuna spira rettangolare:
+\[\vec \tau = \sum \vec{\tau}_i = \sum \left(\vec{m}_i \times \vec B\right) = \left(\sum \vec{m}_i\right) \times \vec B\]
+Il momento di dipolo magnetico della spira, quindi, è uguale alla somma (vettoriale) dei momenti di dipolo magnetico delle spire rettangolari:
+\[\vec m = \sum \vec{m}_i = \left(\sum I \vec{S}_i\right) = I\left(\sum \vec{S}_i\right)\]
+Facendo, quindi, tendere a $0$ le dimensioni delle spire si ottiene che
+\[\vec \tau = I \cdot \left(\iint_\mathcal{S} \dif \vec S \right) \times \vec B\]
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione 1}: Si supponga che il campo magnetico $\vec B$ non sia costante, ma sia variabile; ovviamente tale condizione implica che non si possa portare fuori $\vec B$ dall'integrale, calcolando
+\[\vec \tau = I \cdot \left(\iint_{\mathcal{S}_\gamma} \dif \vec S \times \vec B(\vec r)\right)\]
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione 2}: Si consideri, ora, una spira non più piana, ma che si sviluppa nello spazio; allora la modalità di definire la superficie che presenta come frontiera la spira non è univoca: in altre parole, ci sono infinite superfici che presentano una medesima frontiera. Non esiste, in realtà, un criterio per scegliere una superficie piuttosto che un'altra, ma molto spesso, nei casi che si analizzeranno, la soluzione non cambia.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri una spira tridimensionale a forma di sedia. Allora è possibile scomporre tale spira in due rettangoli (cosicché le forze agenti sul lato interno si annulleranno); allora, in questo modo, sarà possibile calcolare i momenti di dipolo magnetico per ciascuna sotto-spira
+\begin{align*}
+  &\vec{m}_1=I \cdot \vec{S}_1\\
+  &\vec{m}_2=I \cdot \vec{S}_2\\
+\end{align*}
+per cui il momento di dipolo magnetico totale è
+\[\vec m = \vec{m}_1 + \vec{m}_2 = I \cdot (\vec{S}_1 + \vec{S}_2)\]
+e quindi il momento meccanico totale sarà
+\[\vec \tau = I \cdot (\vec{S}_1 + \vec{S}_2) \times \vec B\]
+
+\vspace{1em}
+\subsection{Galvanometro}
+È noto che il momento meccanico associato ad una bobina è
+\[\vec \tau = N I \vec S \times \vec B = \vec m \times \vec B\]
+allora, se si considera una molla a forma di spirale che reagisce ad una sollecitazione di momento meccanico in modo lineare, secondo la legge
+\[\tau = - k \theta\]
+Nella geometria del campo magnetico costruito, si ha che l'angolo tra il campo magnetico e il momento di dipolo magnetico è pari a $90^\circ$, sempre. Pertanto, il valore del momento di forza $\tau$ si calcola come segue
+\[\tau = m B \sin(\theta) = m B =  NIS B\]
+Si ottiene quindi
+\[k \theta = NIS B \hspace{1em} \rightarrow \hspace{1em} \theta = I \cdot \dfrac{NSB}{k}\]
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

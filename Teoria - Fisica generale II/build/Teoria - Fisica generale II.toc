@@ -66,3 +66,13 @@
 \contentsline {subsection}{\numberline {6.2}Energia elettrica e potenza}{49}{}%
 \contentsline {subsubsection}{\numberline {6.2.1}Bilancio energetico per una batteria}{49}{}%
 \contentsline {subsection}{\numberline {6.3}Leggi di Kirchhoff}{50}{}%
+\contentsline {subsubsection}{\numberline {6.3.1}Legge delle maglie}{50}{}%
+\contentsline {subsubsection}{\numberline {6.3.2}Legge dei nodi}{51}{}%
+\contentsline {subsection}{\numberline {6.4}Circuiti RC}{53}{}%
+\contentsline {subsubsection}{\numberline {6.4.1}Carica di un condensatore}{53}{}%
+\contentsline {subsubsection}{\numberline {6.4.2}Scarica di un condensatore}{55}{}%
+\contentsline {section}{\numberline {7}Campo magnetico}{56}{}%
+\contentsline {subsection}{\numberline {7.1}Forza agente su un conduttore percorso da corrente}{57}{}%
+\contentsline {subsection}{\numberline {7.2}Momento agente su una spira percorsa da corrente}{59}{}%
+\contentsline {subsubsection}{\numberline {7.2.1}Momento magnetico e meccanico di una spira di forma arbitraria}{61}{}%
+\contentsline {subsection}{\numberline {7.3}Galvanometro}{62}{}%
