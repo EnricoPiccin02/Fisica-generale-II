@@ -2161,15 +2161,274 @@ Nella geometria del campo magnetico costruito, si ha che l'angolo tra il campo m
 Si ottiene quindi
 \[k \theta = NIS B \hspace{1em} \rightarrow \hspace{1em} \theta = I \cdot \dfrac{NSB}{k}\]
 
+\vspace{1em}
+\subsection{Moto di cariche libere in presenza di $\vec E$ e di $\vec B$}
+Una particella carica immersa in un campo elettrico $\vec E$ e in un campo magnetico $\vec B$ è sottoposta a due forze, quella di Coulomb e quella di Lorentz, per cui
+\[\vec F = q \vec E + q \vec v \times \vec B\]
+in cui il primo è un prodotto scalare, mentre il secondo è un prodotto vettoriale; le due forze addendi, inoltre, sono diversi come natura, in quanto la forza di Coulomb compie lavoro, la seconda, quella di Lorentz, non compie mai lavoro.\\
+Analizzando dapprincipio il caso in vi sia una particella carica in moto all'interno di un campo magnetico uniforme e in assenza di campo elettrico. Nell'ipotesi in cui il campo magnetico $\vec B$ sia uscente dalla pagina e che la velocità $\vec v$ sia, inizialmente, perpendicolare al campo magnetico. Ciò significa che la forza di Lorentz $\vec F$ risultante è ortogonale al vettore velocità $\vec v$ (ma i due vettori giacciono sul medesimo piano) e al vettore campo magnetico $\vec B$. Se la forza magnetica è l'unica forza che agisce sulla particella carica, per la seconda legge di Newton l'accelerazione della particella è perpendicolare alla velocità e giace anch'essa nel piano perpendicolare a $\vec B$. La formula della forza centripeta permette di ottenere
+\[F = \dfrac{mv^2}{r} = qvB\]
+in cui l'orbita del ciclotrone è proprio
+\[R = \dfrac{mv}{qB}\]
 
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Se la velocità iniziale non fosse stata ortogonale al campo magnetico, essa si sarebbe potuta scomporre in due direzioni: parallela al campo magnetico e ortogonale ad esso. Ovviamente la componente parallela della velocità non sarebbe stata soggetta alla forza di Lorentz e quindi non avrebbe subito accelerazione; pertanto
+\begin{itemize}
+  \item particelle che si muovono parallelamente al campo magnetico si muovono di moto rettilineo uniforme;
+  \item particelle che si muovono ortogonalmente al campo magnetico si muovono di moto circolare uniforme.
+\end{itemize}
 
+\vspace{1em}
+\noindent
+\subsubsection{Selettore di velocità}
+Si immerga una carica positiva all'interno di un condensatore piano (con armatura caricata negativamente verso l'alto) e con un campo magnetico uniforme uscente dal foglio.\\
+Allora si ha che la forza di Coulomb è diretta verso l'alto, mentre la forza magnetica è diretta verso il basso, per cui si ottiene
+\[F_\text{tot} = qE - qvB\]
+Nell'ipotesi in cui $v$ sia tale che $F_\text{tot}=0$ si ottiene
+\[F_\text{tot} = q \cdot (E - vB) = 0\]
+Dovendo essere $q \neq 0$, deve essere necessariamente
+\[E = vB \hspace{1em} \rightarrow \hspace{1em} v = \dfrac{E}{B}\]
+per cui variando opportunamente $\vec E$ e $\vec B$ si può ottenere la velocità che si desidera.
 
+\vspace{1em}
+\noindent
+\subsubsection{Spettrografo di massa}
+Si consideri un campo magnetico uniforme entrante nel foglio e un selettore di velocità che spara elettroni ortogonalmente al campo magnetico e sul piano del foglio; in questo modo la particella segue una traiettoria circolare di raggio $r$, con un accelerazione centripeta
+\[a=\dfrac{v^2}{r}\]
+mentre la forza che agisce sulla carica è, in modulo,
+\[F=qvB\]
+per la seconda legge di Newton si ha che $\vec F = m \vec a$, per cui è possibile scrivere
+\[qvb = m \cdot \dfrac{v^2}{r} \hspace{1em} \rightarrow \hspace{1em} m=\dfrac{q B r}{v}\]
+ma il modulo di velocità della particella è determinato dal selettore di velocità, con formula $v=\dfrac{E_0}{B_0}$, per cui
+\[m = \dfrac{q B B_0 r}{E_0}\]
+Se ora si considerano due particelle, a parità di valori di $q$, $E_0$, $B_0$ e $B$ si ottiene
+\[\dfrac{m}{m_0} = \dfrac{r}{r_0}\]
 
+\newpage
+\noindent
+\begin{center}
+  28 Novembre 2022
+\end{center}
+\section{Campo magnetico e correnti}
+Il campo magnetico esercita sulle cariche in movimento una forza che dipende dalla velocità delle cariche, secondo la Legge di Lorentz seguente
+\[\vec F = q \vec v \times \vec B\]
 
+\vspace{1em}
+\subsection{Legge di Biot e Savart}
+Immediatamente dopo la scoperta di Oersted che una corrente elettrica è sorgente di un campo magnetico, esperimenti condotti da André-Marie Ampere, da Jean-Baptise Biot e Félix Savart portarono a quella che oggi è nota come \textbf{legge di Biot e Savart} o anche come \textbf{I Legge elementare di Laplace}. Tale legge determina, in un punto dello spazio, il campo di induzione magnetica generato da una distribuzione di correnti elettriche.\\
+La legge di Coulomb, unita alla definizione di campo elettrico, fornisce il campo elettrico prodotto da una distribuzione di carica, secondo la formula
+\[\dif \vec E = \dfrac{1}{4 \pi \epsilon_0} \dfrac{\dif q}{r^2} \hat r\]
+dove $r$ è la distanza dell'elemento di carica dal punto $P$ e $\hat r$ è il versore diretto dalla carica al punto $P$.\\
+Considerando, ora, una distribuzione di corrente, un elemento di corrente $I \dif \vec l$ produce un contributo $\dif \vec B$ al campo di induzione magnetica in un punto $P$. Se $r$ rappresenta la distanza dell'elemento di corrente dal punto $P$, e il valore $\hat r$ è diretto dall'elemento di corrente al punto $P$, la \textbf{legge di Biot e Savart} per un elemento infinitesimo di corrente è
+\[\boxed{\dif \vec B = \dfrac{\mu_0}{4 \pi} \dfrac{I \dif \vec l \times \hat r}{r^2}}\]
+La direzione di $\dif \vec B$ è data dalla direzione del prodotto vettoriale $I \dif \vec l \times \hat r$ ed è perpendicolare tanto all'elemento di corrente $I \dif \vec l$ quanto al versore $\hat r$, mentre il verso è dato dalla regola della mano destra.\\
+Il modulo di $\dif B$ è
+\[\dif B = \dfrac{\mu_0}{4\pi} \dfrac{I \dif l \sin(\theta)}{r^2}\]
+dove $\theta$ è l'angolo compreso tra le direzioni di $I \dif \vec l$ e $\hat r$. La costante $\mu_0$ è chiamata \textbf{permeabilità magnetica} del vuoto ed è analoga a $\epsilon_0$, ossia la costante dielettrica del vuoto nell'elettrostatica.\\
+A causa delle connessioni che sussistono tra elettricità e magnetismo, i valori di $\epsilon_0$ e $\mu_0$ non sono indipendenti: tali costanti sono legate alla velocità $c$ delle onde elettromagnetiche nel vuoto dalla relazione
+\[c=\dfrac{1}{\sqrt{\epsilon_0 \mu_0}}\]
+In particolare, il valore di $\mu_0$ è pari a
+\[\mu_0 = 4 \pi \times 10^{-7} \text{ T m A}^{-1}\]
+che è un valore esatto, in quanto la $17^a$ conferenza generale di Pesi e Misure del $1983$ ha deciso di definire in modo esatto $c=2.99792458 \times 10^8 \dfrac{\text{m}}{\text{s}}$, per cui per la relazione di cui sopra $\mu_0$ si ricava in modo esatto, secondo la definizione esatta di $c$.
 
+\vspace{2em}
+\subsubsection{Campo magnetico di un filo rettilineo indefinitamente lungo percorso da corrente}
+Si consideri un filo parallelo all'asse $x$ percorso da una corrente di intensità $I$ con verso concorde con l'asse $x$. L'elemento di corrente $I \dif l$ fornisce il contributo $\dif \vec B$ al campo di induzione magnetica nel punto $P$. Ovviamente, per la regola della mano destra si ha che $\dif \vec B$ è uscente dal piano della figura.\\
+Il modulo del campo magnetico è
+\[\dif B = \dfrac{\mu_0}{4\pi} \dfrac{I l \sin(\theta)}{r^2}\]
+dove $r$ è la distanza dell'elemento di corrente $\dif \vec l$ da $P$, ossia l'ipotenusa del triangolo di cateti $R$ e $x$, per cui
+\[\dif B = \dfrac{\mu_0}{4\pi} \dfrac{I l \sin(\theta)}{r^2} = \dfrac{\mu_0}{4\pi} \dfrac{I l \sin(\theta)}{R^2+x^2}\]
+Naturalmente, poi, è possibile esprimere
+\[\sin(\theta)=\sin(\pi-\theta)=\dfrac{R}{\sqrt{R^2+x^2}}\]
+per cui si ottiene, in definitiva l'espressione seguente
+\[\dif B = \dfrac{\mu_0}{4\pi} \dfrac{I R \dif x}{\left(x^2+R^2\right)^{\frac{3}{2}}}\]
+Pertanto si ottiene il campo magnetico è
+\[\int_{-\frac{l}{2}}^{\frac{l}{2}} \dfrac{\mu_0}{4\pi} \dfrac{IR \dif x}{(x^2+t^2)^{\frac{3}{2}}} = \frac{\mu_0}{4\pi} IR \cdot \dfrac{L}{R \cdot \sqrt{R^2+\dfrac{L^2}{4}}}\]
+pertanto, quando $L \to +\infty$ si ottiene
+\[\boxed{B=\dfrac{\mu_0 I}{2 \pi R}}\]
 
+\vspace{2em}
+\subsubsection{Campo magnetico sull'asse di una spira percorsa da corrente}
+Si consideri un elemento di corrente di una spira circolare, il quale produce un contributo $\dif \vec B$ al campo di induzione magnetica in un punto sull'asse della spira. Ovviamente, i vettori $I \dif \vec l$ e $\hat r$ sono perpendicolari.\\
+Il modulo di $\dif \vec B$ è lo stesso per ogni elemento di corrente della spira, ma la direzione dei vari contributi è diversa. Si scompone, quindi, $\dif \vec B$ nelle componenti $\dif \vec B_x = \dif B \cos(\phi)$, l'ungo l'asse della spira e $\dif B_\perp = dB \sin(\phi)$, perpendicolare all'asse. Per ragioni di simmetria, l'integrale esteso alla spira della componente perpendicolare $\dif B_\perp$ è nullo. Si noti, quindi, che l'elemento di corrente $I \dif \vec l$ e il versore $\hat r$ sono perpendicolari, per cui $\sin(\theta)=1$. Pertanto si ha che
+\[\dif B_x = \dfrac{\mu_0 I \dif l \cos(\theta)}{4 \pi \cdot \left(x^2+a^2\right)}\]
+sfruttando il fatto che $r^2=x^2+a^2$. Nell'effettuare l'integrazione lungo la spira, ciascun fattore dell'integrando è costante e può essere portato fuori dal segno di integrale, cosicché rimane
+\[\int \dif l = l = 2 \pi a\]
+che è semplicemente la circonferenza della spira. Si ottiene quindi
+\[B_x=\dfrac{\mu_0 I 2 \pi a \cos(\phi)}{4 \pi (x^2+a^2)}\]
+Osservando che
+\[\cos(\phi) = \dfrac{a}{r} = \dfrac{a}{(x^2+a^2)^{\frac{3}{2}}}\]
+per cui si ottiene che
+\[B_x = \dfrac{\mu_0 I 2 \pi a^2}{4 \pi (x^2+a^2)^{\frac{3}{2}}}\]
+Tale risultato può essere espresso in forma più semplice ricorrendo al momento di dipolo magnetico $\vec m = I \vec S$. Si noti, poi, che il fattore $\pi a^2$ che compare nel numeratore è il valore $S$ dell'area della spira e che il prodotto $I\pi a^2$ è il modulo $m=IS$ del momento di dipolo magnetico della spira percorsa da corrente. Si noti, inoltre, che $\vec B$ e $\vec m$ presentano la medesima direzione, quella del semiasse $x$ positivo. Si ha, quindi
+\[\vec B = \dfrac{\mu_0}{2\pi} \dfrac{\vec m}{(x^2+a^2)^{\frac{3}{2}}}\]
+Nei punti lontani dalla spira, dove $\vert x\vert >> a$, si ottiene che
+\[(x^2+a^2)^{\frac{3}{2}} \cong (x^2)^{\frac{3}{2}} = \vert x\vert^3\]
+Pertanto, l'intensità del campo è data approssimativamente
+\[B \cong \dfrac{\mu_0 m}{2 \pi \vert x \vert^3}\]
+La dipendenza di $B$ dall'inverso del cubo della distanza dalla spira (lontano dalla spira) è caratteristica di un campo di dipolo. Infatti, si confronti il risultato ottenuto per $\vec B$ con quello ottenuto per $\vec E$ sull'asse di un dipolo elettrico
+\[E \cong \dfrac{p}{2 \pi \epsilon_0 z^3}\]
 
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Si può dimostrare formalmente che l'analogia ottenuta vale in generale: il campo magnetico generato da una spira percorsa da corrente percorsa da corrente in punti lontani dalla spira è un campo di dipolo:
+\[\boxed{\vec B (\vec r) = \dfrac{\mu_0}{4 \pi} \cdot \dfrac{3 (\vec m \cdot \hat r) \hat r - \vec m}{r^3}}\]
+in cui se $\vec m$ e $\hat r$ sono allineati, come nel caso preso in esame, si ottiene
+\[\vec B(\vec r) = \dfrac{\mu_0}{4 \pi} \cdot \dfrac{3 \vec m - \vec m}{r^3} = \dfrac{2 \mu_0 \vec m}{4 \pi r^3}\]
 
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: È noto che un filo infinito crea un campo magnetico che si avvolge attorno al filo. Per conoscere il flusso di tale campo magnetico è possibile calcolarlo come differenza tra le linee entranti e quelle uscenti dalla superficie presa in considerazione. Ma siccome le linee di campo magnetico si avvolgono sempre su se stesse, ovviamente il flusso totale attorno ad una qualsiasi superficie chiusa è sempre nullo.\\
+Pertanto, al posto di calcolare il flusso, ha più significato parlare di \textbf{circuitazione}, calcolabile come segue
+\[\oint \vec B \cdot \dif \vec r = \mu_0 I\]
+che si esprime come \textbf{legge di Ampere}.
+
+\newpage
+\noindent
+\begin{center}
+    29 Novembre 2022
+\end{center}
+Si consideri una corrente che scorre in un filo conduttore, allora il campo magnetico, espresso secondo la legge di Biot e Savart, è
+\[\dif \vec B = \frac{\mu_0}{4 \pi} \cdot \frac{I \dif \vec l \times \hat r}{r^2}\]
+anche nota come I legge elementare di Laplace. Vi sono motivazioni intrinseche per andare oltre tale legge, come fatto per la legge di Coulomb, la quale è stata seguita dall'espressione della legge di Gauss.\\
+In particolare, è noto che il flusso netto di un campo vettoriale è dato dalla differenza tra le linee entranti e quelle uscente dal campo vettoriale.\\
+Per esempio, nel caso del campo magnetico generato da un lungo filo conduttore, si può calcolare il flusso come
+\[\oint \vec B \dif \vec r\]
+dal momento che il campo magnetico e il vettore $\vec r$ sono sempre paralleli, in quanto le linee del campo magnetico ha una direzione circolare e si chiudono sempre su se stesse; percorrendo tali linee nella direzione del campo magnetico, ovviamente si ottengono sempre vettori tangenti la curva, fra loro paralleli; pertanto il prodotto scalare è massimo, per cui
+\[\oint \vec B \dif \vec r = \oint B \cdot \dif r = \oint \dfrac{\mu_0 I}{2 \pi R} \dif r = \dfrac{\mu_0 I}{2 \pi R} \oint \dif r = \dfrac{\mu_0 I}{2 \pi R} \cdot 2\pi R = \mu_0 I\]
+in quanto l'integrale chiuso sulla circonferenza di porzioni infinitesimali di lunghezza della stessa è proprio la lunghezza della circonferenza stessa. Si ottiene, quindi, la \textbf{circuitazione del campo magnetico}, che presenta un'espressione molto compatta, ottenuta, però, nel caso non reale di un filo indefinitamente nullo.
+Supponendo, ora, di muoversi non più sulle circonferenze concentriche del campo magnetico, ma su un qualsiasi percorso chiuso, si può sempre scomporre il vettore spostamento $\dif \vec r$ nelle sue componenti parallela (ossia tangenziale) al campo magnetico e ortogonale (ossia radiale) al campo magnetico, che non contribuisce al prodotto scalare, ovvero
+\[\vec B \cdot \dif \vec r = \vec B \cdot (\dif \vec r_{\parallel} + \dif \vec r_\perp) = \vec B \cdot \dif \vec r_{\parallel}\]
+Si osservi, poi, che $\dif \vec r_{\parallel}$ può essere espresso come
+\[r_\parallel = R \cdot \sin(\theta)\]
+con $R$ la distanza del punto sul cammino rispetto al centro. Per angoli piccoli, quindi, si può scrivere
+\[\dif \vec r_\parallel = R \dif \theta\]
+per cui, in conclusione, si ottiene che
+\[\vec B \cdot \dif \vec r_\parallel = \dfrac{\mu_0 I}{2 \pi R} \cdot R \dif \theta = \dfrac{\mu_0 I}{2\pi} \dif \theta\]
+Procedendo, ora, all'integrazione si ottiene
+\[\oint \vec B \cdot \dif \vec r = \dfrac{\mu_0 I}{2 \pi} \cdot \int_0^{2\pi} \dif \theta = \frac{\mu_0 I}{2 \pi} \cdot 2\pi = \mu_0 I\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione 1}: Si osservi che cambiando il verso di percorrenza del filo non cambia il risultato, in quanto il coseno dell'angolo tra $\vec B$ e $\vec r_\parallel$ sarà negativo, ma anche la corrente avrà segno $-$, per cui si otterrà il medesimo risultato.\\
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione 2}: Si potrebbe, però, anche osservare che non è detto che il circuito stia sul piano, ma potrebbe essere sullo spazio: tuttavia, la componente verticale è sempre ortogonale al campo magnetico, per cui il suo contributo al prodotto scalare è sempre nullo, per cui si ottiene ancora il risultato di partenza.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione 3}: Nell'ipotesi in cui il circuito non contenga il filo, ossia il filo di forma arbitraria che si va percorrendo non comprenda nella sua superficie interna il filo conduttore che genera il campo magnetico, si dovrà calcolare l'integrale
+\[\oint \vec B \dif \vec r = \frac{\mu_0 I}{2 \pi} \left[\int_{\theta_1}^{\theta_2} + \int_{\theta_2}^{\theta_1} \dif \theta\right] = 0\]
+in quanto quando si percorre il circuito radiale che non contiene il filo fino ad un cerco angolo si sta andando nello stesso verso della corrente, ma tornando indietro si sta percorrendo la stessa differenza di angoli, ma in verso contrario alla corrente, per cui i due integrali sommano a $0$.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione 4}: Pertanto, in conclusione, si ha che 
+\[\oint \vec B \cdot \dif \vec r = \dfrac{\mu_0 I}{2 \pi} \cdot \int_0^{2\pi} \dif \theta = \frac{\mu_0 I}{2 \pi} \cdot 2\pi = \mu_0 I\]
+è un risultato valido solamente nell'ipotesi in cui la \textbf{corrente è concatenata al circuito}.\\
+Altrimenti, se la corrente non è concatenata al circuito si ottiene che
+\[\oint \vec B \cdot \dif \vec r = 0\]
+Si noti, quindi, la particolare analogia con la legge di Gauss: in questo caso il ruolo della carica viene rivestito dalla corrente, mentre la superficie in questo caso è il circuito.\\
+Si osservi che se si considera un circuito che si avvolge più volte attorno al filo, allora il contributo dato al flusso è pari a $\mu_0 I$ moltiplicato tante volte quanti sono gli avvolgimenti attorno al filo.\\
+Si ottiene, quindi, la \textbf{legge di Ampere} seguente
+\[\boxed{\oint \vec B \cdot \dif \vec r = \mu_0 I_\text{conc}}\]
+
+\vspace{2em}
+\noindent
+Generalizzando la legge di Ampere al caso in cui vi sono più campi magnetici, si può applicare la legge di sovrapposizione degli effetti
+\[\oint (\vec B_1 + \vec B_2) \cdot \dif \vec r = \oint \vec B_1 \cdot \dif \vec r + \oint \vec B_2 \cdot \dif \vec r\]
+per cui secondo la legge di Ampere si avrà che
+\[\mu_0 \cdot \sum I_\text{conc}\]
+in cui si dovrà considerare la somma delle correnti concatenate.\\
+In particolare, preso un qualsiasi circuito che presenta come frontiera una curva chiusa $\gamma$, per la legge di Ampere si ha che
+\[\oint_\gamma \vec B \cdot \dif \vec r = \mu_0 \cdot I_\text{conc} = \mu_0 \iint_{\mathcal{S}_\gamma} \vec j \cdot \dif \vec S\]
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Si era osservato che il campo elettrico è conservativo, ossia
+\[\oint \vec E \cdot \dif \vec r = 0\]
+allora era possibile esprimere tale conservatività con una legge differenziale data
+\[\lim_{\Delta \mathcal{S} \to 0} \dfrac{\displaystyle{\int_{xy} \vec E \cdot \dif \vec r}}{\Delta \mathcal{S}} = (\text{rot } \vec E)_z\]
+Similmente, nel caso del campo magnetico, avendo a disposizione la legge di Ampere generalizzata
+\[\oint_\gamma \vec B \cdot \dif \vec r = \mu_0 \cdot I_\text{conc} = \mu_0 \iint_{\mathcal{S}_\gamma} \vec j \cdot \dif \vec S\]
+si può considerare
+\[\lim_{\Delta \mathcal{S} \to 0} \dfrac{\displaystyle{\int_{xy} \vec B \cdot \dif \vec r}}{\Delta \mathcal{S}} = (\text{rot } \vec B)_z = \mu_0 \dfrac{\displaystyle{\iint_{\mathcal{S}_z} \vec j \cdot \dif \vec{\mathcal{S}}}}{\Delta \mathcal{S}} \to \mu_0 \cdot \dfrac{j_z \cdot \Delta \mathcal{S}}{\Delta \mathcal{S}} = \mu_0 j_z\]
+In questo modo si ottiene la \textbf{legge di Ampere} in forma differenziale
+\[\boxed{\vec \nabla \times \vec B = \text{rot } \vec B = \mu_0 \vec j}\]
+Ora si è scritta l'equazione del rotore del campo magnetico. Per quanto riguarda, invece, la divergenza del campo magnetico, ossia $\vec \nabla \cdot \vec B$, permette di capire dove nascono le linee di campo. Ma siccome si è visto che il flusso di campo magnetico è nullo, in quanto le linee di campo magnetico si avvolgono sempre su se stesse, per cui
+\[\vec \nabla \cdot \vec B = 0\]
+ossia la divergenza del campo magnetico è nulla. Se ora si combina tale risultato con l'equazione di continuità
+\[\vec \nabla \cdot \vec j = - \frac{\partial \rho}{\partial t}\]
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Il flusso di campo magnetico attraverso una superficie, non dipende dalla superficie scelta.\\
+Infatti, prese due superfici che presentano la medesima frontiera, allora il flusso totale sarà dato dalla somma del flusso derivante dalle due superfici
+\[\iint_{\mathcal{S}_\text{chiusa}} \vec B \cdot \dif \vec{\mathcal{S}} = 0 = \iint_{\mathcal{S}_1} \vec B \cdot \dif \vec{\mathcal{S}} + \iint_{\mathcal{S}_2} \vec B \cdot \dif \vec{\mathcal{S}}\]
+ovvero si ha che
+\[\boxed{\iint_{\mathcal{S}_1} \vec B \cdot \dif \vec{\mathcal{S}} = \iint_{\mathcal{S}_2} \vec B \cdot \dif \vec{\mathcal{S}}}\]
+per il calcolo del flusso non dipende dalla superficie scelta, l'importante è che presenti sempre la medesima frontiera $\gamma$.\\
+Tuttavia, se questo è vero per il campo magnetico, non è vero per la densità di corrente. In particolare si ha che
+\[\mu_p \iint_{{\mathcal{S}_\gamma}} \vec j \cdot \dif \vec{\mathcal{S}}\]
+è definito e ha significato solamente quando
+\[\vec \nabla \cdot \vec j = - \dfrac{\partial \rho}{\partial t} = 0\]
+ossia la divergenza della densità di corrente è nulla.
+
+\newpage
+\noindent
+\begin{center}
+  30 Novembre 2022
+\end{center}
+È stato osservato che il campo magnetico si sviluppa con direzione rotazionale e, siccome non esistono monopoli magnetici, qualsiasi volume chiuso presenta un egual numero di linee di campo entranti e uscenti, per cui il flusso totale è nullo, da cui
+\[\iint_{\mathcal{S}_\text{chiusa}} \vec B \cdot \dif \vec s \hspace{1em} \rightarrow \hspace{1em} \vec \nabla \cdot \vec B = 0\]
+Non solo, si è anche visto come la circuitazione del campo magnetico è data da
+\[\oint_\gamma \vec B \cdot \dif \vec r = \mu_0 I_\text{conc} = \mu_0 \iint_{\mathcal{S}_\gamma} \vec j \cdot \dif \vec{\mathcal{S}}\]
+in quanto l'intensità di corrente non è altro che il flusso sulla superficie chiusa della densità di corrente. Si noti, poi, che la superficie presa in considerazione non è arbitraria, ma deve presentare come frontiera la curva $\gamma$ del circuito.\\
+La legge di Ampere, generalizzata per circuiti piccoli diviene
+\[\vec \nabla \times \vec B = \text{rot } \vec B = \mu_0 \vec j\]
+Tale equazione è vera solamente quando
+\[\dfrac{\partial \rho}{\partial t} = - \vec \nabla \cdot \vec j = 0\]
+Si è visto, poi, che l'integrale 
+\[\mu_0 \iint_{\mathcal{S}_\gamma} \vec j \cdot \dif \vec{\mathcal{S}}\]
+non dipende dalla superficie scelta, ma la superficie deve necessariamente avere come frontiera la curva $\gamma$ del circuito.\\
+Allora si ha che
+\[\dfrac{\partial \rho}{\partial t} = - \vec \nabla \cdot \vec j = - \vec \nabla \cdot \left(\dfrac{1}{\mu_0} \vec \nabla \times \vec B\right)\]
+in quanto è noto che
+\[\vec \nabla \times \vec B = \text{rot } \vec B = \mu_0 \vec j \hspace{1em} \rightarrow \hspace{1em} \vec j = \dfrac{\vec \nabla \times \vec B}{\mu_0}\]
+Ma è facile osservare che la divergenza di un rotore è sempre nulla, per cui
+\[\dfrac{\partial \rho}{\partial t} = - \vec \nabla \cdot \vec j = - \vec \nabla \cdot \left(\dfrac{1}{\mu_0} \vec \nabla \times \vec B\right) = 0\]
+Ciò, pertanto, dimostra che la legge di Ampere esposta non ha validità generale, in quanto richiede che non vi sia accumulazione di carica, per cui la variazione della densità di carica $\rho$ deve essere nulla. Si consideri, allora, un esempio di accumulazione di carica per eccellenza, ossia il condensatore. Naturalmente prese due superfici $\mathcal{S}_1$ e $\mathcal{S}_2$ che contengono una la prima lastra e l'altra la seconda lastra, si ha ovviamente che
+\[\iint_{\mathcal{S}_1} \vec j \cdot \dif \vec{\mathcal{S}} = I \hspace{1em} \text{e} \hspace{1em} \iint_{\mathcal{S}_2} \vec j \cdot \dif \vec{\mathcal{S}} = I\]
+per definizione di corrente come flusso della densità di corrente attraverso la superficie. Se, invece, si considera una superficie tra le lastre, dove non si ha passaggio di corrente, si ottiene che
+\[\iint_{\mathcal{S}_3} \vec j \cdot \dif \vec{\mathcal{S}} = 0\]
+per cui quando si ha accumulazione di carica, la scelta della superficie importa eccome.\\
+Si ricordi, allora, il significato di flusso di un campo elettrico
+\[\Phi_E = E A = \dfrac{\sigma}{\epsilon_0} \cdot A = \dfrac{Q}{\epsilon_0} \hspace{1em} \rightarrow \hspace{1em} Q = \epsilon_0 \cdot \Phi_E\]
+Applicando, ora, la definizione di corrente si ottiene
+\[\dfrac{\dif Q}{\dif t} = I \hspace{1em} \rightarrow \hspace{1em} I = \dfrac{\dif }{\dif t} \epsilon_0 \Phi_E\]
+Questo, quindi, significa che il campo elettrico varia tra le lastre. In questo modo è possibile quindi definire la \textbf{corrente di spostamento} come
+\[\vec j_\text{sp} = \epsilon_0 \cdot \dfrac{\partial \vec E}{\partial t}\]
+Ora si ottiene, quindi, che la densità da considerare è la somma della densità di corrente e della corrente di spostamento, da cui
+\[\vec j' = \vec j + \epsilon_0 \dfrac{\partial \vec E}{\partial t}\]
+per cui la corrente si calcola come
+\[I=\iint_{\mathcal{S}_\gamma} \left(\vec j + \epsilon_0 \dfrac{\partial \vec E}{\partial t}\right) \cdot \dif \vec{\mathcal{S}}\]
+e tale generalizzazione rende la corrente uguale indipendentemente dalla superficie scelta, anche se vi è accumulazione di carica.\\
+Se ora si dovesse valutare la divergenza della nuova densità di corrente, si calcolerebbe
+\[\vec \nabla \cdot \left(\vec j + \epsilon_0 \dfrac{\partial \vec E}{\partial t}\right) = \vec \nabla \cdot \vec j + \epsilon_0 \cdot \vec \nabla \dfrac{\partial \vec E}{\partial t}\]
+Ma è noto che la divergenza del campo elettrico è
+\[\vec \nabla \cdot \vec E = \dfrac{\rho}{\epsilon_0}\]
+pertanto
+\[\vec \nabla \cdot \vec j + \epsilon_0 \cdot \frac{\partial}{\partial t} \dfrac{\rho}{\epsilon_0} = \vec \nabla \cdot \vec j + \frac{\partial \rho}{\partial t} = 0\]
+che è nulla se la carica si conserva. Pertanto, in conclusione, si ottengono le equazioni seguenti
+\begin{align*}
+  &\vec \nabla \cdot \vec E = \dfrac{\rho}{\epsilon_0} & \vec \nabla \times \vec E = 0\\
+  &\vec \nabla \cdot \vec B = 0 & \vec \nabla \times \vec B = \mu_0 \cdot \left(\vec j + \epsilon_0 \dfrac{\partial \vec E}{\partial t}\right)
+\end{align*}
+Se ora si calcola la divergenza del rotore del campo magnetico (che è noto essere sempre nulla), si ottiene
+\[\vec \nabla \cdot \left(\vec \nabla \times \vec B\right) = 0 = \mu_0 \cdot \left(\vec \nabla \cdot \vec j + \dfrac{\partial \rho}{\partial t}\right) \hspace{1em} \rightarrow \hspace{1em} \vec \nabla \cdot \vec j + \dfrac{\partial \rho}{\partial t} = 0\]
+Pertanto, ora, la legge di Ampere generalizzata non richiede più che non vi sia accumulo di carica, ma chiede un qualcosa di meno per funzionare, ossia la conservazione della carica.
 
 
 

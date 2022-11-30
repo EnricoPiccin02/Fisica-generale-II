@@ -76,3 +76,10 @@
 \contentsline {subsection}{\numberline {7.2}Momento agente su una spira percorsa da corrente}{59}{}%
 \contentsline {subsubsection}{\numberline {7.2.1}Momento magnetico e meccanico di una spira di forma arbitraria}{61}{}%
 \contentsline {subsection}{\numberline {7.3}Galvanometro}{62}{}%
+\contentsline {subsection}{\numberline {7.4}Moto di cariche libere in presenza di $\vec E$ e di $\vec B$}{62}{}%
+\contentsline {subsubsection}{\numberline {7.4.1}Selettore di velocità}{63}{}%
+\contentsline {subsubsection}{\numberline {7.4.2}Spettrografo di massa}{63}{}%
+\contentsline {section}{\numberline {8}Campo magnetico e correnti}{64}{}%
+\contentsline {subsection}{\numberline {8.1}Legge di Biot e Savart}{64}{}%
+\contentsline {subsubsection}{\numberline {8.1.1}Campo magnetico di un filo rettilineo indefinitamente lungo percorso da corrente}{65}{}%
+\contentsline {subsubsection}{\numberline {8.1.2}Campo magnetico sull'asse di una spira percorsa da corrente}{65}{}%
