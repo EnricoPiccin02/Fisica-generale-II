@@ -1,85 +1,103 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {section}{\numberline {1}Introduzione all'elettrostatica}{3}{}%
-\contentsline {subsection}{\numberline {1.1}Conduttore}{3}{}%
-\contentsline {subsection}{\numberline {1.2}Legge di Coulomb}{3}{}%
-\contentsline {subsection}{\numberline {1.3}Campo elettrico}{5}{}%
-\contentsline {subsubsection}{\numberline {1.3.1}Campo elettrico generato da una carica puntiforme}{5}{}%
-\contentsline {subsection}{\numberline {1.4}Dipolo elettrico}{6}{}%
-\contentsline {subsection}{\numberline {1.5}Campo elettrico sull'asse di un dipolo}{6}{}%
-\contentsline {subsection}{\numberline {1.6}Campo elettrico nel piano equatoriale di un dipolo}{6}{}%
-\contentsline {subsection}{\numberline {1.7}Campo elettrico generato da distribuzioni continue di carica}{6}{}%
-\contentsline {subsection}{\numberline {1.8}Linee di forza del campo elettrico}{7}{}%
-\contentsline {subsection}{\numberline {1.9}Campo elettrico di una distribuzione lineare di carica}{8}{}%
-\contentsline {subsection}{\numberline {1.10}Campo elettrico sull'asse di un anello carico}{8}{}%
-\contentsline {subsection}{\numberline {1.11}Campo elettrico di una distribuzione superficiale di carica}{9}{}%
-\contentsline {subsection}{\numberline {1.12}Particelle cariche in un campo elettrico uniforme}{9}{}%
-\contentsline {subsubsection}{\numberline {1.12.1}Dipolo elettrico in campo elettrico uniforme}{10}{}%
-\contentsline {section}{\numberline {2}Legge di Gauss}{11}{}%
-\contentsline {subsection}{\numberline {2.1}Flusso}{11}{}%
-\contentsline {subsection}{\numberline {2.2}Legge di Gauss}{12}{}%
-\contentsline {subsection}{\numberline {2.3}Deduzione della legge di Gauss dalla legge di Coulomb}{12}{}%
-\contentsline {subsection}{\numberline {2.4}Deduzione della legge di Gauss dalla legge di Coulomb}{13}{}%
-\contentsline {subsection}{\numberline {2.5}Flusso attraverso una superficie arbitraria con carica puntiforme all'interno}{14}{}%
-\contentsline {subsection}{\numberline {2.6}Flusso attraverso una superficie arbitraria con carica puntiformi all'interno e all'esterno}{14}{}%
-\contentsline {subsection}{\numberline {2.7}Legge di Gauss in forma differenziale}{14}{}%
-\contentsline {subsubsection}{\numberline {2.7.1}Campo elettrico in prossimità di una distribuzione lineare di carica molto lunga}{17}{}%
-\contentsline {subsubsection}{\numberline {2.7.2}Campo elettrico in prossimità di una grande lamina piana carica}{17}{}%
-\contentsline {subsubsection}{\numberline {2.7.3}Superficie sferica carica}{17}{}%
-\contentsline {subsubsection}{\numberline {2.7.4}Sfera carica in modo uniforme}{18}{}%
-\contentsline {subsection}{\numberline {2.8}Proprietà elettrostatiche di un conduttore}{18}{}%
-\contentsline {subsubsection}{\numberline {2.8.1}Campo nelle immediate vicinanze di un conduttore}{18}{}%
-\contentsline {section}{\numberline {3}Potenziale elettrico}{19}{}%
-\contentsline {subsection}{\numberline {3.1}Energia potenziale elettrica}{19}{}%
-\contentsline {subsubsection}{\numberline {3.1.1}Energia potenziale di una particella di prova nel campo di una carica puntiforme}{19}{}%
-\contentsline {subsubsection}{\numberline {3.1.2}Energia potenziale di una particella di prova nel campo di un numero qualsiasi di cariche puntiformi}{20}{}%
-\contentsline {subsection}{\numberline {3.2}Potenziale elettrico}{21}{}%
-\contentsline {subsection}{\numberline {3.3}Potenziale prodotto da distribuzioni continue di cariche}{21}{}%
-\contentsline {subsection}{\numberline {3.4}Differenza di potenziale}{22}{}%
-\contentsline {subsection}{\numberline {3.5}Relazione tra campo e potenziale elettrico}{23}{}%
-\contentsline {subsubsection}{\numberline {3.5.1}Campo elettrico come gradiente del potenziale}{24}{}%
-\contentsline {subsubsection}{\numberline {3.5.2}Equazioni di Laplace e di Poisson}{24}{}%
-\contentsline {subsection}{\numberline {3.6}Rotore del campo elettrico}{28}{}%
-\contentsline {subsection}{\numberline {3.7}Superfici equipotenziali}{29}{}%
-\contentsline {subsection}{\numberline {3.8}Proprietà elettrostatiche di un conduttore}{29}{}%
-\contentsline {section}{\numberline {4}Conduttori, capacità e dielettrici}{31}{}%
-\contentsline {subsubsection}{\numberline {4.0.1}Capacità di un cavo coassiale}{32}{}%
-\contentsline {subsection}{\numberline {4.1}Condensatori in serie e in parallelo}{32}{}%
-\contentsline {subsubsection}{\numberline {4.1.1}Condensatori in serie}{32}{}%
-\contentsline {subsubsection}{\numberline {4.1.2}Condensatori in parallelo}{33}{}%
-\contentsline {subsection}{\numberline {4.2}Proprietà elettrostatiche dei dielettrici}{35}{}%
-\contentsline {subsection}{\numberline {4.3}Descrizione molecolare dei dielettrici}{35}{}%
-\contentsline {section}{\numberline {5}Corrente e Resistenze}{39}{}%
-\contentsline {subsection}{\numberline {5.1}Densità di corrente elettrica}{40}{}%
-\contentsline {subsection}{\numberline {5.2}Equazione di continuità e conservazione della carica elettrica}{40}{}%
-\contentsline {subsection}{\numberline {5.3}Equazione di continuità in forma differenziale}{41}{}%
-\contentsline {subsection}{\numberline {5.4}Resistenza e legge di Ohm}{41}{}%
-\contentsline {subsubsection}{\numberline {5.4.1}Resistività}{42}{}%
-\contentsline {subsubsection}{\numberline {5.4.2}Dipendenza dalla temperatura della resistività dei metalli}{42}{}%
-\contentsline {subsubsection}{\numberline {5.4.3}Legge di Ohm in termini $\vec j$ e $\vec E$}{42}{}%
-\contentsline {subsection}{\numberline {5.5}Modello di Drude per i metalli}{43}{}%
-\contentsline {subsection}{\numberline {5.6}Resistenze in serie e in parallelo}{45}{}%
-\contentsline {subsection}{\numberline {5.7}Amperometri e voltmetri}{47}{}%
-\contentsline {section}{\numberline {6}Circuiti in corrente continua}{48}{}%
-\contentsline {subsection}{\numberline {6.1}Forza elettromotrice e resistenza interna di una batteria}{48}{}%
-\contentsline {subsection}{\numberline {6.2}Energia elettrica e potenza}{49}{}%
-\contentsline {subsubsection}{\numberline {6.2.1}Bilancio energetico per una batteria}{49}{}%
-\contentsline {subsection}{\numberline {6.3}Leggi di Kirchhoff}{50}{}%
-\contentsline {subsubsection}{\numberline {6.3.1}Legge delle maglie}{50}{}%
-\contentsline {subsubsection}{\numberline {6.3.2}Legge dei nodi}{51}{}%
-\contentsline {subsection}{\numberline {6.4}Circuiti RC}{53}{}%
-\contentsline {subsubsection}{\numberline {6.4.1}Carica di un condensatore}{53}{}%
-\contentsline {subsubsection}{\numberline {6.4.2}Scarica di un condensatore}{55}{}%
-\contentsline {section}{\numberline {7}Campo magnetico}{56}{}%
-\contentsline {subsection}{\numberline {7.1}Forza agente su un conduttore percorso da corrente}{57}{}%
-\contentsline {subsection}{\numberline {7.2}Momento agente su una spira percorsa da corrente}{59}{}%
-\contentsline {subsubsection}{\numberline {7.2.1}Momento magnetico e meccanico di una spira di forma arbitraria}{61}{}%
-\contentsline {subsection}{\numberline {7.3}Galvanometro}{62}{}%
-\contentsline {subsection}{\numberline {7.4}Moto di cariche libere in presenza di $\vec E$ e di $\vec B$}{62}{}%
-\contentsline {subsubsection}{\numberline {7.4.1}Selettore di velocità}{63}{}%
-\contentsline {subsubsection}{\numberline {7.4.2}Spettrografo di massa}{63}{}%
-\contentsline {section}{\numberline {8}Campo magnetico e correnti}{64}{}%
-\contentsline {subsection}{\numberline {8.1}Legge di Biot e Savart}{64}{}%
-\contentsline {subsubsection}{\numberline {8.1.1}Campo magnetico di un filo rettilineo indefinitamente lungo percorso da corrente}{65}{}%
-\contentsline {subsubsection}{\numberline {8.1.2}Campo magnetico sull'asse di una spira percorsa da corrente}{65}{}%
+\contentsline {section}{\numberline {1}Introduzione all'elettrostatica}{4}{}%
+\contentsline {subsection}{\numberline {1.1}Conduttore}{4}{}%
+\contentsline {subsection}{\numberline {1.2}Legge di Coulomb}{4}{}%
+\contentsline {subsection}{\numberline {1.3}Campo elettrico}{6}{}%
+\contentsline {subsubsection}{\numberline {1.3.1}Campo elettrico generato da una carica puntiforme}{6}{}%
+\contentsline {subsection}{\numberline {1.4}Dipolo elettrico}{7}{}%
+\contentsline {subsection}{\numberline {1.5}Campo elettrico sull'asse di un dipolo}{7}{}%
+\contentsline {subsection}{\numberline {1.6}Campo elettrico nel piano equatoriale di un dipolo}{7}{}%
+\contentsline {subsection}{\numberline {1.7}Campo elettrico generato da distribuzioni continue di carica}{7}{}%
+\contentsline {subsection}{\numberline {1.8}Linee di forza del campo elettrico}{8}{}%
+\contentsline {subsection}{\numberline {1.9}Campo elettrico di una distribuzione lineare di carica}{9}{}%
+\contentsline {subsection}{\numberline {1.10}Campo elettrico sull'asse di un anello carico}{9}{}%
+\contentsline {subsection}{\numberline {1.11}Campo elettrico di una distribuzione superficiale di carica}{10}{}%
+\contentsline {subsection}{\numberline {1.12}Particelle cariche in un campo elettrico uniforme}{10}{}%
+\contentsline {subsubsection}{\numberline {1.12.1}Dipolo elettrico in campo elettrico uniforme}{11}{}%
+\contentsline {section}{\numberline {2}Legge di Gauss}{12}{}%
+\contentsline {subsection}{\numberline {2.1}Flusso}{12}{}%
+\contentsline {subsection}{\numberline {2.2}Legge di Gauss}{13}{}%
+\contentsline {subsection}{\numberline {2.3}Deduzione della legge di Gauss dalla legge di Coulomb}{13}{}%
+\contentsline {subsection}{\numberline {2.4}Deduzione della legge di Gauss dalla legge di Coulomb}{14}{}%
+\contentsline {subsection}{\numberline {2.5}Flusso attraverso una superficie arbitraria con carica puntiforme all'interno}{15}{}%
+\contentsline {subsection}{\numberline {2.6}Flusso attraverso una superficie arbitraria con carica puntiformi all'interno e all'esterno}{15}{}%
+\contentsline {subsection}{\numberline {2.7}Legge di Gauss in forma differenziale}{15}{}%
+\contentsline {subsubsection}{\numberline {2.7.1}Campo elettrico in prossimità di una distribuzione lineare di carica molto lunga}{18}{}%
+\contentsline {subsubsection}{\numberline {2.7.2}Campo elettrico in prossimità di una grande lamina piana carica}{18}{}%
+\contentsline {subsubsection}{\numberline {2.7.3}Superficie sferica carica}{18}{}%
+\contentsline {subsubsection}{\numberline {2.7.4}Sfera carica in modo uniforme}{19}{}%
+\contentsline {subsection}{\numberline {2.8}Proprietà elettrostatiche di un conduttore}{19}{}%
+\contentsline {subsubsection}{\numberline {2.8.1}Campo nelle immediate vicinanze di un conduttore}{19}{}%
+\contentsline {section}{\numberline {3}Potenziale elettrico}{20}{}%
+\contentsline {subsection}{\numberline {3.1}Energia potenziale elettrica}{20}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Energia potenziale di una particella di prova nel campo di una carica puntiforme}{20}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}Energia potenziale di una particella di prova nel campo di un numero qualsiasi di cariche puntiformi}{21}{}%
+\contentsline {subsection}{\numberline {3.2}Potenziale elettrico}{22}{}%
+\contentsline {subsection}{\numberline {3.3}Potenziale prodotto da distribuzioni continue di cariche}{22}{}%
+\contentsline {subsection}{\numberline {3.4}Differenza di potenziale}{23}{}%
+\contentsline {subsection}{\numberline {3.5}Relazione tra campo e potenziale elettrico}{24}{}%
+\contentsline {subsubsection}{\numberline {3.5.1}Campo elettrico come gradiente del potenziale}{25}{}%
+\contentsline {subsubsection}{\numberline {3.5.2}Equazioni di Laplace e di Poisson}{25}{}%
+\contentsline {subsection}{\numberline {3.6}Rotore del campo elettrico}{29}{}%
+\contentsline {subsection}{\numberline {3.7}Superfici equipotenziali}{30}{}%
+\contentsline {subsection}{\numberline {3.8}Proprietà elettrostatiche di un conduttore}{30}{}%
+\contentsline {section}{\numberline {4}Conduttori, capacità e dielettrici}{32}{}%
+\contentsline {subsubsection}{\numberline {4.0.1}Capacità di un cavo coassiale}{33}{}%
+\contentsline {subsection}{\numberline {4.1}Condensatori in serie e in parallelo}{33}{}%
+\contentsline {subsubsection}{\numberline {4.1.1}Condensatori in serie}{33}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}Condensatori in parallelo}{34}{}%
+\contentsline {subsection}{\numberline {4.2}Proprietà elettrostatiche dei dielettrici}{36}{}%
+\contentsline {subsection}{\numberline {4.3}Descrizione molecolare dei dielettrici}{36}{}%
+\contentsline {section}{\numberline {5}Corrente e Resistenze}{40}{}%
+\contentsline {subsection}{\numberline {5.1}Densità di corrente elettrica}{41}{}%
+\contentsline {subsection}{\numberline {5.2}Equazione di continuità e conservazione della carica elettrica}{41}{}%
+\contentsline {subsection}{\numberline {5.3}Equazione di continuità in forma differenziale}{42}{}%
+\contentsline {subsection}{\numberline {5.4}Resistenza e legge di Ohm}{42}{}%
+\contentsline {subsubsection}{\numberline {5.4.1}Resistività}{43}{}%
+\contentsline {subsubsection}{\numberline {5.4.2}Dipendenza dalla temperatura della resistività dei metalli}{43}{}%
+\contentsline {subsubsection}{\numberline {5.4.3}Legge di Ohm in termini $\vec j$ e $\vec E$}{43}{}%
+\contentsline {subsection}{\numberline {5.5}Modello di Drude per i metalli}{44}{}%
+\contentsline {subsection}{\numberline {5.6}Resistenze in serie e in parallelo}{46}{}%
+\contentsline {subsection}{\numberline {5.7}Amperometri e voltmetri}{48}{}%
+\contentsline {section}{\numberline {6}Circuiti in corrente continua}{49}{}%
+\contentsline {subsection}{\numberline {6.1}Forza elettromotrice e resistenza interna di una batteria}{49}{}%
+\contentsline {subsection}{\numberline {6.2}Energia elettrica e potenza}{50}{}%
+\contentsline {subsubsection}{\numberline {6.2.1}Bilancio energetico per una batteria}{50}{}%
+\contentsline {subsection}{\numberline {6.3}Leggi di Kirchhoff}{51}{}%
+\contentsline {subsubsection}{\numberline {6.3.1}Legge delle maglie}{51}{}%
+\contentsline {subsubsection}{\numberline {6.3.2}Legge dei nodi}{52}{}%
+\contentsline {subsection}{\numberline {6.4}Circuiti RC}{54}{}%
+\contentsline {subsubsection}{\numberline {6.4.1}Carica di un condensatore}{54}{}%
+\contentsline {subsubsection}{\numberline {6.4.2}Scarica di un condensatore}{56}{}%
+\contentsline {section}{\numberline {7}Campo magnetico}{57}{}%
+\contentsline {subsection}{\numberline {7.1}Forza agente su un conduttore percorso da corrente}{58}{}%
+\contentsline {subsection}{\numberline {7.2}Momento agente su una spira percorsa da corrente}{60}{}%
+\contentsline {subsubsection}{\numberline {7.2.1}Momento magnetico e meccanico di una spira di forma arbitraria}{62}{}%
+\contentsline {subsection}{\numberline {7.3}Galvanometro}{63}{}%
+\contentsline {subsection}{\numberline {7.4}Moto di cariche libere in presenza di $\vec E$ e di $\vec B$}{63}{}%
+\contentsline {subsubsection}{\numberline {7.4.1}Selettore di velocità}{64}{}%
+\contentsline {subsubsection}{\numberline {7.4.2}Spettrografo di massa}{64}{}%
+\contentsline {section}{\numberline {8}Campo magnetico e correnti}{65}{}%
+\contentsline {subsection}{\numberline {8.1}Legge di Biot e Savart}{65}{}%
+\contentsline {subsubsection}{\numberline {8.1.1}Campo magnetico di un filo rettilineo indefinitamente lungo percorso da corrente}{66}{}%
+\contentsline {subsubsection}{\numberline {8.1.2}Campo magnetico sull'asse di una spira percorsa da corrente}{66}{}%
+\contentsline {subsection}{\numberline {8.2}Forza agente tra conduttori percorsi da corrente}{72}{}%
+\contentsline {section}{\numberline {9}Induzione elettromagnetica}{75}{}%
+\contentsline {subsection}{\numberline {9.1}Legge di induzione elettromagnetica}{75}{}%
+\contentsline {subsection}{\numberline {9.2}Generatori e alternatori}{76}{}%
+\contentsline {subsection}{\numberline {9.3}Potenziale}{79}{}%
+\contentsline {subsection}{\numberline {9.4}Potenziale vettore}{79}{}%
+\contentsline {subsection}{\numberline {9.5}Libertà di Gauge}{81}{}%
+\contentsline {section}{\numberline {10}Autoinduzione e mutua induzione}{82}{}%
+\contentsline {subsection}{\numberline {10.1}Circuiti LR}{83}{}%
+\contentsline {section}{\numberline {11}Circuiti in corrente alternata}{86}{}%
+\contentsline {subsection}{\numberline {11.1}Oscillazioni in circuit LC}{86}{}%
+\contentsline {subsection}{\numberline {11.2}Focus sui numeri complessi}{87}{}%
+\contentsline {subsection}{\numberline {11.3}Circuito RLC in serie}{91}{}%
+\contentsline {subsection}{\numberline {11.4}Circuiti in corrente alternata puramente resistivi}{92}{}%
+\contentsline {subsection}{\numberline {11.5}Circuiti in corrente alternata puramente capacitivi}{93}{}%
+\contentsline {subsection}{\numberline {11.6}Circuito RLC in serie in corrente alternata}{95}{}%
+\contentsline {subsubsection}{\numberline {11.6.1}Risonanza}{97}{}%
+\contentsline {subsection}{\numberline {11.7}Potenza di un circuito RLC in serie in corrente alternata}{97}{}%

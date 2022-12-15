@@ -2430,8 +2430,697 @@ Se ora si calcola la divergenza del rotore del campo magnetico (che è noto esse
 \[\vec \nabla \cdot \left(\vec \nabla \times \vec B\right) = 0 = \mu_0 \cdot \left(\vec \nabla \cdot \vec j + \dfrac{\partial \rho}{\partial t}\right) \hspace{1em} \rightarrow \hspace{1em} \vec \nabla \cdot \vec j + \dfrac{\partial \rho}{\partial t} = 0\]
 Pertanto, ora, la legge di Ampere generalizzata non richiede più che non vi sia accumulo di carica, ma chiede un qualcosa di meno per funzionare, ossia la conservazione della carica.
 
+\vspace{1em}
+\noindent
+\subsection{Forza agente tra conduttori percorsi da corrente}
+Si considerino due fili paralleli, a distanza $R$ l'uno dall'altro, che vengono percorsi da due correnti $\vec I_1$ e $\vec I_2$ concordi. Ovviamente ciascuno di essi genera un campo magnetico di intensità
+\[B_1=\dfrac{\mu_0 I_1}{2 \pi R} \hspace{1em} \text{e} \hspace{1em} B_2=\dfrac{\mu_0 I_2}{2 \pi R^2}\]
+Di conseguenza, a causa di tale campo magnetico, ciascuno dei due fili esercita una forza dettata dalla legge di Lorentz; pertanto, ricordando che campo magnetico $\vec B$ e vettore direzione $\dif \vec l$ sono fra loro ortogonali, si ha
+\[F_{1,2} = I_1 l B_2 = \dfrac{\mu_0 I_2 I_2}{2 \pi R} l \hspace{1em} \text{e} \hspace{1em} F_{2,1} = \dfrac{\mu_0 I_1 I_2 l}{2 \pi R}\]
+Tale legge permette anche di definire l'Ampere: l'Ampere è l'intensità di corrente che, passando in due lunghi (idealmente infiniti) fili rettilinei e paralleli posti a una distanza di $1$ m, genera una forza per unità di lunghezza di
+\[F=\dfrac{\mu_0 (1\text{ A}) (1\text{ A})}{2 \pi (1\text{ m})} = 2\times 10^{-7} \text{ N}\]
+che permette anche di capire come mai $\mu_0$ ha il valore esatto di
+\[\mu_0 = 4\pi \times 10^{-7} \text{ valore esatto}\]
 
+\vspace{2em}
+\noindent
+\textbf{Esempio 1}: Si consideri un filo di lunghezza infinita attraversato da una corrente $I$; per determinare il campo magnetico generato da tale filo conduttore, invece di usare Biot-Savart, è possibile applicare la legge di Ampere, non modificata, in quanto in questo caso non si ha accumulazione di carica. Ovviamente il campo magnetico $\vec B$ sarà ortogonale alla corrente, con direzione circolare e giace su un piano ortogonale al filo conduttore, con verso dettato dalla regola della mano destra.\\
+Per determinarne il campo magnetico, allora si applica la legge di Ampere
+\[\oint_\gamma \vec B \cdot \dif \vec r\]
+Siccome il campo magnetico è costante, lo si può portare fuori dall'integrale; ma l'integrale sulla superficie chiusa pari ad una circonferenza è la circonferenza stessa, da cui
+\[\oint_\gamma \vec B \cdot \dif \vec r = B(r) \cdot \oint_\gamma \dif \vec r = B(r) \cdot 2\pi r = \mu_0 I \hspace{1em} B=\dfrac{\mu_0 I}{2 \pi r}\]
 
+\vspace{2em}
+\noindent
+\textbf{Esempio 2}: Si consideri un filo di lunghezza $L$ a forma di spirale, con $N$ spire, che viene attraversato da una corrente $I$: il numero di spire per unità di lunghezza è, ovviamente $n=\dfrac{N}{L}$\\
+Allora presa una sezione del filo conduttore a forma rettangolare, ossia il circuito $\gamma$, ovviamente l'unico contributi viene dato dall'unico lato del rettangolo che è ortogonale al campo magnetico e concatena le correnti, ovvero
+\[\oint_\gamma \vec B \dif \vec r = B(r) L = \mu_0 I n L\]
+da cui il campo magnetico di un solenoide con $n L = N$ spire è
+\[\boxed{B=\mu_0 n I}\]
+
+\vspace{2em}
+\noindent
+\textbf{Esempio 3}: Si consideri un solenoide toroidale che viene attraversato da una corrente $I$ percorsa in senso antiorario. Chiamato $R$ il raggio del toroide, si ha che
+\[\oint \vec B \cdot \dif \vec r = B(R) \cdot 2 \pi R = \mu_0 N I \hspace{1em} \text{e} \hspace{1em} B = \dfrac{\mu_0 N I}{2 \pi R}\]
+che ricorda l'espressione del campo magnetico di un filo, tranne per la presenza di $N$ numero di spire.\\
+Si osservi, però, che il campo magnetico è tutto contenuto nel solenoide, a differenza di un filo che occupa tutto il piano, per cui preso un circuito $\gamma$ all'esterno del toroide o all'interno del buco dello stesso, non concatenando nessuna corrente, si ottiene un campo magnetico nullo.
+
+\newpage
+\noindent
+\begin{center}
+  5 Dicembre 2022
+\end{center}
+È noto che la legge di Gauss afferma che
+\[\iint_{\mathcal{S}_\text{chiusa}} \vec E \cdot \dif \vec{\mathcal{S}} = \dfrac{1}{\epsilon_0} \iiint \rho \dif v\]
+Scritta in forma differenziale, tale equazione diviene
+\[\vec \nabla \cdot \vec E = \dfrac{\rho}{\epsilon_0}\]
+Se le cariche sono ferme, il campo elettrico è conservativo, per cui
+\[\oint_\gamma \vec E \cdot \dif \vec r = 0\]
+che può essere scritto in forma differenziale come
+\[\vec \nabla \times \vec E = \vec 0 \hspace{1em} \text{ossia} \hspace{1em} \text{rot } \vec E = \vec 0\]
+In particolare si ha che
+\[\dfrac{\dif}{\dif t} \iiint_\gamma \rho \dif V = - \iint_{\mathcal{S}_\text{chiusa}} \vec j \cdot \dif \vec S\]
+che, in forma differenziale, diviene
+\[\dfrac{\partial \rho}{\partial t} = - \vec \nabla \cdot \vec j\]
+Per quanto riguarda il campo magnetico, invece, si è visto come
+\[\iint_{\mathcal{S}_\text{chiusa}} \vec B \cdot \dif \vec{\mathcal{S}} = 0 \hspace{1em} \text{e} \hspace{1em} \oint_\gamma \vec B \cdot \dif \vec r = \mu_0 \cdot \iint_{\mathcal{S}_\gamma} \vec j \cdot \dif \vec{\mathcal{S}}\]
+anche se la seconda equazione deve essere corretta in quanto valida solo se non si ha accumulo di carica; si ottiene, quindi
+\[\oint_\gamma \vec B \cdot \dif \vec r = \mu_0 \cdot \left[\iint_{\mathcal{S}_\gamma} \vec j \cdot \dif \vec{\mathcal{S}} + \epsilon_0 \dfrac{\dif}{\dif t} \iint_{\mathcal{S}_\gamma} \vec E \cdot \dif \vec S\right]\]
+Scritte in forma differenziale, le due equazioni finali divengono
+\[\vec \nabla \cdot \vec B = 0 \hspace{1em} \text{e} \hspace{1em} \vec \nabla \times \vec B = \mu_0 \vec j + \mu_0 \epsilon_0 \dfrac{\partial \vec E}{\partial t}\]
+che quindi risultano valide solamente quando si ha la conservazione della carica.
+
+\newpage
+\noindent
+\section{Induzione elettromagnetica}
+Si osservi che il modo con cui si è giunti all'ultima equazione non è quello presentato precedentemente.\\
+In particolare, Henry si chiese se, visto che un campo elettrico passante per un filo genera un campo magnetico, anche il campo magnetico potesse generare un campo elettrico; accoppiando, allora, un circuito con una batteria e una resistenza ad un circuito che presenta un galvanometro tramite un filo di ferro dolce, ossia un materiale ferromagnetico, attorno al quale si avvolgono due bobine: quando passa corrente per il filo di ferro dolce, si crea un campo magnetico che è proprio di un solenoide. Quando si aziona il circuito il galvanometro si sposta per un attimo e poi torna in posizione statica; similmente, quando si stacca il circuito il galvanometro segna una corrente nel senso opposto per un attimo e poi torna in posizione statica: questo suggerisce che un campo magnetico non genera un campo elettrico, ma la variazione del primo sì.\\
+
+\vspace{1em}
+\subsection{Legge di induzione elettromagnetica}
+Ciò suggerisce che una variazione di campo magnetico concatenato con una spira genera una forza elettromotrice nella spira che, quindi, produce una corrente. Si espone, di seguito, la relazione che sussiste tra le due grandezze nota come \textbf{legge di induzione elettromagnetica di Faraday}, o anche \textbf{legge di Faraday-Neumann-Lenz}:
+\[\boxed{\xi = - \dfrac{\dif \Phi_B}{\dif t}}\]
+in cui il segno negativo si riferisce al senso della forza elettromotrice indotta nel circuito, definito dalla \textbf{Legge di Lenz}: ad un aumento del flusso del campo magnetico induttore, si ha una corrente negativa e quindi il campo magnetico indotto ha verso opposto al campo magnetico induttore che, quindi, si oppone all'aumento del flusso; se il flusso del campo magnetico diminuisce, la corrente che si genera è positiva e il campo magnetico indotto ha verso concorde con il campo magnetico induttore, cercando di compensare la diminuzione del flusso del campo magnetico induttore. Ad un aumento del flusso, quindi, la forza elettromotrice è negativa, mentre sarà positiva in caso di diminuzione del flusso.\\
+Nel caso di una bobina con $N$ spire, la forza elettromotrice totale $\xi_T$ è data dalla somma delle forze elettromotrici di tutte le spire
+\[\boxed{\xi_T = - N \dfrac{\dif \Phi_B}{\dif t}}\]
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione 1}: Com'è noto, il flusso del campo magnetico di una bobina con $N$ spire si calcola come
+\[\Phi_B = N \vec B \cdot \vec S = NBS \cos(\theta)\]
+con $\theta$ angolo compreso tra $\vec B$ e $\vec S$. Siccome $N$ è una costante fissata, per avere una variazione del flusso di campo magnetico si può avere una variazione del campo magnetico $\vec B$, oppure della superficie $S$ o, ancora, si può avere una variazione dell'angolo $\theta$, che è il principio base dell'alternatore a induzione.
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione 2}: Si consideri un campo magnetico uniforme, avente direzione uscente dal piano; nel circuito a filo mobile (rotaia) viene indotta una forza elettromotrice. Chiamata $l$ la larghezza fissa della rotaia e $x$ la posizione della rotaia lungo le guidovie, il flusso del campo magnetico è
+\[\Phi_B=B \cdot l x\]
+in quanto $\vec B$ e $\vec S$ sono concordi. Allora la variazione del flusso di campo magnetico è
+\[\dfrac{\dif \Phi_B}{\dif t} = B \cdot l \dfrac{\dif x}{\dif t} = B l v\]
+Applicando la legge di Faraday sull'induzione elettromagnetica si ha che la forza elettromotrice indotta nel circuito è
+\[\xi = - Blv \hspace{1em} \rightarrow \hspace{1em} I = - \dfrac{1}{R} B l v\]
+in cui $R$ è la resistenza del circuito. Ovviamente, la presenza di un campo magnetico e di cariche in movimento permette di capire la forza di Lorentz che agisce su un portatore di carica $q$, di intensità
+\[\vec F_q=q \vec v \times \vec B\]
+Ma se si osserva che la variazione del flusso di campo magnetico induce una corrente che attraversa il filo, la quale, a sua volta, genera un campo magnetico a cui è associata una forza di modulo
+\[\vert \vec F_\text{filo} \vert = I B l\] 
+Naturalmente tale forza compie un lavoro
+\[\dif W = \vec F_\text{filo} \cdot \dif x = \vec F_\text{filo} \cdot \dfrac{\dif x}{\dif t} \dif t = I B l v \dif t\]
+a cui corrisponde una potenza $P$ calcolata come
+\[P=\dfrac{dW}{dt}=\vert I \vert B l v = \frac{(B l v)^2}{R}\]
+Si noti che tale potenza è esattamente la potenza dissipata dalla resistenza $R$ nel circuito
+\[P_R = I^2 R = \dfrac{(Blv)^2}{R}\]
+
+\vspace{1em}
+\subsection{Generatori e alternatori}
+Dalla legge di induzione elettromagnetica di Faraday è noto che
+\[\xi=-\dfrac{\dif \Phi_B}{\dif t}\]
+Si supponga, ora, di avere una spira immersa in un campo magnetico uniforme $\vec B$ e avente un vettore superficie $\vec S$: si supponga, ora, che la spira ruoti con moto armonico semplice, sicché il flusso di campo magnetico possa essere espresso come
+\[\Phi_B = NBS \cos(\omega t + \phi_0)\]
+in cui $\theta=\omega t + \phi_0$, posta $\omega$ la frequenza in $\dfrac{\text{rad}}{\text{s}}$. Supposto $\phi_0=0$ si ha che il flusso del campo magnetico $\vec B$ è
+\[\Phi_B = NB S \cos(\omega t) \hspace{1em} \rightarrow \hspace{1em} \dfrac{\dif \Phi_B}{\dif t} = -NBS \omega \sin(\omega t)\]
+Pertanto la forza elettromotrice generata dal flusso di campo magnetico è
+\[\xi=-\dfrac{\dif \Phi_B}{\dif t} = NBS \omega \sin(\omega t)\]
+Questo è il principio di funzionamento di una dynamo, così come di un alternatore. Quando si inserisce la dynamo si fa fatica in quanto per farla ruotare bisogna vincere il momento meccanico esercitato dal campo magnetico $\vec B$ sulla spira; in particolare, il momento magnetico è
+\[\vec m = N I \vec S\]
+per cui il momento meccanico associato è
+\[\vec \tau = \vec m \times \vec B = NI \vec S \times \vec B\]
+È facile calcolarne il modulo, ottenendo
+\[\vert \vec \tau \vert = N \cdot \left[\dfrac{NBS \omega}{R}\sin(\omega t)\right] \cdot SB \sin(\omega t)= \dfrac{(NSB \sin(\omega t))^2}{R} \omega\]
+pertanto, il lavoro è
+\[\dif W = \tau \cdot \dif \theta = \tau \frac{\dif \theta}{\dif t} \dif t\]
+a cui si associa la potenza
+\[P=\tau \omega = \dfrac{(NSB \omega \sin(\omega t))^2}{R}\]
+
+\newpage
+\noindent
+\begin{center}
+  6 Dicembre 2022
+\end{center}
+Si è visto che una spira, immersa in un campo magnetico, la forza elettromotrice indotta sulla spira dal campo magnetico è
+\[\xi = -\dfrac{\dif \Phi_B}{\dif t}\]
+in cui il flusso del campo magnetico è
+\[\Phi_B = \vec B \cdot \vec S = B S \cos(\theta)\]
+con $\vec S$ è la spira sulla quale viene esercitata la forza elettromotrice. L'unità di misura del flusso di campo magnetico è il \textbf{Weber}
+\[\text{T} \cdot \text{m}^2 = \text{Wb}\]
+Dal momento che il campo magnetico ha divergenza nulla, il flusso è identico indipendentemente dalla scelta della spira che abbia come bordo il circuito stesso.\\
+Dal momento che
+\[\Phi_B = \vec B \cdot \vec S = B S \cos(\theta)\]
+al fine di avere una variazione del flusso di campo magnetico devono variare $B$, $S$, oppure $\theta$.\\
+Dopo aver visto come cambia il flusso variando il campo magnetico, è stato mostrato un circuito a rotaie in cui a variare era la superficie: ovviamente se tale circuito è immerso in un campo magnetico uniforme uscente dal foglio, viene esercitata una forza di Lorentz sui portatori di carica che producono un corrente oraria. Non solo, ma la corrente che passa nel filo a sua volta esercita una forza che è opposta alla forza che spinge la rotaia. Si è visto, inoltre, che la potenza impiegata per tiare la rotaia è esattamente eguale alla potenza dissipata dalla resistenza.\\
+Quando varia l'angolo $\theta$, come nel caso di una spira immersa in un campo magnetico con la possibilità di ruotare, nell'ipotesi assunta con moto armonico, tale per cui $\theta=\omega t$, come un vero e proprio generatore di corrente alternata.
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Si osservi che la formula dell'induzione elettromagnetica
+\[\xi=-\dfrac{\dif \Phi_B}{\dif t}\]
+può essere scritta in forma integrale come
+\[\oint_\gamma \vec E \cdot \dif \vec l = - \dfrac{\dif }{\dif t} \iint_{\mathcal{S}_\gamma} \vec B \cdot \dif \vec{\mathcal{S}}\]
+ma le leggi di Maxwell per l'elettrostatica affermano che il campo elettrico è irrotazionale, essendo conservativo, ovvero
+\[\oint_\gamma \vec E \cdot \dif \vec l = 0\]
+che contrasta con l'equazione di Faraday precedentemente descritta in forma integrale. Pertanto la legge di Maxwell diviene
+\[\oint_\gamma \vec E \cdot \dif \vec l = - \dfrac{\dif }{\dif t} \iint_{\mathcal{S}_\gamma} \vec B \cdot \dif \vec{\mathcal{S}}\]
+che va ad unirsi alle leggi di Maxwell già note per il campo elettrico
+\[\iint_{\mathcal{S}_\text{chiusa}} \vec E \cdot \dif \vec{\mathcal{S}} = \dfrac{\displaystyle{\iiint_V \rho \dif V}}{\epsilon_0}\]
+e magnetico
+\[\iint_{\mathcal{S}_\text{chiusa}} \vec B \cdot \dif \vec{\mathcal{S}} = 0 \hspace{1em} \text{e} \hspace{1em} \oint_\gamma \vec B \cdot \dif \vec S = \mu_0 \cdot \left(\iint_{\mathcal{S}_\gamma} \vec j \cdot \dif \vec{\mathcal{S}} + \epsilon_0 \dfrac{\dif}{\dif t} \iint_{\mathcal{S}_\gamma} \vec E \cdot \dif \vec{\mathcal{S}}\right)\]
+in cui, ovviamente, il flusso del campo magnetico è nullo in quanto non esistono in natura monopoli magnetici, ossia \quotes{cariche magnetiche}.\\
+Da notare che è fondamentale la Legge di Lenz e, quindi, il segno $-$ per la variazione del flusso del campo magnetico: se la legge di Lenz non fosse vera, ad una variazione del campo magnetico seguirebbe la generazione di un campo magnetico concorde con la variazione stessa, che a sua volta contribuirebbe ad una variazione del campo magnetico totale etc., ottenendo una deriva esponenziale della corrente.\\
+Scritte in forma locale le leggi di Maxwell divengono
+\begin{align*}
+  &\vec \nabla \cdot \vec E = \dfrac{\rho}{\epsilon_0} && \vec \nabla \times \vec E = - \dfrac{\partial \vec B}{\partial t} &&\\
+  &\vec \nabla \cdot \vec B = 0 && \vec \nabla \times \vec B = \mu_0 \vec j + \mu_0 \epsilon_0 \dfrac{\partial \vec E}{\partial t} &&\\
+  & \vec \nabla \times \vec j = - \dfrac{\partial \rho}{\partial t}\\
+\end{align*}
+In cui l'ultima equazione, più propriamente, è l'equazione di continuità e, quindi, di conservazione della carica.
+
+\vspace{1em}
+\subsection{Potenziale}
+Dall'elettrostatica è noto che
+\[\vec \nabla \cdot \vec E = \dfrac{\rho}{\epsilon_0} \hspace{1em} \text{e} \hspace{1em} \vec \nabla \times \vec E = 0\]
+in cui la seconda equazione indica che il rotore del campo elettrico è nullo. Ciò significa che $\vec E$ è conservativo, per cui può essere espresso come il gradiente del potenziale
+\[\vec E = - \vec \nabla V\]
+Calcolando la divergenza di $\vec E$ si ottiene
+\[\vec \nabla \cdot \vec E = - \vec \nabla \cdot \vec \nabla V = \vec \nabla^2 V = \dfrac{\rho}{\epsilon_0}\]
+in cui $\nabla^2$ prende il nome di laplaciano. Da ciò segue che
+\[V(\vec p) = \dfrac{1}{4 \pi \epsilon_0} \iiint \dfrac{\rho(\vec x)}{\vert \vec p - \vec x \vert} \dif^3 x\]
+Passando, però, all'elettrodinamica, il campo elettrico non è più conservativo e non può essere espresso come gradiente di un potenziale, per cui l'equazione di laplace non è più valida.
+
+\vspace{1em}
+\subsection{Potenziale vettore}
+In generale, se un campo è conservativo, ovvero ha circuitazione nulla e, di conseguenza, rotore nullo, è possibile scrivere tale campo come gradiente di un potenziale.\\
+Per quanto riguarda il campo magnetico, bisogna trovare una quantità, non certo un potenziale, che presenti divergenza nulla (in quanto il campo magnetico ha sempre divergenza nulla); ed è noto che un rotore ha sempre divergenza nulla. Pertanto, preso $\vec A$ un campo, il rotore ad esso associato $\vec \nabla \times \vec A$ ha divergenza nulla, per cui si può scrivere
+\[\vec B = \vec \nabla \times \vec A\]
+con $\vec A$ \textbf{potenziale vettore}. Per capire la ragione e l'utilità del \textbf{potenziale vettore}, si supponga di porsi in una condizione stazionaria nel tempo, con correnti stazionarie e senza accumulo di carica: in altri termini, non si hanno variazioni nè di campo magnetico nè di campo elettrico; allora, per come è stato introdotto il potenziale vettore $\vec A$, si ha che la divergenza è nulla:
+\[\vec \nabla \cdot \vec B = \vec \nabla \cdot \left(\vec \nabla \times \vec A\right) = 0\]
+ed è ciò che ci si aspettava. Per quanto riguarda la legge di Ampere, invece, si ha che
+\[\vec \nabla \times \vec B = \vec \nabla \times \left(\vec \nabla \times \vec A\right) = \mu_0 \vec j\]
+in quanto ci si è posti in una condizione di staticità, senza accumulo di carica, per cui non si ha nessuna corrente di spostamento. Non sapendo come trattare $\vec \nabla \times \left(\vec \nabla \times \vec A\right)$, è noto dall'algebra di tali operatori che
+\[\vec \nabla \times \left(\vec \nabla \times \vec A\right) = \vec \nabla \left(\vec \nabla \cdot \vec A\right) - \nabla^2 \vec A\]
+ossia il rotore del rotore di un campo è dato dalla differenza tra il gradiente della divergenza del campo e il laplaciano del campo stesso.\\
+Ora si è liberi di scegliere la divergenza di $\vec A$ che si pone uguale a $0$, ossia $\vec \nabla \cdot \vec A = 0$; in questo modo si ottiene che
+\[\vec \nabla \times \left(\vec \nabla \times \vec A\right) = \vec \nabla \left(\vec \nabla \cdot \vec A\right) - \nabla^2 \vec A = - \nabla^2 \vec A\]
+Alla luce di ciò, si può scrivere la legge di Ampere come segue
+\[\vec \nabla \times \vec B = \vec \nabla \times \left(\vec \nabla \times \vec A\right) = - \nabla^2 \vec A = \mu_0 \vec j\]
+Si nota, ora, molto facilmente la simmetria tra campo magnetico e campo elettrico
+\[\nabla^2 V = - \frac{\rho}{\epsilon_0} \hspace{1em} \text{e} \hspace{1em} \nabla^2 \vec A = - \mu_0 \vec j\]
+Ora, siccome era stato osservato che per il potenziale $V$
+\[V(\vec p) = \dfrac{1}{4 \pi \epsilon_0} \iiint \dfrac{\rho(\vec x)}{\vert \vec p - \vec x \vert} \dif^3 x\]
+è possibile fare la stessa cosa anche per il potenziale vettore, vista la simmetria precedentemente osservata, ottenendo
+\[\vec A(\vec p) = \dfrac{\mu_0}{4 \pi} \iiint \dfrac{\vec j(\vec x)}{\vert \vec p - \vec x \vert} \dif^3 x\]
+Per cui in magnetostatica è stata trovata, come per il campo elettrico, anche per il campo magnetico una soluzione generale, data una distribuzione di corrente.\\
+Nell'ipotesi, però, che non ci sia staticità, si ritorna al problema di partenza: il campo elettrico non è più conservativo e non può essere espresso come l'opposto del gradiente di un potenziale.\\
+Allora si consideri un vettore $\vec V$: per poterlo identificare, è necessario specificare divergenza e rotore, per cui si pone
+\[\vec \nabla \cdot \vec V = D \hspace{1em} \text{e} \hspace{1em} \vec \nabla \times \vec V = \vec R\]
+Si può pensare, allora, di scomporre il vettore $\vec V$ in due componenti, una irrotazionale e una rotazionale:
+\[\vec V = \vec V_i + \vec V_r\]
+tali per cui
+\[
+    \rowcolors{1}{white}{white}
+    \begin{array}{llll}
+      \vec \nabla \cdot \vec V_i = D & & & \vec \nabla \cdot \vec V_r = 0\\
+      \vec \nabla \times \vec V_i = 0 & & & \vec \nabla \times \vec V_r =\vec R\\
+    \end{array}
+\]
+in modo tale che la somma di $\vec V_i$ e di $\vec V_r$ dia un vettore $\vec V$ che soddisfa le equazioni di partenza
+\[\vec \nabla \cdot \vec V = D \hspace{1em} \text{e} \hspace{1em} \vec \nabla \times \vec V = \vec R\]
+Si può capire facilmente, ora, che tale concetto è possibile applicarlo anche al campo elettrico $\vec E$, scomponendolo in parte irrotazionale e parte rotazionale: ovviamente, la componente irrotazionale è $- \vec \nabla V$, com'è noto; per quanto riguarda, invece, la componente rotazionale, si può pensare di esprimere il campo magnetico tramite il potenziale vettore e ottenere
+\[\vec \nabla \times \vec E = - \frac{\partial \vec B}{\partial t} = - \frac{\partial}{\partial t} \left(\vec \nabla \times \vec A\right) = \vec \nabla \times \left(-\frac{\partial \vec A}{\partial t}\right)\]
+ottenendo, quindi, che
+\[\vec E = - \vec \nabla V - \frac{\partial \vec A}{\partial t}\]
+Si può ora, calcolare divergenza e rotore di questo nuovo campo elettrico
+\[\vec \nabla \cdot \vec E = \frac{\rho}{\epsilon_0} + 0\]
+essendo la divergenza del potenziale vettore nulla per ipotesi; invece, si ha che
+\[\vec \nabla \times \vec E = 0 - \frac{\partial \vec B}{\partial t}\]
+dal momento che $\vec B = \vec \nabla \times \vec A$ per costruzione. Pertanto il campo elettrico così scomposto è esattamente identico a quello descritto dalle leggi di Maxwell: sarà data da una componente irrotazionale e conservativa $-\vec \nabla V$ e da una componente rotazionale $-\dfrac{\partial \vec A}{\partial t}$.
+
+\vspace{1em}
+\noindent
+\subsection{Libertà di Gauge}
+Com'è noto, per il campo elettrico, il potenziale viene definito a meno di una costante, in quanto ciò che interessa è la differenza di potenziale. Adesso, però, che è presente anche il potenziale vettore, è possibile aggiungere alle espressioni del campo elettrico e del campo magnetico delle funzioni tali per cui essi non cambiano. Infatti, nelle ipotesi operative precedentemente assunte, si è posto che la divergenza del potenziale vettore è nulla, ma ciò è arbitrario.
+
+\newpage
+\noindent
+\begin{center}
+  7 Dicembre 2022
+\end{center}
+\section{Autoinduzione e mutua induzione}
+Dalla legge di Faraday-Neumann-Lenz è noto che
+\[\xi=-\dfrac{\dif \Phi_B}{\dif t}\]
+la quale esprime che la variazione del flusso di un campo magnetico induce una forza elettromotrice nel circuito considerato. Ovviamente, per flusso del campo magnetico, è da intendersi un flusso totale, dato dal contributo sia del campo magnetico induttore che del campo magnetico induttore.\\
+Si consideri, ora, il fenomeno dell'autoinduzione: sia data una corrente variabile che circolare in una spira; allora, com'è noto, tale configurazione produce un flusso variabile di campo magnetico concatenato con la spira e una forza elettromotrice autoindotta.\\
+Questo, ovviamente, accade in quanto quando si chiude il circuito la corrente non si pone immediatamente al valore definito dalla legge di Ohm: se, infatti, si chiude il circuito, la corrente aumenta per cui $\Phi_B > 0$ e quindi
+\[\dfrac{\dif \Phi_B}{\dif t} > 0\]
+Per la legge di Faraday, viene indotta una forza elettromotrice
+\[\xi=-\dfrac{\dif \Phi_B}{\dif t} < 0\]
+Se la forza elettromotrice indotte è negativa, si ha che viene generata una corrente opposta rispetto al senso positivo della corrente.\\
+Siccome il flusso magnetico concatenato con la spira è
+\[\Phi_B = \int \vec B \cdot \dif \vec{\mathcal{S}}\]
+è chiaro che anche il flusso è proporzionale all'intensità di corrente che circola nella spira, ossia
+\[\boxed{\Phi_B = Li}\]
+dove la costante di proporzionalità $L$, che dipende solo dalle caratteristiche geometriche del circuito, è per definizione il \textbf{coefficiente di autoinduzione} o l'\textbf{autoinduttanza} o, più brevemente, l'\textbf{induttanza} della spira. L'unità di misura del flusso è il Weber, mentre l'intensità di corrente si misura in Ampere, da cui l'induttanza si misura in $\dfrac{\text{Wb}}{\text{A}}$, chiamata Henry
+\[\text{H} = \dfrac{\text{Wb}}{\text{A}} = \dfrac{\text{V } \cdot \text{ s}}{\text{A}}\]
+
+\vspace{2em}
+\noindent
+\textbf{Esempio}: Volendo calcolare l'induttanza del solenoide, se ne consideri uno con $N$ spire e di lunghezza $l$, tale per cui il numero di spire per unità di lunghezza è
+\[n=\dfrac{N}{l}\]
+Da questo si evince che il campo magnetico, per unità di lunghezza, è
+\[B=\mu_0 n i\]
+per cui il flusso totale è dato da
+\[\Phi_B = N \cdot \mu_0 n i S = \mu_0 n^2 S l i\]
+Si osserva, quindi, come ci si attendeva, la proporzionalità del flusso con la corrente $i$: è facile capire che il coefficiente di autoinduzione di un solenoide con $N$ spire è
+\[\boxed{L=\mu_0 n^2 S l}\]
+dove $S \cdot l$ è il volume del cilindro dell'induttore.
+
+\vspace{1em}
+\subsection{Circuiti LR}
+Sia dato un circuito LR, ossia un circuito in cui un induttanza $L$ e una resistenza $R$ sono disposte in serie con una batteria di forza elettromotrice $\xi_0$.\\
+Essendoci un induttore $L$, ad esso sarà associata una forza elettromotrice
+\[\xi=-\dfrac{\dif}{\dif t} Li = -L \dfrac{\dif i}{\dif t}\]
+Questa osservazione permette di continuare a considerare la legge delle maglie di Kirchhoff:
+\[-i R - L \frac{\dif i}{\dif t} + V = 0\]
+in cui i segni sono definiti in base al senso scelto di percorrenza della maglia. Tale equazione può essere riscritta come
+\[L \frac{\dif i}{\dif t} = V-iR \hspace{1em} \rightarrow \hspace{1em} \dfrac{\dif i}{i R - V} = - \dfrac{\dif t}{L}\]
+Moltiplicando ambo i termini per $R$ si ottiene
+\[\dfrac{\dif i}{i R - V} = - \dfrac{\dif t}{L} \hspace{1em} \rightarrow \hspace{1em} \dfrac{\dif i}{i - \dfrac{V}{R}} = - \dfrac{R}{L} \dif t\]
+Siccome a sinistra si ha un rapporto di correnti, si ottiene un numero puro che deve essere uguale anche a destra, dove si ha il rapporto tra $R$ e $L$ moltiplicato per un tempo: ciò suggerisce che tale rapporto sia proprio l'inverso di un tempo; infatti
+\[\text{H} = \dfrac{\text{V } \cdot \text{ s}}{\text{A}}\hspace{1em} \text{e} \hspace{1em} \Omega = \dfrac{\text{V}}{\text{A}}\]
+per cui
+\[\dfrac{\text{H}}{\Omega} = s \hspace{1em} \rightarrow \hspace{1em} \tau_{RL} = \frac{L}{R}\]
+Presa, allora, l'equazione seguente
+\[\dfrac{\dif i}{i - \dfrac{V}{R}} = - \dfrac{1}{\tau_{RL}} \dif t\]
+posto $y=i-\dfrac{V}{R}$ per cui $\dif i = \dif y$, si ottiene
+\[\dfrac{\dif y}{y} = - \dfrac{\dif t}{\tau_{RL}} \hspace{1em} \rightarrow \hspace{1em} \log(y) = - \dfrac{t}{\tau_{RL}} + \text{ costante}\]
+Altrimenti, è possibile scrivere
+\[y=i-\dfrac{V}{R}=\text{costante } \cdot e^{\frac{t}{\tau_{RL}}}\]
+Per determinare il valore della costante, si pone $t=0$, per cui $i(t=0)=0$; da ciò si evince che
+\[\text{costante}=-\dfrac{V}{R}\]
+Si conclude, quindi, ottenendo che
+\[\boxed{i(t)=\dfrac{V}{R} \cdot \left(1-e^{\frac{t}{\tau_{RL}}}\right)}\]
+che è un'equazione fondamentale per capire quanto tempo serve ad un circuito per raggiungere la corrente definita dalla legge di Ohm, espresso in funzione del tempo scala $\tau_{RL}$: questo significa, quindi, che quando si chiude l'interruttore di un circuito, non è vero che la corrente si porta immediatamente al valore definito dalla legge di Ohm, in quanto nel transiente di chiusura dell'interruttore, la corrente varia e variando auto-induce un induttanza non nulla, che fornisce uno specifico valore di $L$ e, quindi, di $\tau_{RL}$ che, essendo non nullo, descrive il tempo impiegato dal circuito per portarsi a regime.
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Si consideri, ora, il circuito precedente in cui tramite un commutatore si esclude la batteria dal circuito; per la legge delle maglie si ottiene
+\[-iR - L \dfrac{\dif i}{\dif t} = 0\]
+Dividendo per $L$ ambo i termini si ottiene
+\[-iR - L \dfrac{\dif i}{\dif t} = 0 \hspace{1em} \rightarrow \hspace{1em} \dfrac{\dif i}{\dif t} = - \dfrac{R}{L} i\]
+Ponendosi in una forma conveniente per la risoluzione dell'equazione differenziale, si ottiene
+\[\dfrac{\dif i}{i} = - \dfrac{\dif t}{\tau_{RL}}\]
+per cui si ottiene
+\[i(t) = \text{costante } \cdot \cdot e^{-\frac{t}{\tau_{RL}}}\]
+Ponendosi nelle condizioni iniziali per cui $t=0$ e $i(t=0)=i_0$ si ottiene che costante $=i_0$; si ottiene, allora
+\[i(t)=i_0 e^{-\frac{t}{\tau_{RL}}}\]
+che quindi permette di capire che la corrente decade a $0$ con deriva esponenziale; questo suggerisce, inoltre, che l'induttanza $L$ ha associata dell'energia. Per comprendere meglio tale concetto, si considera la potenza totale dissipata, in valore assoluto
+\[P=iV=i L \dfrac{\dif i}{\dif t}\]
+In termini integrali, si ottiene
+\[\int_0^\infty P \dif t = \int_0^\infty i L \dfrac{\dif i}{\dif t} \dif t = L \int_0^{i_f} i \dif i = \dfrac{1}{2} L i_f^2\]
+in cui $i_f$ è la corrente finale riferita all'intervallo di tempo considerato e che scorre nel circuito. Pertanto al solenoide è possibile associare al solenoide un'energia
+\[U=\frac{1}{2}L i^2\]
+ma $L$ è il coefficiente di autoinduttanza del solenoide, precedentemente calcolato e pari a $L=\mu_0 n^2 Sl$, con $B=\mu_0 n i$; ciò permette di scrivere
+\[U=\dfrac{1}{2} \mu_0 n^2 Sl i^2 = \frac{1}{2 \mu_0} B^2 Sl\]
+in cui $V = S \cdot l$ è il volume del cilindro associato al solenoide. Volendo, allora calcolare la densità di energia potenziale si ottiene
+\[u_B=\dfrac{U}{Sl} = \dfrac{1}{2\mu_0} B^2\]
+che ricorda moltissimo la densità di energia associata al campo elettrico
+\[u_E=\dfrac{1}{2} \epsilon_0 E^2\]
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Volendo, ora, determinare la potenza dissipata sulla resistenza nel transiente di chiusura dell'interruttore, si calcola
+\[P=i^2 R=i_0^2 e^{-\frac{2t}{\tau_{RL}}} \cdot R\]
+Allora l'energia associata è
+\[U_d = \int_0^\infty P \dif t = i_0^2 R \int_0^\infty e^{-\frac{2t}{\tau_{RL}}} \dif t = i_0^2 R \frac{\tau_{RL}}{2} = \dfrac{1}{2} L i_0^2\]
+dal momento che 
+\[\int_0^\infty e^{-\frac{2t}{2\tau_{RL}}} \dif t = \dfrac{\tau_{RL}}{2} \cdot \int_0^\infty e^{-\frac{2t}{2\tau_{RL}}} \dif t \cdot \dfrac{2}{\tau_{RL}} = \dfrac{\tau_{RL}}{2} \cdot 1\]
+
+\newpage
+\noindent
+\begin{center}
+  12 Dicembre 2022
+\end{center}
+\section{Circuiti in corrente alternata}
+Di seguito si andranno ad analizzare i circuiti in corrente alternata, nei quali si considereranno resistenze, capacità e induttanze sottoposte a correnti e differenze di potenziale alternate.
+
+\vspace{2em}
+\noindent
+\textbf{Esempio 1}: Sia dato un normale circuito RC, e si studi la scarica del condensatore; in particolare è noto che $q(0)=Q$, ossia all'istante iniziale la carica del sistema è quella del condensatore.\\
+È noto, dalla regola delle maglie, che 
+\[-iR + \dfrac{q}{C} = 0\]
+che, combinata con l'equazione di continuità $i=-\dfrac{\dif q}{\dif t}$ si ottiene
+\[R \dfrac{\dif q}{\dif t} = - \dfrac{q}{C}\]
+in cui, com'è noto, posto $\tau_{RC}=RC$ si ha che
+\[q=Q \cdot e^{-\frac{t}{\tau_{RC}}}\]
+
+\vspace{2em}
+\noindent
+\textbf{Esempio 2}: Sia dato un circuito LR scollegato da ogni fonte di carica, ossia da ogni batteria. È noto che $i(0)=i_0$ e dalla legge delle maglie si ha che
+\[- L \dfrac{\dif i}{\dif t} - i R = 0 \hspace{1em} \rightarrow \hspace{1em} L \dfrac{\dif i}{\dif t} = - R i\]
+che è un'equazione differenziale in una forma non dissimile da quella precedentemente ottenuta, per cui la soluzione sarà sempre in forma differenziale; posto $\tau_{RL}=\dfrac{L}{R}$ si ottiene che
+\[i(t)=i_0 e^{-\frac{t}{\tau_{RL}}}\]
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Questo permette di capire che problemi anche diversi, ma con la medesima formulazione matematica, possono essere risolti nella medesima maniera.
+
+\vspace{1em}
+\subsection{Oscillazioni in circuit LC}
+Sia dato un circuito LC, ossia un circuito con un condensatore $C$ e una induttanza $L$. Allora, all'istante $t=0$ si ha che $q(0)=Q$; dalla legge delle maglie si ottiene che
+\[\dfrac{q}{C}-L \dfrac{\dif i}{\dif t} = 0\]
+e dall'equazione di continuità si ha che
+\[i=-\dfrac{\dif q}{\dif t} \hspace{1em} \rightarrow \hspace{1em} \dfrac{\dif i}{\dif t}=-\dfrac{\dif^2 q}{\dif t^2}\]
+Pertanto si ottiene
+\[\dfrac{q}{C} - L \dfrac{\dif i}{\dif t} = 0 \hspace{1em} \rightarrow \hspace{1em} \dfrac{q}{C} + L \dfrac{\dif^2 q}{\dif t^2} = 0\]
+che permette di ottenere
+\[\boxed{\dfrac{\dif^2 q}{\dif t^2} = - \dfrac{1}{LC} q}\]
+E quella funzione che presenta come derivata seconda la funzione stessa negata moltiplicata per un coefficiente è proprio il coseno (o il seno), ossia una \textbf{funzione oscillante}.\\
+Per comodità si sceglie come funzione il coseno, ottenendo
+\[\boxed{q=Q_m \cdot \cos(\omega_0 t + \phi)}\]
+Calcolando a derivata seconda di tale funzione si ottiene
+\[\dfrac{\dif^2 q}{\dif t^2} = -\omega_0^2 Q_m \cos(\omega_0 t + \phi) = - \dfrac{1}{LC} Q_m \cos(\omega_0 t+\phi)\]
+in cui è immediato capire che
+\[\omega_0^2 = \dfrac{1}{LC} \hspace{1em} \rightarrow \hspace{1em} \omega_0=\dfrac{1}{\sqrt[]{LC}}\]
+in cui $\tau_{LC}=LC$ è un tempo, in quanto
+\[\tau_{RL} \cdot \tau_{RC} = \dfrac{L}{R} \cdot RC = LC = \tau_{LC}^2\]
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Si osservi che in un circuito LC non vi sono elementi di dissipazione, per cui l'energia complessiva è tutta associabile ai due soli elementi del circuito, ossia il condensatore e l'induttanza. Pertanto si ottiene che
+\[U=\dfrac{1}{2} \dfrac{q^2}{C} + \dfrac{1}{2} Li^2\]
+e sapendo che
+\[q=Q_m \cos(\omega_0 t + \phi) \hspace{1em} \text{e} \hspace{1em} i=-\omega_0 Q_m \sin(\omega_0 t + \phi)\]
+si ottiene
+\[U=\dfrac{1}{2} \dfrac{Q_m^2}{C} \cos^2(\omega_0 t + \phi) + \dfrac{1}{2} L Q_m^2 \omega_0^2 \sin^2(\omega_0 t + \phi)\]
+ma siccome $L \omega_0^2 = L \dfrac{1}{LC} = \dfrac{1}{C}$ si ottiene
+\[U=\dfrac{1}{2} \dfrac{Q_m^2}{C} \cos^2(\omega_0 t + \phi) + \dfrac{1}{2} \dfrac{Q_m^2}{C} \omega_0^2 \sin^2(\omega_0 t + \phi)\]
+ed infine
+\[U=\dfrac{1}{2} \dfrac{Q_m^2}{C} \cdot \left(\cos^2(\omega_0 t + \phi) + \sin^2(\omega_0 t + \phi)\right)\]
+e siccome l'energia del condensatore va con il coseno e l'energia dell'induttanza va con il seno, non è difficile capire che in un circuito LC l'energia elettromagnetica viene continuamente trasferita tra il condensatore e l'induttanza e viceversa.\\
+Non solo, ma siccome $\cos^2(\omega_0 t + \phi) + \sin^2(\omega_0 t + \phi)=1$ per qualunque $t$, l'energia elettromagnetica totale $U$ rimane costante in un circuito LC e pari a
+\[U=\dfrac{1}{2} \dfrac{Q_m^2}{C} = \dfrac{1}{2} L I_m^2\]
+
+\vspace{1em}
+\subsection{Focus sui numeri complessi}
+È stato visto che per descrivere la carica come soluzione di un'equazione differenziale è stato necessario impiegare le funzioni trigonometriche seno e coseno, in quanto si necessitava di un cambio di segno con la derivazione; ciò non risulta più indispensabile se si introducono i numeri complessi.\\
+In particolare, allora, si pone
+\[j=\sqrt{-1}\]
+ed è facile capire che
+\[j^2=-1 \hspace{2em} j^3=-j \hspace{2em} j^4=1 \hspace{2em} j^5=j\]
+Ovviamente, il campo complesso è più ampio del campo reale e può essere messo in relazione biunivoca con il piano cartesiano, o piano di Gauss, con ascissa la retta reale e ordinata l'asse immaginario: ogni punto del piano di Gauss rappresenta un numero complesso; per descrivere un punto in tale piano si può scomporre il numero complesso nella sua parte reale e nella sua parte immaginario, oppure impiegando le coordinate polari, scomponendo il numero complesso nel suo modulo e nella sua fase, da cui
+\[c=a+j b \hspace{1em} \text{e} \hspace{1em} c=\vert c \vert \cdot \left(\cos(\phi) + j\sin(\phi)\right) \hspace{1em} \forall c \in \mathbb{C}\]
+Per comprenderne il significato, si devono rammentare le operazioni algebriche valide nel campo complesso; posti $c_1=a_1+j b_1$ e $c_2=a_2+j b_2$ si ottiene che
+\begin{itemize}
+  \item $c_1+c_2=a_1+a_2+j \cdot (b_1+b_2)$;
+  \item $c_1-c_2=a_1-a_2+j \cdot (b_1-b_2)$;
+  \item $c_1\cdot c_2=a_1a_2 + j \cdot (a_1b_2 + a_2b_1) - b_1b_2$;
+\end{itemize}
+Per descrivere l'operazione di divisione è fondamentale definire l'inverso di un numero complesso che passa per la definizione di numero complesso coniugato, da cui
+\[\overline{c}=a-jb\]
+che presenta la proprietà seguente
+\[c \cdot \overline{c} = a^2 + b^2\]
+Ciò, quindi, permette di descrivere
+\[\dfrac{1}{c}=\dfrac{\overline{c}}{c \cdot \overline{c}} = \dfrac{\overline{c}}{a^2+b^2}=\dfrac{\overline{c}}{\vert c \vert^2}\]
+Pertanto vale la corrispondenza seguente dato un numero complesso $c=a+jb$
+\[a=\vert c \vert \cos(\phi) \hspace{1em} \text{e} \hspace{1em} b=\vert c \vert \sin(\phi)\]
+La relazione di Eulero, in particolare, permette di scrivere, posto $\vert c \vert$ il modulo del numero complesso $c$ e $\phi$ la sua fase
+\[\vert c \vert \cdot e^{j \phi} = \vert c \vert \cdot \left( \cos(\phi) + j \sin(\phi) \right)\]
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{formula_eulero.png}
+  \caption{Formula di Eulero}
+  \label{fig:formula_eulero}
+\end{figure}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: La scrittura di un numero complesso secondo Eulero è estremamente potente e permette di descrivere in modo semplificato le oscillazioni. Infatti, se
+\[\phi=\omega t + \phi_0\]
+si può scrivere
+\[c=\vert c \vert \cdot e^{j\omega t + j \phi_0} = \vert c \vert \cdot \left(\cos(\omega t + \phi_0) + j \sin(\omega t + \phi_0)\right)\]
+che è l'equazione di un moto circolare uniforme: pertanto un'oscillazione può essere interpretata come la descrizione di tutti i punti che si trovano sulla circonferenza complessa di raggio $\vert c \vert$.\\
+Non solo, ma derivando l'espressione di cui sopra si ottiene che
+\[\dfrac{\dif c}{\dif t} = j \omega e^{j\omega t + j \phi_0} \hspace{1em} \text{e} \hspace{1em} \dfrac{\dif^2 c}{\dif t^2} = - \omega^2 e^{j\omega t + j \phi_0}\]
+che è proprio quello che si cercava: un'espressione esponenziale che derivata due volte permette di ottenere l'espressione stessa negata e moltiplicata per una costante.
+
+\newpage
+\noindent
+\begin{center}
+  13 Dicembre 2022
+\end{center}
+Si è visto che in un circuito LC si ha un continuo trasferimento di energia tra il campo elettrico del condensatore e il campo magnetico dell'induttanza. Non essendoci elementi dissipativi, l'energia potenziale totale si conserva. La legge di descrizione dell'andamento di un circuito LC, in termini di oscillazioni, è stata fornita tramite seno e coseno, che risulta essere di difficile manipolazione nel campo reale. D'altronde, in $\mathbb{R}$ non è possibile utilizzare la funzione esponenziale, in quanto derivando due volte la stessa si ottiene sempre la medesima funzione e non la funzione negata; ciò, invece, non si verifica se si passa al campo complesso.\\
+Infatti, è stato visto in precedenza che è possibile descrivere un numero complesso in forma esponenziale come
+\[c = \vert c\vert \cdot e^{j \cdot (\omega t + \phi)}\]
+per cui si ha che
+\[\dfrac{\dif c}{\dif t} = j \omega \cdot e^{j \cdot (\omega t + \phi)} = j \omega c \hspace{2em} \text{e} \hspace{2em} \dfrac{\dif^2 c}{\dif t^2} = -\omega^2 \cdot e^{j \cdot (\omega t + \phi)} = -\omega^2 c\]
+Ecco che quindi si è ottenuto quello che si cercava: un'espressione esponenziale che derivata due volte permette di ottenere l'espressione stessa negata e moltiplicata per una costante.\\
+Ciò permette una generalizzazione della descrizione dei circuito RC, RL e LC, sempre tramite l'uso di funzioni esponenziali:
+\begin{itemize}
+  \item per la scarica di un condensatore si ha
+  \[-i R + \dfrac{q}{C} = 0 \hspace{1em} \text{con} \hspace{1em} i=-\dfrac{\dif q}{\dif t}\]
+  da cià si evince che
+  \[R \dfrac{\dif t}{\dif t} = - \dfrac{q}{C}\]
+  Supponendo che questa sia un'equazione oscillante si ottiene che
+  \[q=Q_m e^{j (\omega_0 t + \phi)} \hspace{1em} \rightarrow \hspace{1em} \dfrac{\dif q}{\dif t} = j\omega q\]
+  per cui l'equazione precedente diviene
+  \[R j \omega q= -\dfrac{q}{C} \hspace{1em} \rightarrow \hspace{1em} \omega=-\dfrac{1}{RC} \dfrac{1}{j}\]
+  moltiplicando e dividendo per $j$ si ottiene
+  \[\omega=-\dfrac{1}{RC} \dfrac{1}{j} \cdot \dfrac{j}{j} \hspace{1em} \rightarrow \hspace{1em} \omega=\dfrac{j}{RC}=\dfrac{j}{\tau_{RC}}\]
+  Avendo un'espressione per $\omega$ si ottiene che la carica $q$ può essere espressa come
+  \[q=Q_m e^{j(\omega t + \phi)} = Q_m e^{j\omega t + j\phi)} = Q_m e^{-\frac{t}{\tau_{RC}}} \cdot (\cos(\phi) + j \sin(\phi))\]
+
+  \item per la scarica di un induttore si ha
+  \[-iR - L \dfrac{\dif i}{\dif t} = 0 \hspace{1em} \text{con} \hspace{1em} i=i_0 e^{j \omega t}\]
+  posto $\phi=0$. In questo modo si ottiene che
+  \[-iR - j\omega i L = 0 \hspace{1em} \rightarrow \hspace{1em} \omega = j \dfrac{R}{L} = j \dfrac{1}{\tau_{RL}}\]
+  per cui
+  \[i=i_0 e^{j \omega t} = i_0 e^{-\dfrac{t}{\tau_{RL}}}\]
+
+  \item Nel caso di un circuito LC si ha che
+  \[-L \dfrac{\dif i}{\dif t} + \dfrac{q}{C} = 0 \hspace{1em} \text{con} \hspace{1em} i=-\dfrac{\dif q}{\dif t}\]
+  allora si ha che
+  \[\dfrac{\dif^2 q}{\dif t^2} = - \dfrac{q}{LC} \hspace{1em} \text{con} \hspace{1em} q = Q_m e^{j (\omega_0 t + \phi)}\]
+  allora si ha che
+  \[-\omega_0^2 q = - \dfrac{q}{LC} \hspace{1em} \rightarrow \hspace{1em} \omega_0 = \dfrac{1}{\sqrt{LC}}\]
+  per cui si ottiene che, posto $\phi=0$
+  \[q=Qe^{j \omega_0 t} = Q \cdot (\cos(\omega_0 t) + j \sin(\omega_0 t))\]
+  che non è un numero reale, ma immaginario, composto da
+  \[\mathcal{R}e(q) = Q_m \cos(\omega_0 t) \hspace{1em} \text{e} \hspace{1em} \mathcal{I}m(q) = Q_m \sin(\omega_0 t)\]
+  che sono in pratica la stessa informazione, ma sfasata di $90^\circ$.
+\end{itemize}
+
+\vspace{1em}
+\subsection{Circuito RLC in serie}
+Avendo ora introdotto i numeri complessi, è possibile analizzare la scarica di un circuito RLC; dalla legge delle maglie si ha che
+\[-L \dfrac{\dif i}{\dif t} - i R + \dfrac{q}{C} = 0 \hspace{1em} \text{con} \hspace{1em} i=-\dfrac{\dif q}{\dif t}\]
+per cui, sostituendo l'espressione della $i$ all'interno dell'equazione, si ottiene
+\[L\dfrac{\dif^2 i}{\dif t^2} + R \dfrac{\dif q}{\dif t} + \dfrac{q}{C}\]
+ponendo $\phi=0$ e
+\[q=Q_m e^{j \omega t}\]
+è facile capire che l'equazione differenziale diviene
+\[-\omega^2 L q + j \omega R q + \dfrac{q}{C} = 0 \hspace{1em} \rightarrow \hspace{1em} -\omega^2 L + j\omega R + \dfrac{1}{C} = 0\]
+che è un'equazione di secondo grado che fornisce come soluzione
+\[\omega=j \dfrac{R}{2L} \pm \sqrt{\dfrac{1}{LC}-\left(\dfrac{R}{2L}\right)^2}\]
+che è una soluzione complessa: se l'argomento della radice è negativo, allora $\omega$ ha solo parte immaginaria, mentre se è positivo, allora si ha una parte reale e una parte immaginaria. Tuttavia è sempre possibile scomporre $\omega$ in parte reale e parte immaginaria, da cui
+\[\omega=\omega_r + j \omega_i\]
+per cui
+\[e^{j \omega t} = e^{j \omega_r t} \cdot e^{-\omega_i t}\]
+e quindi si ottiene
+\[q=Q_m e^{-\omega_i t} \cdot \left(\cos(\omega_r t) + j \sin(\omega_r t)\right)\]
+per cui si divide la parte reale e la parte immaginaria come segue
+\[\mathcal{R}e\left(e^{\omega t}\right) = e^{-\omega_i t} \cdot \cos(\omega_r t)\hspace{2em} \text{e} \hspace{2em} \mathcal{I}m\left(e^{\omega t}\right) = e^{-\omega_i t} \cdot \sin(\omega_r t)\]
+Da questo si ha che se la resistenza $R$ è piccola, allora si ha che
+\[q=Qe^{-\omega_i t} \cdot \cos(\omega_r t)\]
+in cui la parte reale fa oscillare, mentre la parte immaginaria garantisce il decadimento esponenziale.\\
+In particolare, ci si può chiedere quando l'argomento della radice sia strettamente positivo, ovvero
+\[\dfrac{1}{LC} > \dfrac{R^2}{4 L^2} \hspace{1em} \rightarrow \hspace{1em} R^2 < 4 \dfrac{L}{C}\]
+da cui si ha che
+\[q=Q_m e^{-\frac{R}{2L}t} \cdot e^{j \sqrt{\frac{1}{LC} - \left(\frac{R}{2L}\right)^2}}\]
+per cui l'oscillazione smorzata presenta una frequenza
+\[\omega_s = \sqrt{\frac{1}{LC} - \left(\frac{R}{4 L}\right)^2} < \omega_0 = \frac{1}{\sqrt{LC}}\]
+Se, invece, si ha la condizione
+\[\dfrac{1}{LC} = \dfrac{R^2}{4 L^2} \hspace{1em} \rightarrow \hspace{1em} R^2 = 4 \dfrac{L}{C}\]
+allora la carica si esprime come
+\[q=Qe^{-\frac{R}{2L} t}\]
+ottenendo un oscillatore criticamente smorzato.
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Tale risultato ricorda moltissimo il comportamento di una molla con pistone inserito all'interno di un contenitore con del fluido viscoso, per la quale si ha l'equazione del sistema seguente
+\[m \dfrac{\dif^2 x}{\dif t^2} + \gamma \dfrac{\dif x}{\dif t} + kx = 0\]
+in cui $\gamma$ è il coefficiente di attrito viscoso del fluido che è proporzionale alla velocità. Ecco che quindi si ha il parallelismo
+\[m \dfrac{\dif^2 x}{\dif t^2} + \gamma \dfrac{\dif x}{\dif t} + kx = 0 \hspace{2em} \text{e} \hspace{2em} L\dfrac{\dif^2 i}{\dif t^2} + R \dfrac{\dif q}{\dif t} + \dfrac{q}{C}=0\]
+per cui si può costruire un circuito RLC per simulare un pistone che si muove all'interno di un fluido viscoso.
+
+\vspace{1em}
+\noindent
+\subsection{Circuiti in corrente alternata puramente resistivi}
+In un circuito a corrente alternata vi è un alternatore invece che un generatore, per cui genera una tensione oscillante descritta dalla seguente legge
+\[V=V_m \cdot e^{j \omega t}\]
+in cui $\omega$ è la frequenza di oscillazione della tensione dell'alternatore. Essendo un circuito puramente resistivo, senza capacitori, non si ha accumulo di cariche e, quindi, il campo elettrico è conservativo. Non solo, ma un'ipotesi operativa è quella che prevede di supporre che tutto il circuito risponda immediatamente alla variazione di tensione.\\
+Applicando le leggi di Kirchhoff si ottiene che
+\[V-iR = 0 \hspace{1em} \rightarrow \hspace{1em} V=iR\]
+per cui si perviene alla soluzione finale
+\[i=\dfrac{V_m}{R} \cdot e^{j \omega t} = i_m \cdot e^{j \omega t}\]
+Si capisce chiaramente che tali risultati sono dei numeri complessi: il vettore $V=V_m e^{j \omega t}$ e il vettore $i=i_m e^{j \omega t}$ possono essere rappresentati sul piano complesso, com ampiezza, ovviamente $V_m$ e $I_m$: tali vettori prendono il nome di \textbf{fasori} o \textbf{vettori di fase}. Non solo ma siccome i due fasori sono
+\[V=V_m e^{j \omega t} \hspace{1em} \text{e} \hspace{1em} i=i_m e^{j \omega t}\]
+non è difficile capire che essi sono sempre \textbf{in fase}.
+
+\vspace{1em}
+\noindent
+\subsection{Circuiti in corrente alternata puramente capacitivi}
+Nel caso di un circuito puramente capacitivo, si ha che
+\[V=\dfrac{q}{C} \hspace{1em} \rightarrow \hspace{1em} q=C V_m e^{j \omega t}\]
+Ovviamente, in questo caso, si sta considerando un condensatore è scarico, che viene caricato, per cui la corrente è positiva
+\[i=\dfrac{\dif q}{\dif t} = j \omega C V_m e^{j \omega t} = j\omega C V\]
+Per cui si ottiene l'espressione della tensione come
+\[V=\dfrac{1}{j \omega C} \cdot i\]
+in cui $\dfrac{1}{j \omega C}$ gioca il ruolo della resistenza in questa pseudo-legge di Ohm; in particolare si ha che
+\[Z_C = \dfrac{1}{j \omega C} = - \dfrac{j}{\omega C}\]
+che prende il nome di \textbf{impedenza}; la quantità
+\[X_C = \dfrac{1}{\omega C} \hspace{1em} \text{con} \hspace{1em} Z_C = -j X_C\]
+ove $\left\vert Z_C \right\vert$ prende il nome di \textbf{reattanza capacitiva}.
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Ricordando che moltiplicare per $j$ significa ruotare in senso antiorario di $90^\circ$ nel piano complesso e avendo determinato la relazione
+\[i=j\omega C V\]
+si ha che il fasore della corrente è in anticipo di $90^\circ$ rispetto al fasore della tensione.
+
+\newpage
+\noindent
+\begin{center}
+  14 Dicembre 2022
+\end{center}
+In un circuito in corrente alternata, se è presente una \textbf{forzante}, ossia un alternatore, che oscilla ad una certa frequenza $\omega$, l'oscillazione complessiva del circuito, della corrente e della tensione, è sempre dettata dalla frequenza della forzante stessa.
+\begin{itemize}
+  \item Nel caso di un circuito puramente resistivo, dato un alternatore con tensione
+  \[V=V_m e^{j \omega t}\]
+  in cui $\omega$ è la frequenza di oscillazione in radianti al secondo. In generale vale la relazione
+  \[\omega = 2 \pi \nu\]
+  con $\nu$ frequenza in cicli al secondo. Una semplificazione operativa richiede che il circuito e tutti i suoi componenti rispondono istantaneamente alla variazione di tensione. Per la legge di Ohm si ha che
+  \[i=\dfrac{V}{R}=\dfrac{V_m}{R} e^{j \omega t} = i_m e^{j \omega t}\]
+  Tali quantità $i$ e $V$ possono essere rappresentati sul piano complesso tramite dei vettori chiamati \textbf{fasori}: siccome i due vettori $i$ e $V$ vengono descritti allo stesso modo (a parte il modulo), essi sono in fase, ossia ruotano in senso antiorario allineati.
+
+  \item Nel caso di circuiti puramente capacitivi, è nota la relazione
+  \[C=\dfrac{q}{V} \hspace{1em} \rightarrow \hspace{1em} q=C V=CV_m e^{j \omega t}\]
+  per quanto riguarda la corrente si ha che
+  \[i=\dfrac{\dif q}{\dif t}=j\omega C V_m e^{j \omega t}\]
+  Tale risultato ricorda molto la legge di Ohm, in cui $j \omega C$ svolge il ruolo della resistenza. Ecco che quindi si definisce la quantità
+  \[Z_C=\dfrac{1}{j \omega C} \hspace{1em} \text{per cui} \hspace{1em} V=i Z_C\]
+  che prende il nome di \textbf{impedenza}, mentre
+  \[X_C=\dfrac{1}{\omega C}\]
+  si chiama \textbf{reattanza capacitiva}. Non solo, ma è facile capire che essendo $i$ calcolata come $i=j\omega C V_m e^{j \omega t}$, ossia, in pratica $i=j \omega C V$, si ha che $i$ presenta un fasore ruotato di $90^\circ$ in senso antiorario rispetto a $V$, ossia è in anticipo di un quarto di giro.\\
+  In generare, si ha che
+  \[i_m=\dfrac{V_m}{\vert Z_C \vert} = \dfrac{V_m}{X_C}\]
+  in cui la presenza del modulo è giustificata dal fatto che l'impedenza $Z_C$ è un numero complesso, mentre la reattanza $X_C$. Si ottiene, quindi, che
+  \[i=\dfrac{V_m}{\vert Z_C \vert} \cdot e^{j \left(\omega t + \frac{\pi}{2}\right)}\]
+  in quanto, mentre la fase di $V$ è stata posta a $0$, quella di $i$ non può essere nulla, ma deve corrispondere proprio a $\dfrac{\pi}{2}$.
+
+  \item Nel caso di circuiti puramente induttivi, è nota la relazione seguente
+  \[V=L \dfrac{\dif i}{\dif t}\]
+  e supponendo (tramite una supposizione nota come \quotes{Alsatz}) che la corrente sia descritta come
+  \[i=i_m e^{j \left(\omega t + \phi_i\right)}\]
+  dove $\phi_i$ è la fase iniziale della corrente. Da ciò si evince che
+  \[V=j\omega i L\]
+  in cui $Z_L=j\omega L$ prende il nome di impedenza, mentre $X_L=\vert Z_L\vert=\omega L$ si chiama reattanza. Da cià si ha che
+  \[i=\frac{V}{j \omega L}=-j \frac{V}{\omega L}\]
+  Il fatto che si moltiplica per $-j$ significa che il fasore di $i$ è ruotato di $90^\circ$ in avanti rispetto alla tensione; se la fase iniziale della tensione $V$ è $0$, la corrente ha una fase iniziale di $-\dfrac{\pi}{2}$. Anche in questo caso, inoltre, è la relazione
+  \[i_m = \dfrac{V_m}{\vert Z_L \vert} = \dfrac{V}{X_L}\]
+\end{itemize}
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Nel caso in cui la frequenza $\omega \to 0$, l'impedenza di un condensatore
+\[Z_C = \dfrac{1}{j \omega C} \to \infty\]
+per cui ad un certo punto il condensatore non lascia passare corrente: ovvio, si va verso un circuito a corrente continua e il condensatore apre il circuito.\\
+Se, invece, $\omega \to \infty$, l'impedenza di un condensatore
+\[Z_C = \dfrac{1}{j \omega C} \to 0\]
+ossia il condensatore si trasforma in una sorta di filo a resistenza nulla: la carica e la scarica sono così veloci che le cariche entrano ed escono come in un filo.\\
+Viceversa, nel caso in cui la frequenza $\omega \to 0$, l'impedenza di un induttore
+\[Z_L = j\omega L \to 0\]
+per cui nel caso di un circuito attraversato da una corrente che tende ad una corrente continua, l'induttore si trasforma in un filo a resistenza nulla, in cui le cariche attraversano la bobina come in un filo.\\
+Se, invece, $\omega \to \infty$, l'impedenza di un induttore
+\[Z_L = j \omega L \to +\infty\]
+ossia l'induttore presenta uan resistenza praticamente infinita, bloccando il passaggio delle cariche.
+
+\vspace{1em}
+\subsection{Circuito RLC in serie in corrente alternata}
+Sia dato in circuito RLC con resistenza, condensatore e induttore in serie e un generatore di corrente alternata, ovvero
+\[V=V_m e^{j \omega t}\]
+È possibile applicare la legge delle maglie di Kirchhoff in quanto la non conservatività del campo elettrico a causa dell'accumulo di cariche del condensatore, viene sopperita dalla legge di Faraday e della forza elettromotrice indotta nel circuito a causa della variazione del flusso del campo magnetico. Dalla configurazione in serie si ottiene, pertanto, che
+\[i_R=i_C=i_L \hspace{1em} \text{e} \hspace{1em} V_R+V_C+V_L=V\]
+utilizzando l'impedenza al posto della resistenza si ha che
+\[i_R \cdot Z_R + i_C \cdot Z_C + i_L \cdot Z_L = V \hspace{1em} \rightarrow \hspace{1em} i \cdot \left(Z_R+Z_C+Z_L\right)=V\]
+e ponendo l'impedenza equivalente $Z_\text{eq}=Z_R+Z_C+Z_L$ si ha che $i Z_\text{eq} = V$. È da prestare attenzione, però, in questo caso, che si sta lavorando con i numeri complessi, per cui
+\[Z_\text{eq}=R+\dfrac{1}{j \omega C}+j\omega L=R-j \dfrac{1}{\omega C}+j\omega L\]
+Si può scrivere l'impedenza equivalente come
+\[Z_\text{eq} = R + j \cdot \left(\omega L - \dfrac{1}{\omega C}\right) \hspace{1em} \rightarrow \hspace{1em} Z = \vert Z_\text{eq} \vert = \sqrt{R^2 + \left(\omega L - \dfrac{1}{\omega C}\right)^2}\]
+mentre la fase di $Z$ è
+\[\phi_Z = \arctan \left(\dfrac{\omega L - \dfrac{1}{\omega C}}{R}\right)\]
+per cui la corrente diviene
+\[i=\dfrac{V}{Z_\text{eq}}=\dfrac{V}{Z} \cdot e^{-j \omega_Z} = \dfrac{V_m}{Z} \cdot e^{j \cdot (\omega t - \phi_Z)} = i_m \cdot e^{j \cdot (\omega t + \phi_i)}\]
+in quanto
+\[Z_{\text{eq}} = Z \cdot e^{j \phi_Z} \hspace{1em} \text{e} \hspace{1em} V=V_m \cdot e^{j \omega t}\]
+in quanto $Z_\text{eq}$ non ruota, avendo $\omega=0$, mentre la fase iniziale $\phi_v$ della tensione è nulla. È facile capire che
+\[i=\dfrac{V_m}{Z} \cdot e^{j\omega t - j \phi_z} = \dfrac{V_m}{Z} \cdot e^{j (\omega t - \phi_z)} = i_m \cdot e^{j (\omega t + \phi_i)}\]
+per cui
+\[i_m=\dfrac{V_m}{Z} \hspace{1em} \text{e} \hspace{1em} \phi_i=-\phi_z\]
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione 1}: È noto che in circuito in serie la corrente è la stessa per tutti gli elementi in serie: resistenza, condensatore e induttore. Naturalmente, siccome
+\[V_R=i R\]
+la tensione ai capi della resistenza è in fase con la corrente. Per quanto riguarda la capacità, invece, si ha che
+\[V_C = i Z_C = \dfrac{i}{j \omega C} = -j \dfrac{i}{\omega C}\]
+per cui il fasore della tensione del condensatore è avanti di $90^\circ$ rispetto al fasore della corrente. Per quanto riguarda l'induttanza, invece, si ha che
+\[V_L=i Z_L = j i \omega L\]
+per cui il fasore dell'induttanza è in anticipo di $90^\circ$ rispetto al fasore della corrente.\\
+Ora è possibile determinare il fasore della tensione $V$, basterà eseguire la somma vettoriale dei fasori delle rispettive tensioni: $V_L-V_C+V_R$.
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione 2}: Si noti che tramite l'introduzione del concetto di impedenza, in un circuito in serie le impedenze si sommano, così come le reattanze.\\
+È possibile anche considerare le reattanze per i calcoli
+\[X_L=\omega L \hspace{1em} \text{e} \hspace{1em} X_C=\dfrac{1}{\omega C}\]
+per cui
+\[Z_\text{eq} = R + j \cdot (X_L-X_C) \hspace{1em} \rightarrow \hspace{1em} Z=\vert Z_\text{eq} \vert=\sqrt[]{R^2+(X_L-X_C)^2}\]
+in cui la fase dell'impedenza è data da
+\[\phi_z=\arctan \left(\dfrac{X_L-X_C}{R}\right)\]
+
+\vspace{2em}
+\noindent
+\subsubsection{Risonanza}
+Si consideri il calcolo del modulo dell'impedenza equivalente
+\[Z=\sqrt{R^2+\left(\omega L - \dfrac{1}{\omega C}\right)^2}\]
+si capisce facilmente che per $\omega \to 0$ o $\omega \to \infty$ anche l'impedenza sarà infinita. Mentre quando
+\[\omega L = \dfrac{1}{\omega C} \hspace{1em} \rightarrow \hspace{1em} \omega^2 = \dfrac{1}{LC}\]
+l'impedenza avrà il suo valore minimo. La frequenza angolare che corrisponde al valore minimo dell'impedenza prende il nome di \textbf{frequenza angolare di risonanza}, calcolata come
+\[\boxed{\omega_0=\dfrac{1}{\sqrt{LC}} = \dfrac{1}{\tau_{LC}}}\]
+Quando il circuito opera alla frequenza di risonanza, il circuito RLC serie si comporta come un circuito LC senza resistenza e con un generatore di corrente continua. La corrente, quindi, massima sarà
+\[i_m = \dfrac{V_m}{R}\]
+che è il valore di corrente maggiore di tutti, in quanto in $\omega_0$ l'impedenza ha il suo valore minimo.\\
+Per frequenze $\omega$ piccole, il circuito è prevalentemente capacitivo e la corrente è limitata dall'induttanza capacitiva, mentre per frequenze $\omega$ grandi, il circuito è prevalentemente induttivo e la corrente è limitata dall'impedenza induttiva.
+
+\vspace{1em}
+\subsection{Potenza di un circuito RLC in serie in corrente alternata}
+In un circuito RLC in serie, l'unico elemento dissipativo è la resistenza, la quale dissipa una potenza
+\[P_\textbf{dis}=i^2 R\]
+Supponendo, però, di mandare in esercizio un circuito RLC serie per un tempo relativamente lungo $T$ si possono considerare delle quantità medie di corrente e tensione. La media si calcola come
+\[\left<i\right>_T = \dfrac{\displaystyle{\int_0^T i(t) \dif t}}{\displaystyle{\int_0^T \dif t}} = \dfrac{1}{T} \cdot \int_0^T i(t) \dif t\]
+Tuttavia, essendo corrente e tensione oscillanti, la loro media su un ciclo è sempre nulla, in quanto
+\[\int_{0}^{2\pi} \cos(t) \dif t = \left[\sin(t)\right]_0^{2\pi} = 0\]
+Questo, di fatto, suggerisce che le quantità di cui calcolare la media non sono $i$ e $V$, ma i loro quadrati. Allora la media di tali quantità al quadrato è
+\[\int_{0}^{2\pi} \cos^2(t) \dif t = \left[\dfrac{t}{2}-\sin(2t)\right]_0^{2\pi} = \dfrac{T}{2}\]
+Ecco che allora la quantità da considerare sarà la \textbf{corrente efficace}
+\[i_\text{eff} = \sqrt{\left<i^2\right>_\text{ciclo}} = \dfrac{i_m}{\sqrt{2}}\]
+da cui la \textbf{potenza efficace} è
+\[P_\text{eff} = \left<i^2 R\right>_\text{ciclo} = \dfrac{1}{2} i^2_m \cdot R  = i_\text{eff}^2 R\]
+La potenza dissipata è
+\[P_\text{dis} = i_\text{eff} \cdot V_\text{eff} \dfrac{R}{Z} = i_\text{eff} \cdot V_\text{eff} \dfrac{R}{\sqrt{R^2+(X_L-X_C)^2}}\]
+ma ovviamente siccome è noto che
+\[Z=\sqrt{R^2+(X_L-X_C)^2} \hspace{1em} \rightarrow \hspace{1em} \dfrac{R}{Z}=\cos(\phi_z)\]
+per cui si ottiene che
+\[P_\text{dis} = i_\text{eff} \cdot V_\text{eff} \cdot \cos(\phi_z)\]
+in cui $\cos(\phi_z)$ prende il nome di \textbf{fattore di potenza}.
 
 
 \end{document}
